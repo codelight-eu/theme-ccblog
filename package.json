@@ -103,8 +103,7 @@
     "yargs": "~11.0.0"
   },
   "dependencies": {
-    "bootstrap": "v4.0.0",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.12.9"
+    "classcentral-style": "git+https://github.com/classcentral/classcentral-style.git#v0.4.5",
+    "jquery": "^3.3.1"
   }
 }
