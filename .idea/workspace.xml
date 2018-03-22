@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7afb980e-ef58-4648-aee0-bdcef1eb000b" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/theme-ccblog.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" afterPath="$PROJECT_DIR$/.editorconfig" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" afterPath="$PROJECT_DIR$/.eslintrc.js" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
+      <change beforePath="$PROJECT_DIR$/.github/CONTRIBUTING.md" afterPath="$PROJECT_DIR$/.github/CONTRIBUTING.md" />
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" afterPath="$PROJECT_DIR$/CHANGELOG.md" />
+      <change beforePath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" afterPath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.md" afterPath="$PROJECT_DIR$/LICENSE.md" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/app/admin.php" afterPath="$PROJECT_DIR$/app/admin.php" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/app.php" afterPath="$PROJECT_DIR$/app/controllers/app.php" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/front-page.php" afterPath="$PROJECT_DIR$/app/controllers/front-page.php" />
+      <change beforePath="$PROJECT_DIR$/app/filters.php" afterPath="$PROJECT_DIR$/app/filters.php" />
+      <change beforePath="$PROJECT_DIR$/app/helpers.php" afterPath="$PROJECT_DIR$/app/helpers.php" />
+      <change beforePath="$PROJECT_DIR$/app/setup.php" afterPath="$PROJECT_DIR$/app/setup.php" />
+      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change beforePath="$PROJECT_DIR$/config/assets.php" afterPath="$PROJECT_DIR$/config/assets.php" />
+      <change beforePath="$PROJECT_DIR$/config/theme.php" afterPath="$PROJECT_DIR$/config/theme.php" />
+      <change beforePath="$PROJECT_DIR$/config/view.php" afterPath="$PROJECT_DIR$/config/view.php" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/phpcs.xml" afterPath="$PROJECT_DIR$/phpcs.xml" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/config.js" afterPath="$PROJECT_DIR$/resources/assets/build/config.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/helpers/hmr-client.js" afterPath="$PROJECT_DIR$/resources/assets/build/helpers/hmr-client.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/helpers/public-path.js" afterPath="$PROJECT_DIR$/resources/assets/build/helpers/public-path.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/postcss.config.js" afterPath="$PROJECT_DIR$/resources/assets/build/postcss.config.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/util/addHotMiddleware.js" afterPath="$PROJECT_DIR$/resources/assets/build/util/addHotMiddleware.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/util/assetManifestsFormatter.js" afterPath="$PROJECT_DIR$/resources/assets/build/util/assetManifestsFormatter.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/util/desire.js" afterPath="$PROJECT_DIR$/resources/assets/build/util/desire.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/webpack.config.js" afterPath="$PROJECT_DIR$/resources/assets/build/webpack.config.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/webpack.config.optimize.js" afterPath="$PROJECT_DIR$/resources/assets/build/webpack.config.optimize.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/build/webpack.config.watch.js" afterPath="$PROJECT_DIR$/resources/assets/build/webpack.config.watch.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/config.json" afterPath="$PROJECT_DIR$/resources/assets/config.json" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/scripts/customizer.js" afterPath="$PROJECT_DIR$/resources/assets/scripts/customizer.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/scripts/main.js" afterPath="$PROJECT_DIR$/resources/assets/scripts/main.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/scripts/routes/about.js" afterPath="$PROJECT_DIR$/resources/assets/scripts/routes/about.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/scripts/routes/common.js" afterPath="$PROJECT_DIR$/resources/assets/scripts/routes/common.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/scripts/routes/home.js" afterPath="$PROJECT_DIR$/resources/assets/scripts/routes/home.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/scripts/util/Router.js" afterPath="$PROJECT_DIR$/resources/assets/scripts/util/Router.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/scripts/util/camelCase.js" afterPath="$PROJECT_DIR$/resources/assets/scripts/util/camelCase.js" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/styles/autoload/_class-central-styles.scss" afterPath="$PROJECT_DIR$/resources/assets/styles/autoload/_class-central-styles.scss" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/styles/common/_variables.scss" afterPath="$PROJECT_DIR$/resources/assets/styles/common/_variables.scss" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/styles/main.scss" afterPath="$PROJECT_DIR$/resources/assets/styles/main.scss" />
+      <change beforePath="$PROJECT_DIR$/resources/functions.php" afterPath="$PROJECT_DIR$/resources/functions.php" />
+      <change beforePath="$PROJECT_DIR$/resources/index.php" afterPath="$PROJECT_DIR$/resources/index.php" />
+      <change beforePath="$PROJECT_DIR$/resources/style.css" afterPath="$PROJECT_DIR$/resources/style.css" />
+      <change beforePath="$PROJECT_DIR$/resources/views/404.blade.php" afterPath="$PROJECT_DIR$/resources/views/404.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page.blade.php" afterPath="$PROJECT_DIR$/resources/views/page.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/comments.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/comments.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/content-page.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/content-page.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/content-search.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/content-search.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/content-single.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/content-single.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/content.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/content.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/entry-meta.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/entry-meta.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/head.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/head.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/page-header.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/page-header.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/search.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/single.blade.php" afterPath="$PROJECT_DIR$/resources/views/single.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/template-custom.blade.php" afterPath="$PROJECT_DIR$/resources/views/template-custom.blade.php" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+              <folding>
+                <marker date="1521707246896" expanded="true" signature="27:48" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="60:75" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="88:120" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="128:151" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="162:179" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="188:197" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="204:227" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="238:255" ph="..." />
+                <marker date="1521707246896" expanded="true" signature="262:273" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/footer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1521556160151" expanded="true" signature="65:98" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+              <folding>
+                <marker date="1521707434217" expanded="true" signature="53:68" ph="..." />
+                <marker date="1521707434217" expanded="true" signature="74:107" ph="..." />
+                <marker date="1521707434217" expanded="true" signature="155:189" ph="..." />
+                <marker date="1521707434217" expanded="true" signature="202:282" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="1381" />
+    <option name="height" value="1167" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="theme-ccblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="theme-ccblog" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="theme-ccblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="theme-ccblog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="theme-ccblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="theme-ccblog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="theme-ccblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="theme-ccblog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="theme-ccblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="theme-ccblog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="partials" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7afb980e-ef58-4648-aee0-bdcef1eb000b" name="Default" comment="" />
+      <created>1521706495406</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521706495406</updated>
+      <workItem from="1521706497263" duration="1744000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1744000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="0" width="1381" height="1167" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24451174" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <marker date="1521707246896" expanded="true" signature="27:48" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="60:75" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="88:120" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="128:151" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="162:179" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="188:197" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="204:227" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="238:255" ph="..." />
+            <marker date="1521707246896" expanded="true" signature="262:273" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1521556160151" expanded="true" signature="65:98" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <folding>
+            <marker date="1521707434217" expanded="true" signature="53:68" ph="..." />
+            <marker date="1521707434217" expanded="true" signature="74:107" ph="..." />
+            <marker date="1521707434217" expanded="true" signature="155:189" ph="..." />
+            <marker date="1521707434217" expanded="true" signature="202:282" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
