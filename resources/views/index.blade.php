@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+  <div class="max-width-xl width-centered medium-up-padding-horz-large margin-top-medium row">
+    <div class="col width-2-3 padding-horz-small">
+  @include('partials.sectionTitle')
 
   @if (!have_posts())
     <div class="alert alert-warning">
@@ -14,5 +16,11 @@
     @include('partials.content-'.get_post_type())
   @endwhile
 
-  {!! get_the_posts_navigation() !!}
+  {!! get_the_posts_navigation() !!}</div>
+    <div class="col width-1-3 padding-horz-small">
+      <div class="border-all radius">
+        test
+      </div>
+    </div>
+  </div>
 @endsection

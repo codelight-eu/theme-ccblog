@@ -6,21 +6,25 @@
       {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
     @endif
   </nav>
-
-  <div class="category max-width-xl width-centered text-center border-bottom padding-xxsmall">
-    @php
-      $categories = get_categories();
-      $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
-      $itemClass = 'inline-block padding-small ';
-      $linkClass = 'inline-block text--charcoal text-1';
-      $activeLinkClass = 'inline-block text--blue border-bottom border--blue text-1';
-    @endphp
-    @foreach($categories as $category)
+  <div class="max-width-xl width-centered medium-up-padding-horz-large">
+    <div
+        class="category text-center border-bottom margin-horz-small medium-up-padding-vert-xxsmall">
       @php
-        $linkURL = get_category_link($category->term_id);
+        $categories = get_categories();
+        $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
+        $itemClass = 'inline-block padding-small ';
+        $linkClass = 'inline-block text--charcoal text-1';
+        $activeLinkClass = 'inline-block text--blue border-bottom border--blue text-1';
       @endphp
+      @foreach($categories as $category)
+        @php
+          $linkURL = get_category_link($category->term_id);
+        @endphp
 
-       <div class='{{ $itemClass }}'><a class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}' href='{{ $linkURL }}'>{{$category->name}}</a></div>
-    @endforeach
+        <div class='{{ $itemClass }}'><a
+              class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
+              href='{{ $linkURL }}'>{{$category->name}}</a></div>
+      @endforeach
+    </div>
   </div>
 </header>
