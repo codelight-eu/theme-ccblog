@@ -1,4 +1,16 @@
-.size--small {
+.classcentral-style .size--xsmall {
+  width: 40px;
+  height: 40px;
+}
+
+.classcentral-style .size--small {
   width: 45px;
   height: 45px;
+}
+
+@media only screen and (min-width: 641px) {
+  .classcentral-style .medium-up-size--small {
+    width: 45px;
+    height: 45px;
+  }
 }
