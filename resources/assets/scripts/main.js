@@ -1,5 +1,6 @@
 // import external dependencies
 import 'jquery';
+import './plugins/responsive';
 
 
 // import local dependencies
