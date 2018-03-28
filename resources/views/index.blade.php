@@ -4,8 +4,8 @@
 
   @include('partials.header-full')
   <div
-    class="max-width-xl width-centered margin-top-medium row"
-    data-responsive='{
+      class="max-width-xl width-centered margin-top-medium row"
+      data-responsive='{
       "mediumUp": "padding-horz-medium",
       "largeUp": "padding-horz-large"
     }'>
@@ -47,9 +47,21 @@
 
       {!! get_the_posts_navigation() !!}
     </div>
-    <div class="col large-up-width-1-3 padding-horz-small">
-      <div class="border-all radius">
-        test
+    <div class="col large-up-width-1-3 padding-horz-xlarge medium-up-padding-horz-small">
+      <div class="border-all radius padding-horz-large padding-bottom-xlarge">
+        @php
+          $args = array(
+            'tag' => 'MOOCWatch',
+            'posts_per_page' => 1,
+          );
+          $query = new WP_Query($args);
+        @endphp
+        @if($query->have_posts())
+          @while ($query->have_posts()) @php($query->the_post())
+            {{ the_title() }}
+          @endwhile
+          @php wp_reset_postdata(); @endphp
+        @endif
       </div>
     </div>
   </div>

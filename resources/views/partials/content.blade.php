@@ -15,6 +15,6 @@
     {!! the_post_thumbnail('large', ['class' => 'width-100 height-100 block']) !!}
     </a>
   </div>
-  @include('partials.author', array('class' => 'size--xsmall medium-up-size--small'))
+  @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
   @include('partials.social', array('class' => 'article_social absolute bottom right margin-right-large medium-up-margin-right-xxlarge margin-bottom-medium medium-up-margin-bottom-xlarge'))
 </article>
