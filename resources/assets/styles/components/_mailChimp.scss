@@ -1,0 +1,25 @@
+.sidebar .mailChimp {
+  h4,
+  h4 + p {
+    display: none;
+  }
+
+  input[type="email"] {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    margin-top: 15px;
+    padding: 0 15px;
+    border-radius: 5px;
+    background-color: #5074e9;
+    color: #fff;
+    height: 40px;
+    line-height: 37px;
+  }
+}

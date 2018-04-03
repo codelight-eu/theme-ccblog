@@ -1,0 +1,45 @@
+@php
+  $args = array (
+  'status' => 'approve',
+  'number' => '2'
+  );
+  $comments = get_comments( $args );
+@endphp
+<section id="comments" class="comments margin-bottom-xxlarge padding-horz-xsmall">
+  <div class="comments_titleCont border-center margin-bottom-medium">
+    <div class="text-1 bg-white inline-block text--bold padding-right-medium">Join the conversation</div>
+  </div>
+  @if( !empty( $comments ) )
+    <ul>
+      @foreach($comments as $comment)
+        @php
+          $permalink = get_permalink( $comment->comment_post_ID );
+          $id = $comment->comment_ID;
+          $commentLink = "${permalink}#comment-${id}";
+          $commentTitle = wp_trim_words( get_the_title( $comment->comment_post_ID ), $num_words = 20, '' );
+          $commentContent = wp_trim_words( $comment->comment_content, $num_words = 28 );
+          $commentDate = date('U', strtotime($comment->comment_date));
+        @endphp
+        <li class="margin-bottom-xlarge">
+          <div class="comment_head row margin-bottom-medium">
+            <div class="comment_icon flush-left margin-right-medium margin-top-xsmall"><i class="icon-comment size--large bgSize--xxlarge"></i></div>
+            <div class="comment_title">
+              <div class="text--bold margin-bottom-xsmall text-3">Comment from</div>
+              <h2 class="head-3 overflow-hidden">
+                <a href="{{ $commentLink }}" class="text--charcoal">{{ $commentTitle }}</a>
+              </h2>
+            </div>
+          </div>
+          <div class="comment_body">
+            <span class="margin-right-xsmall">"{!! $commentContent !!}"</span>
+            <a href="{{ $commentLink }}" class="comment_link inline-block text--blue-bright text-3 text--bold">Show more...</a>
+          </div>
+          <div class="comment_footer text-3 margin-top-xsmall">
+            <div class="comment_author text--bold inline-block margin-right-xsmall">{{ $comment->comment_author }}</div>
+            <div class="comment_time inline-block">{{ human_time_diff( $commentDate, current_time('timestamp') ) }} ago</div>
+          </div>
+        </li>
+      @endforeach
+    </ul>
+  @endif
+</section>
