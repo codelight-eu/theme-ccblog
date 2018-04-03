@@ -40,7 +40,10 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'footer1' => __('Footer Navigation 1', 'sage'),
+        'footer2' => __('Footer Navigation 2', 'sage'),
+        'footer3' => __('Footer Navigation 3', 'sage'),
     ]);
 
     /**

@@ -6,7 +6,7 @@ $imageUrl = get_the_post_thumbnail_url('large');
 <article @php(post_class('article border-all relative radius medium-up-padding-horz-xxlarge padding-left-large padding-top-large padding-right-large padding-bottom-medium medium-up-padding-vert-large margin-bottom-medium'))>
   <header>
     <time
-      class="article_date text-2 text--charcoal text--thin text--italic"
+      class="article_date text-2 margin-bottom-xxsmall inline-block text--charcoal text--thin text--italic"
       datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
     <h2 class="article_title head-3 medium-up-head-2">
       <a class="text--charcoal text--bold" href="{{ $link }}">{{ get_the_title() }}</a>
