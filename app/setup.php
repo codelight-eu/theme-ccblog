@@ -129,3 +129,30 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+use StoutLogic\AcfBuilder\FieldsBuilder;
+
+if( function_exists('acf_add_options_page') ) {
+  acf_add_options_page(array(
+    'page_title' 	=> 'Theme General Settings',
+    'menu_title'	=> 'Theme Settings',
+    'menu_slug' 	=> 'theme-general-settings',
+    'capability'	=> 'edit_posts'
+  ));
+
+  acf_add_options_sub_page(array(
+    'page_title' 	=> 'Footer Settings',
+    'menu_title'	=> 'Footer content',
+    'parent_slug'	=> 'theme-general-settings',
+  ));
+}
+
+$footerContent = new FieldsBuilder('footer');
+$footerContent
+  ->addWysiwyg('footer_title')
+  ->addWysiwyg('footer_content')
+  ->setLocation('options_page', '==', 'acf-options-footer-content');
+
+add_action('acf/init', function() use ($footerContent) {
+  acf_add_local_field_group($footerContent->build());
+});
