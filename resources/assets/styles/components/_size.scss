@@ -1,21 +1,35 @@
-.classcentral-style .size--xsmall {
-  width: 40px;
-  height: 40px;
-}
+.classcentral-style {
+  .size--xxsmall {
+    width: 35px;
+    height: 35px;
+  }
 
-.classcentral-style .size--small {
-  width: 45px;
-  height: 45px;
-}
+  .size--xsmall {
+    width: 40px;
+    height: 40px;
+  }
 
-.classcentral-style .size--large {
-  width: 60px;
-  height: 60px;
+  .size--small {
+    width: 45px;
+    height: 45px;
+  }
+
+  .size--medium {
+    width: 50px;
+    height: 50px;
+  }
+
+  .size--large {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 @media only screen and (min-width: 641px) {
-  .classcentral-style .medium-up-size--small {
-    width: 45px;
-    height: 45px;
+  .classcentral-style {
+    .medium-up-size--small {
+      width: 45px;
+      height: 45px;
+    }
   }
 }

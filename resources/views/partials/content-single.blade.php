@@ -1,13 +1,93 @@
-<article @php(post_class())>
-  <header>
-    <h1 class="entry-title">{{ get_the_title() }}</h1>
-    @include('partials/entry-meta')
+@php
+  $categories = get_the_category();
+  $tags = get_the_tags();
+@endphp
+<article @php(post_class('article max-width-l width-centered text--charcoal padding-horz-large padding-top-medium padding-bottom-xsmall medium-up-padding-bottom-xxlarge'))>
+  <header class="text-center margin-bottom-medium medium-up-margin-bottom-xxlarge">
+    <div class="disclosure text--blue margin-bottom-xlarge medium-up-margin-bottom-large"><span class="text--bold">Disclosure:</span>
+      MAKE THIS DYNAMIC
+    </div>
+    <div
+        class="article_date text--italic hidden medium-up-block medium-up-margin-bottom-xsmall">{{ get_the_date('F j, Y') }}</div>
+    <h1 class="article_title head-1 margin-bottom-large">{{ get_the_title() }}</h1>
+    <div
+        class="article_intro head-3 medium-up-head-2 margin-bottom-xsmall medium-up-margin-bottom-xxsmall">{{ get_the_excerpt() }}</div>
+    <div class="inline-block medium-up-text-1 overflow-hidden">
+      @include('partials.author', array(
+        'author_imageContClass' => 'size--xxsmall medium-up-size--small',
+        'byText' => 'Written by'))
+    </div>
+    <div class="dot margin-bottom-small margin-horz-xsmall medium-up-margin-bottom-medium"></div>
+    <div
+        class="article_readTime medium-up-text-1 inline-block overflow-hidden medium-up-margin-bottom-xsmall margin-bottom-xxsmall">
+      <i class="icon-clock icon--xsmall"></i> 6 minute read
+    </div>
   </header>
-  <div class="entry-content">
+  <div class="border-bottom margin-horz-xsmall margin-bottom-medium medium-up-hidden"></div>
+  <div class="entry-content text-2 medium-up-text-1 margin-bottom-small large-up-margin-bottom-xxlarge">
     @php(the_content())
   </div>
   <footer>
-    {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
+    <div
+        class="labels row border-bottom padding-bottom-medium margin-bottom-medium medium-up-padding-bottom-large medium-up-margin-bottom-large">
+      <div class="margin-bottom-medium col large-up-width-1-2">
+        <div class="flush-left margin-right-small text-2 margin-top-xxsmall">
+          {{ __('Category', 'ccblog') }}
+        </div>
+        <div class="overflow-hidden">
+
+          @foreach($categories as $category)
+            <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
+              <a class="btn-navy btn--small text--normal" href="{{ get_category_link($category->term_id) }}">{{ $category->name }}</a>
+            </div>
+          @endforeach
+        </div>
+      </div>
+      <div class="col large-up-width-1-2">
+        <div class="flush-left margin-right-small text-2 margin-top-xxsmall">
+          {{ __('Tags', 'ccblog') }}
+        </div>
+        <div class="overflow-hidden">
+          @foreach($tags as $tag)
+            <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
+              <a class="btn-gray btn--small text--normal" href="{{ get_tag_link($tag->term_id) }}">{{ $tag->name }}</a>
+            </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+    <div class="outro row">
+      <div class="outro_image flush-left radius--50 overflow-hidden margin-right-medium">
+        <img src="{{ get_avatar_url(get_the_author_meta('ID'), ['size' => 126]) }}"
+             class="author_image width-100 block size--medium">
+      </div>
+      <div class="outro_content overflow-hidden">
+        <div class="col width-100 large-up-width-2-3">
+          <h3 class="head-3 margin-bottom-xsmall">
+            <a
+                href="{{ get_author_posts_url(get_the_author_meta('ID')) }}"
+                class="text--charcoal text--bold">
+              {{ get_the_author() }}
+            </a>
+          </h3>
+          <div class="outro_text margin-bottom-xsmall">
+            {{ get_the_author_meta('description') }}
+          </div>
+        </div>
+        <div class="col width-100 large-up-width-1-3 large-up-margin-top-large text-right">
+          <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}"
+             class="outro_link text--blue text-2">
+            {{ __('More articles from', 'ccblog') }} {{ get_the_author() }}
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
-  @php(comments_template('/partials/comments.blade.php'))
 </article>
+<div class="related bg-gray padding-horz-large padding-top-large padding-bottom-xxlarge border-top border-bottom">
+  <div class="max-width-l width-centered">
+    <h4 class="head-4 text--bold">Related articles</h4>
+    INSERT RELATED ARTICLES HERE
+  </div>
+</div>
+@include('partials/comments')
