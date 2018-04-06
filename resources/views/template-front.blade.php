@@ -34,12 +34,28 @@
         @endforeach
       </div>
     </div>
-    @include('partials.featuredPost')
+    @php
+      $args = array(
+        'posts_per_page' => -1,
+      );
+      $featurePostId = get_field('set_featured_post');
+      $query = new WP_Query($args);
+    @endphp
+    @if($query->have_posts())
+      @while($query->have_posts()) @php($query->the_post())
+      @if(get_the_id() == $featurePostId)
+        @include('partials.featuredPost')
+      @endif
+      @endwhile
+    @endif
+    @php wp_reset_query(); @endphp
     <div class="main row large-up-margin-top-large">
       <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small">
-        @include('partials.sectionTitle')
+        <div class="sectionTitle border-center border--thick margin-bottom-large">
+          <h4 class="head-4 text--bold inline-block bg-white padding-right-medium">{{ __('Recent articles', 'ccblog') }}</h4>
+        </div>
 
-        @if (!have_posts())
+      @if (!have_posts())
           <div class="alert alert-warning">
             {{ __('Sorry, no results were found.', 'sage') }}
           </div>

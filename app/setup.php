@@ -132,6 +132,15 @@ add_action('after_setup_theme', function () {
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
+$setFeaturedPost = new FieldsBuilder('Featured post');
+$setFeaturedPost
+  ->addPostObject('set_featured_post', ['return_format' => 'id'])
+  ->setLocation('page_template', '==', 'views/template-front.blade.php');
+
+add_action('acf/init', function() use ($setFeaturedPost) {
+  acf_add_local_field_group($setFeaturedPost->build());
+});
+
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page(array(
     'page_title' 	=> 'Theme General Settings',

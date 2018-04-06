@@ -11,7 +11,7 @@
         class="article_date head-4 text--italic hidden medium-up-block medium-up-margin-bottom-xsmall">{{ get_the_date('F j, Y') }}</div>
     <h1 class="article_title head-1 margin-bottom-large">{{ get_the_title() }}</h1>
     <div
-        class="article_intro head-3 medium-up-head-2 margin-bottom-xsmall medium-up-margin-bottom-xxsmall">{{ get_the_excerpt() }}</div>
+        class="article_intro head-3 medium-up-head-2 margin-bottom-xsmall medium-up-margin-bottom-xxsmall">{!! get_the_excerpt() !!}</div>
     <div class="inline-block medium-up-text-1 overflow-hidden">
       @include('partials.author', array(
         'author_imageContClass' => 'size--xxsmall medium-up-size--small',
@@ -21,7 +21,7 @@
     <div class="dot margin-bottom-small margin-horz-xsmall medium-up-margin-bottom-medium"></div>
     <div
         class="article_readTime medium-up-text-1 inline-block overflow-hidden medium-up-margin-bottom-xsmall margin-bottom-xxsmall">
-      <i class="icon-clock icon--xsmall"></i> 6 minute read
+      <i class="icon-clock icon--xsmall"></i> {{ cc_get_reading_time() }} {{ __('read', 'ccblog') }}
     </div>
   </header>
   <div class="border-bottom margin-horz-xsmall margin-bottom-medium medium-up-hidden"></div>
@@ -91,7 +91,7 @@
 <div class="related bg-gray padding-horz-large padding-top-large padding-bottom-xxlarge border-top border-bottom">
   <div class="max-width-l width-centered">
     <h4 class="head-4 text--bold">{{ __('Related articles', 'ccblog') }}</h4>
-
+    {!! related_posts() !!}
   </div>
 </div>
 @include('partials/comments')
