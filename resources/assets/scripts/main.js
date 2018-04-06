@@ -1,6 +1,7 @@
 // import external dependencies
 import 'jquery';
 import './plugins/responsive';
+import './plugins/jquery.fitvids';
 
 
 // import local dependencies

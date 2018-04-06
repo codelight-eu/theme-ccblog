@@ -8,7 +8,7 @@
 
   @include('partials.header-full')
   <div
-      class="max-width-xl width-centered margin-top-medium row"
+      class="max-width-xl width-centered margin-top-medium row text--charcoal"
       data-responsive='{
       "mediumUp": "padding-horz-medium",
       "largeUp": "padding-horz-large"
@@ -79,7 +79,7 @@
               </a>
             </div>
             <time
-                class="featurePost_date block text-2 text-center text--charcoal text--thin text--italic"
+                class="featurePost_date block head-5 text-center text--thin text--italic"
                 datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
             @if (has_post_thumbnail( get_the_ID() ) )
               @php $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' ); @endphp
@@ -89,18 +89,18 @@
                 </a>
               </div>
             @endif
-            <h2 class="head-2 text-center margin-top-xsmall text--charcoal">
+            <h2 class="head-2 text-center margin-top-xsmall">
               <a href="{{ the_permalink() }}" class="text--charcoal">
                 {{ the_title() }}
               </a></h2>
             <div
-                class="featurePost_description text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium text--charcoal">{{ get_the_excerpt() }}</div>
+                class="featurePost_description text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{{ get_the_excerpt() }}</div>
             <div class="featurePost_authorCont flex-vert-middle">
               @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
             </div>
             <div
-                class="mailChimp bg-blue-light padding-large border--blue-light border--thin border-all text-center margin-top-medium">
-              <div class="text-2 text--charcoal">Get <i
+                class="mailChimp row bg-blue-light padding-large border--blue-light border--thin border-all text-center margin-top-medium">
+              <div class="head-5">Get <i
                     class="symbol-moocwatch-charcoal symbol--charcoal symbol--small"></i> in your inbox.
               </div>
               @php

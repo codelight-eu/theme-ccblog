@@ -51,7 +51,7 @@
       class="menu hidden border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row xlarge-up-hidden">
     <div class="menu_left col width-100 small-up-width-1-3">
       <div class="block padding-top-small padding-right-small padding-bottom-small">
-        <span class="inline-block text--charcoal text-1 text--bold">{{ __('Categories', 'ccblog') }}</span>
+        <span class="inline-block text-1 text--bold">{{ __('Categories', 'ccblog') }}</span>
       </div>
       <div
           class="category width-1-2 small-up-width-100 padding-vert-xxsmall"
@@ -85,7 +85,7 @@
       </a>
       <div class="MoocWatch width-1-2 small-up-width-100 padding-vert-large border-bottom">
         <div class="xlarge-up-hidden padding-vert-xxsmall">
-          <span class="inline-block text--charcoal text-1"><i class="symbol-moocwatch-charcoal symbol--small"></i></span>
+          <span class="inline-block text-1"><i class="symbol-moocwatch-charcoal symbol--small"></i></span>
         </div>
         <div class="test">testcotnent</div>
         <div class="test">testcotnent</div>

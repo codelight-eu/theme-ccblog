@@ -1,7 +1,7 @@
 <!doctype html>
 <html @php(language_attributes())>
 @include('partials.head')
-<body @php(body_class('classcentral-style'))>
+<body @php(body_class('classcentral-style classcentral-style-custom'))>
 @php(do_action('get_header'))
 @yield('content')
 @php(do_action('get_footer'))

@@ -8,13 +8,14 @@
       MAKE THIS DYNAMIC
     </div>
     <div
-        class="article_date text--italic hidden medium-up-block medium-up-margin-bottom-xsmall">{{ get_the_date('F j, Y') }}</div>
+        class="article_date head-4 text--italic hidden medium-up-block medium-up-margin-bottom-xsmall">{{ get_the_date('F j, Y') }}</div>
     <h1 class="article_title head-1 margin-bottom-large">{{ get_the_title() }}</h1>
     <div
         class="article_intro head-3 medium-up-head-2 margin-bottom-xsmall medium-up-margin-bottom-xxsmall">{{ get_the_excerpt() }}</div>
     <div class="inline-block medium-up-text-1 overflow-hidden">
       @include('partials.author', array(
         'author_imageContClass' => 'size--xxsmall medium-up-size--small',
+        'author_textClass' => 'head-5 large-up-head-4',
         'byText' => 'Written by'))
     </div>
     <div class="dot margin-bottom-small margin-horz-xsmall medium-up-margin-bottom-medium"></div>
@@ -24,7 +25,7 @@
     </div>
   </header>
   <div class="border-bottom margin-horz-xsmall margin-bottom-medium medium-up-hidden"></div>
-  <div class="entry-content text-2 medium-up-text-1 margin-bottom-small large-up-margin-bottom-xxlarge">
+  <div class="articleContent entry-content text-2 medium-up-text-1 margin-bottom-small large-up-margin-bottom-xxlarge">
     @php(the_content())
   </div>
   <footer>
@@ -35,12 +36,13 @@
           {{ __('Category', 'ccblog') }}
         </div>
         <div class="overflow-hidden">
-
+          @if($categories)
           @foreach($categories as $category)
             <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
               <a class="btn-navy btn--small text--normal" href="{{ get_category_link($category->term_id) }}">{{ $category->name }}</a>
             </div>
           @endforeach
+          @endif
         </div>
       </div>
       <div class="col large-up-width-1-2">
@@ -48,11 +50,13 @@
           {{ __('Tags', 'ccblog') }}
         </div>
         <div class="overflow-hidden">
+          @if($tags)
           @foreach($tags as $tag)
             <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
               <a class="btn-gray btn--small text--normal" href="{{ get_tag_link($tag->term_id) }}">{{ $tag->name }}</a>
             </div>
           @endforeach
+          @endif
         </div>
       </div>
     </div>
@@ -70,7 +74,7 @@
               {{ get_the_author() }}
             </a>
           </h3>
-          <div class="outro_text margin-bottom-xsmall">
+          <div class="outro_text text-2 margin-bottom-xsmall">
             {{ get_the_author_meta('description') }}
           </div>
         </div>
@@ -86,7 +90,7 @@
 </article>
 <div class="related bg-gray padding-horz-large padding-top-large padding-bottom-xxlarge border-top border-bottom">
   <div class="max-width-l width-centered">
-    <h4 class="head-4 text--bold">Related articles</h4>
+    <h4 class="head-4 text--bold">{{ __('Related articles', 'ccblog') }}</h4>
     INSERT RELATED ARTICLES HERE
   </div>
 </div>

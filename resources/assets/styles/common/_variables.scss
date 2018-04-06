@@ -1,3 +1,8 @@
 $theme-colors: (
   primary: #27ae60
 );
+
+$font-family: 'Myriad Pro', 'myriad-pro', Myriad, Helvetica, Arial, sans-serif;
+$font-family-alternative: 'Brandon Grotesque', 'brandon-grotesque', Helvetica, Arial, sans-serif;
+$font-family-base: $font-family;
+$font-family-heading: $font-family-alternative;
