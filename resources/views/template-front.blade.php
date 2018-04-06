@@ -34,7 +34,7 @@
         @endforeach
       </div>
     </div>
-
+    @include('partials.featuredPost')
     <div class="main row large-up-margin-top-large">
       <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small">
         @include('partials.sectionTitle')

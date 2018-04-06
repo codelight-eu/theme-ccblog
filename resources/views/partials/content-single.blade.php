@@ -91,7 +91,7 @@
 <div class="related bg-gray padding-horz-large padding-top-large padding-bottom-xxlarge border-top border-bottom">
   <div class="max-width-l width-centered">
     <h4 class="head-4 text--bold">{{ __('Related articles', 'ccblog') }}</h4>
-    INSERT RELATED ARTICLES HERE
+
   </div>
 </div>
 @include('partials/comments')
