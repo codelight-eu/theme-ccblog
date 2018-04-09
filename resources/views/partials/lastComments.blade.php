@@ -6,7 +6,7 @@
   $comments = get_comments( $args );
 @endphp
 <section id="comments" class="comments margin-bottom-xxlarge padding-horz-xsmall">
-  <div class="comments_titleCont border-center margin-bottom-medium">
+  <div class="comments_titleCont border-center border--thin border--gray-dark margin-bottom-medium">
     <div class="head-4 bg-white inline-block text--bold padding-right-medium">{{ __('Join the conversation', 'ccblog') }}</div>
   </div>
   @if( !empty( $comments ) )

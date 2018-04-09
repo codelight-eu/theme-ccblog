@@ -14,8 +14,8 @@
       "largeUp": "padding-horz-large"
     }'>
 
-    <div class="frontIntro  padding-horz-small hidden xlarge-up-block">
-      <div class="category text-center border-bottom padding-vert-xxsmall">
+    <div class="frontIntro padding-horz-small hidden xlarge-up-block">
+      <div class="category text-center border-bottom border--thin border--gray-dark padding-vert-xxsmall">
         @php
           $categories = get_categories();
           $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
@@ -51,7 +51,7 @@
     @php wp_reset_query(); @endphp
     <div class="main row large-up-margin-top-large">
       <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small">
-        <div class="sectionTitle border-center border--thick margin-bottom-large">
+        <div class="sectionTitle border-center border--thin border--gray-dark margin-bottom-large">
           <h4 class="head-4 text--bold inline-block bg-white padding-right-medium">{{ __('Recent articles', 'ccblog') }}</h4>
         </div>
 
@@ -87,7 +87,7 @@
         @if($query->have_posts())
           @while ($query->have_posts()) @php($query->the_post())
           <div
-              class="featurePost-sidebar border-all radius padding-horz-large large-up-padding-bottom-xxlarge padding-bottom-xlarge margin-bottom-xlarge medium-up-margin-bottom-xxlarge">
+              class="featurePost-sidebar border-all border--thin border--gray-dark radius padding-horz-large large-up-padding-bottom-xxlarge padding-bottom-xlarge margin-bottom-xlarge medium-up-margin-bottom-xxlarge">
             <div class="text-center">
               <a href="{{ the_permalink() }}"
                  class="text--charcoal relative nudge-top-half head-3 padding-horz-small bg-white">
@@ -131,4 +131,5 @@
       </div>
     </div>
   </div>
+  @include('partials.featuredMsg1')
 @endsection

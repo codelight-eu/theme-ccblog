@@ -2,7 +2,7 @@
   $categories = get_the_category();
 @endphp
 
-<div class="relatedPost_item large-up-width-1-3 margin-left-xsmall margin-right-xsmall relative radius border-all padding-left-large padding-right-large padding-top-medium padding-bottom-large bg-white margin-bottom-small large-up-margin-bottom-reset">
+<div class="relatedPost_item large-up-width-1-3 margin-left-xsmall margin-right-xsmall relative radius border-all border--thin border--gray-dark padding-left-large padding-right-large padding-top-medium padding-bottom-large bg-white margin-bottom-small large-up-margin-bottom-reset">
   <div class="relatedPost_categories head-5 margin-bottom-xxsmall">
     @if($categories)
       @foreach($categories as $category)

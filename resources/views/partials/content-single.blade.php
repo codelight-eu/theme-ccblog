@@ -2,7 +2,7 @@
   $categories = get_the_category();
   $tags = get_the_tags();
 @endphp
-<article @php(post_class('article max-width-l border-box width-centered text--charcoal padding-horz-large padding-top-medium padding-bottom-xsmall medium-up-padding-bottom-xxlarge'))>
+<article @php(post_class('article max-width-l border-box width-centered text--charcoal padding-left-large padding-right-large large-up-padding-horz-xxlarge padding-top-medium padding-bottom-xsmall medium-up-padding-bottom-xxlarge'))>
   <header class="text-center margin-bottom-medium medium-up-margin-bottom-xxlarge">
     <div class="disclosure text--blue margin-bottom-xlarge medium-up-margin-bottom-large"><span class="text--bold">Disclosure:</span>
       MAKE THIS DYNAMIC
@@ -24,13 +24,13 @@
       <i class="icon-clock icon--xsmall"></i> {{ cc_get_reading_time() }} {{ __('read', 'ccblog') }}
     </div>
   </header>
-  <div class="border-bottom margin-horz-xsmall margin-bottom-medium medium-up-hidden"></div>
+  <div class="border-bottom margin-horz-xsmall border--gray-dark border--thin margin-bottom-medium medium-up-hidden"></div>
   <div class="articleContent entry-content text-2 medium-up-text-1 margin-bottom-small large-up-margin-bottom-xxlarge">
     @php(the_content())
   </div>
   <footer>
     <div
-        class="labels row border-bottom padding-bottom-medium margin-bottom-medium medium-up-padding-bottom-large medium-up-margin-bottom-large">
+        class="labels row border-bottom border--thin border--gray-dark padding-bottom-medium margin-bottom-medium medium-up-padding-bottom-large medium-up-margin-bottom-large">
       <div class="margin-bottom-medium col large-up-width-1-2">
         <div class="flush-left margin-right-small text-2 margin-top-xxsmall">
           {{ __('Category', 'ccblog') }}
@@ -88,7 +88,7 @@
     </div>
   </footer>
 </article>
-<div class="bg-gray padding-top-large padding-bottom-xxlarge large-up-padding-bottom-large border-top border-bottom">
+<div class="bg-gray padding-top-large padding-bottom-xxlarge large-up-padding-bottom-large border-top border--gray-dark border--thin border-bottom">
   <div class="max-width-l border-box width-centered padding-horz-medium">
     @php(related_posts(['template' => 'yarpp-template-ccblog.php']))
   </div>
