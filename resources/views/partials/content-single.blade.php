@@ -2,7 +2,7 @@
   $categories = get_the_category();
   $tags = get_the_tags();
 @endphp
-<article @php(post_class('article max-width-l width-centered text--charcoal padding-horz-large padding-top-medium padding-bottom-xsmall medium-up-padding-bottom-xxlarge'))>
+<article @php(post_class('article max-width-l border-box width-centered text--charcoal padding-horz-large padding-top-medium padding-bottom-xsmall medium-up-padding-bottom-xxlarge'))>
   <header class="text-center margin-bottom-medium medium-up-margin-bottom-xxlarge">
     <div class="disclosure text--blue margin-bottom-xlarge medium-up-margin-bottom-large"><span class="text--bold">Disclosure:</span>
       MAKE THIS DYNAMIC
@@ -88,10 +88,9 @@
     </div>
   </footer>
 </article>
-<div class="related bg-gray padding-horz-large padding-top-large padding-bottom-xxlarge border-top border-bottom">
-  <div class="max-width-l width-centered">
-    <h4 class="head-4 text--bold">{{ __('Related articles', 'ccblog') }}</h4>
-    {!! related_posts() !!}
+<div class="bg-gray padding-top-large padding-bottom-xxlarge large-up-padding-bottom-large border-top border-bottom">
+  <div class="max-width-l border-box width-centered padding-horz-medium">
+    @php(related_posts(['template' => 'yarpp-template-ccblog.php']))
   </div>
 </div>
 @include('partials/comments')
