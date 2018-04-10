@@ -49,3 +49,22 @@ add_action( 'wp_footer', 'tj_deregister_yarpp_footer_styles' );
 function tj_deregister_yarpp_footer_styles() {
   wp_dequeue_style('yarppRelatedCss');
 }
+
+/* Remove tags from section headers */
+function my_theme_archive_title( $title ) {
+  if ( is_category() ) {
+    $title = single_cat_title( '', false );
+  } elseif ( is_tag() ) {
+    $title = single_tag_title( '', false );
+  } elseif ( is_author() ) {
+    $title = get_the_author();
+  } elseif ( is_post_type_archive() ) {
+    $title = post_type_archive_title( '', false );
+  } elseif ( is_tax() ) {
+    $title = single_term_title( '', false );
+  }
+
+  return $title;
+}
+
+add_filter( 'get_the_archive_title', 'my_theme_archive_title' );

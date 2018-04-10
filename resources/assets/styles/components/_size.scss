@@ -23,6 +23,16 @@
     width: 60px;
     height: 60px;
   }
+
+  .size--xlarge {
+    width: 85px;
+    height: 85px;
+  }
+
+  .size--xxlarge {
+    width: 125px;
+    height: 125px;
+  }
 }
 
 @media only screen and (min-width: 641px) {
@@ -30,6 +40,15 @@
     .medium-up-size--small {
       width: 45px;
       height: 45px;
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .classcentral-style-custom {
+    .large-up-size--xxlarge {
+      width: 125px;
+      height: 125px;
     }
   }
 }

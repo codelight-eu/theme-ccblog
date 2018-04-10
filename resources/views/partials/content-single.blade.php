@@ -11,7 +11,7 @@
         class="article_date head-4 text--italic hidden medium-up-block medium-up-margin-bottom-xsmall">{{ get_the_date('F j, Y') }}</div>
     <h1 class="article_title head-1 margin-bottom-large">{{ get_the_title() }}</h1>
     <div
-        class="article_intro head-3 medium-up-head-2 margin-bottom-xsmall medium-up-margin-bottom-xxsmall">{!! get_the_excerpt() !!}</div>
+        class="article_intro head-3 medium-up-head-2 margin-bottom-xsmall medium-up-margin-bottom-xxsmall">{!! the_excerpt() !!}</div>
     <div class="inline-block medium-up-text-1 overflow-hidden">
       @include('partials.author', array(
         'author_imageContClass' => 'size--xxsmall medium-up-size--small',
@@ -75,7 +75,7 @@
             </a>
           </h3>
           <div class="outro_text text-2 margin-bottom-xsmall">
-            {{ get_the_author_meta('description') }}
+            {{ the_author_meta('description') }}
           </div>
         </div>
         <div class="col width-100 large-up-width-1-3 large-up-margin-top-large text-right">

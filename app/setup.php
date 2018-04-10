@@ -132,12 +132,13 @@ add_action('after_setup_theme', function () {
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-$setFeaturedPost = new FieldsBuilder('Featured post');
+/* Create fields for featured items */
+$setFeaturedPost = new FieldsBuilder('featured_post');
 $setFeaturedPost
   ->addPostObject('set_featured_post', ['return_format' => 'id'])
   ->setLocation('page_template', '==', 'views/template-front.blade.php');
 
-$setFeaturedMessage = new FieldsBuilder('Call to action');
+$setFeaturedMessage = new FieldsBuilder('call_to_action');
 $setFeaturedMessage
   ->addSelect('set_footer_CTA', ['choices' =>
     [['none' => 'None'], ['CTA1' => 'CTA 1'], ['CTA2' => 'CTA 2']]])
@@ -148,6 +149,7 @@ add_action('acf/init', function() use ($setFeaturedPost, $setFeaturedMessage) {
   acf_add_local_field_group($setFeaturedMessage->build());
 });
 
+/* Create options page */
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page(array(
     'page_title' 	=> 'Theme General Settings',
@@ -163,12 +165,39 @@ if( function_exists('acf_add_options_page') ) {
   ));
 }
 
+/* Set up footer */
 $footerContent = new FieldsBuilder('footer');
 $footerContent
-  ->addWysiwyg('footer_title')
-  ->addWysiwyg('footer_content')
-  ->setLocation('options_page', '==', 'acf-options-footer-content');
+    ->addWysiwyg('footer_title')
+    ->addWysiwyg('footer_content')
+    ->addTab('CTA_1')
+      ->addText('test')
+    ->addTab('CTA_2')
+      ->addText('test2')
+    ->setLocation('options_page', '==', 'acf-options-footer-content');
 
 add_action('acf/init', function() use ($footerContent) {
   acf_add_local_field_group($footerContent->build());
+});
+
+/* Add custom field for User Form */
+$userShortDesc = new FieldsBuilder('user_short_description');
+$userShortDesc
+  ->addWysiwyg('short_description')
+  ->setLocation('user_form', '==', 'edit');
+
+add_action('acf/init', function() use ($userShortDesc) {
+  acf_add_local_field_group($userShortDesc->build());
+});
+
+/* Add related tags field for Tags */
+$relatedTags = new FieldsBuilder('related_tags');
+$relatedTags
+  ->addTaxonomy('set_related_tags', [
+    'taxonomy' => 'post_tag',
+    'field_type' => 'multi_select'])
+  ->setLocation('taxonomy', '==', 'post_tag');
+
+add_action('acf/init', function() use ($relatedTags) {
+  acf_add_local_field_group($relatedTags->build());
 });
