@@ -139,7 +139,7 @@ $setFeaturedPost
 
 $setFeaturedMessage = new FieldsBuilder('Call to action');
 $setFeaturedMessage
-  ->addSelect('set_CTA', ['choices' =>
+  ->addSelect('set_footer_CTA', ['choices' =>
     [['none' => 'None'], ['CTA1' => 'CTA 1'], ['CTA2' => 'CTA 2']]])
   ->setLocation('post_type', '==', 'page');
 

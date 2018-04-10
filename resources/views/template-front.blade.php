@@ -131,9 +131,9 @@
       </div>
     </div>
   </div>
-  @if(get_field('set_featured_message') && get_field('set_featured_message') != 'none')
+  @if(get_field('set_footer_CTA') && get_field('set_footer_CTA') != 'none')
     @php
-    $msgType = 'partials.featuredMsg-' . get_field('set_featured_message');
+    $msgType = 'partials.featuredMsg-' . get_field('set_footer_CTA');
     @endphp
     @include($msgType)
   @endif
