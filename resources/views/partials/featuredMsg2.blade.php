@@ -1,12 +1,11 @@
-<div class="featuredMsg bg-gradient text--charcoal padding-vert-xxlarge hidden large-up-block">
-  <div class="max-width-xl width-centered padding-medium text-center padding-vert-small">
-    <div class="head-2 margin-bottom-medium"><i class="symbol-classcentral-blue symbol--large"></i></div>
-    <div class="featuredMsg_text head-2 margin-bottom-medium">
-      {{ __('Stay up to date. Follow us on', 'ccblog') }}
+<div class="featuredMsg bg-gradient text--charcoal padding-vert-xxlarge hidden xlarge-up-block padding-horz-medium">
+  <div class="max-width-xl width-centered padding-mediumpadding-vert-small flex-horz-middle">
+    <div class="head-2 col width-4-16"><i class="symbol-classcentral-blue symbol--large"></i></div>
+    <div class="featuredMsg_text col width-9-16 head-2 padding-right-medium padding-left-xlarge margin-vert-xlarge">
+      {{ __('Get personalized course recommendations, track subjects and courses with reminders, and more.', 'ccblog') }}
     </div>
-    <div class="featuredMsg_links inline-block row">
-      <a href="" class="featuredMsg_link inline-block radius--50 col bg-white border-all border--gray-dark overflow-hidden margin-right-small"><i class="icon-facebook"></i></a>
-      <a href="" class="featuredMsg_link inline-block radius--50 col bg-white border-all border--gray-dark overflow-hidden"><i class="icon-twitter"></i></a>
+    <div class="featuredMsg_links text-right col width-3-16 inline-block row">
+      <a href="" class="featuredMsg_link btn--large btn-blue head-3 line--medium">{{ __('Sign up for free', 'ccblog') }}</a>
     </div>
   </div>
 </div>

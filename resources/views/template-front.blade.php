@@ -131,5 +131,5 @@
       </div>
     </div>
   </div>
-  @include('partials.featuredMsg1')
+  @include('partials.featuredMsg2')
 @endsection
