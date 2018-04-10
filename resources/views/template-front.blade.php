@@ -131,5 +131,10 @@
       </div>
     </div>
   </div>
-  @include('partials.featuredMsg2')
+  @if(get_field('set_featured_message') && get_field('set_featured_message') != 'none')
+    @php
+    $msgType = 'partials.featuredMsg-' . get_field('set_featured_message');
+    @endphp
+    @include($msgType)
+  @endif
 @endsection

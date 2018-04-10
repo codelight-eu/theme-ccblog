@@ -137,8 +137,15 @@ $setFeaturedPost
   ->addPostObject('set_featured_post', ['return_format' => 'id'])
   ->setLocation('page_template', '==', 'views/template-front.blade.php');
 
-add_action('acf/init', function() use ($setFeaturedPost) {
+$setFeaturedMessage = new FieldsBuilder('Call to action');
+$setFeaturedMessage
+  ->addSelect('set_CTA', ['choices' =>
+    [['none' => 'None'], ['CTA1' => 'CTA 1'], ['CTA2' => 'CTA 2']]])
+  ->setLocation('post_type', '==', 'page');
+
+add_action('acf/init', function() use ($setFeaturedPost, $setFeaturedMessage) {
   acf_add_local_field_group($setFeaturedPost->build());
+  acf_add_local_field_group($setFeaturedMessage->build());
 });
 
 if( function_exists('acf_add_options_page') ) {
