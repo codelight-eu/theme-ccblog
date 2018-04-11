@@ -1,4 +1,4 @@
-<div class="sectionTitle text--charcoal margin-vert-large row">
+<div class="sectionTitle text--charcoal margin-vert-large medium-up-padding-horz-small padding-horz-xlarge row">
   @if(is_author())
     @include('partials.title-author')
   @elseif(is_tag())
@@ -6,6 +6,6 @@
   @elseif(is_category())
     @include('partials.title-category')
   @else
-    <h1 class="head-1 text--bold inline-block bg-white padding-right-medium">{!! App::title() !!}</h1>
+    <h1 class="head-1 text--bold inline-block bg-white padding-right-medium">{!! \App\App::title() !!}</h1>
   @endif
 </div>

@@ -32,11 +32,11 @@
   <div class="col width-1-2">
     <div class="border-center border--thin border--gray-dark margin-bottom-medium margin-bottom-medium head-3">
       <div class="padding-right-medium bg-white inline-block">
-        {!! the_field('footer_title', 'option') !!}
+        {!! get_field('footer_title', 'option') !!}
       </div>
     </div>
     <div class="footer_text">
-      {!! the_field('footer_content', 'option') !!}
+      {!! get_field('footer_content', 'option') !!}
     </div>
   </div>
 </footer>

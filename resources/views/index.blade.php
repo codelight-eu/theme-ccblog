@@ -1,38 +1,31 @@
+@php
+  $currentID = get_queried_object_id();
+  $pageForPosts = get_option( 'page_for_posts' );
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
 
   @include('partials.header-full')
+  <div class="max-width-xl width-centered"
+       data-responsive='{
+      "mediumUp": "padding-horz-medium",
+      "largeUp": "padding-horz-large"
+    }'>
+    @include('partials.sectionTitle')
+  </div>
   <div
-      class="max-width-xl width-centered margin-top-medium row"
+      class="max-width-xl width-centered margin-top-medium text--charcoal row"
       data-responsive='{
       "mediumUp": "padding-horz-medium",
       "largeUp": "padding-horz-large"
     }'>
-
-    <div class="frontIntro  padding-horz-small hidden xlarge-up-block">
-      <div class="category text-center border-bottom padding-vert-xxsmall">
-        @php
-          $categories = get_categories();
-          $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
-          $itemClass = 'block medium-up-inline-block padding-small ';
-          $linkClass = 'inline-block text--charcoal text-1';
-          $activeLinkClass = 'inline-block text--blue border-bottom border--blue text-1';
-        @endphp
-        @foreach($categories as $category)
-          @php
-            $linkURL = get_category_link($category->term_id);
-          @endphp
-
-          <div class='{{ $itemClass }}'><a
-                class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
-                href='{{ $linkURL }}'>{{$category->name}}</a></div>
-        @endforeach
+    <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small">
+      <div
+          class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-medium large-up-margin-bottom-large">
+        <h4 class="head-4 text--bold inline-block bg-white padding-right-medium">{{ __('Most Recent', 'ccblog') }}</h4>
       </div>
-    </div>
-
-    <div class="col large-up-width-2-3 padding-horz-xlarge medium-up-padding-horz-small">
-      @include('partials.sectionTitle')
 
       @if (!have_posts())
         <div class="alert alert-warning">
@@ -44,30 +37,38 @@
       @while (have_posts()) @php(the_post())
       @include('partials.content-'.get_post_type())
       @endwhile
-
-      {!! get_the_posts_navigation() !!}
+      <div class="pagination text-center margin-top-large margin-bottom-xxlarge">
+        <div class="inline-block text--gray margin-right-small">
+          <i class="{{ get_previous_posts_link( 'Previous Page' ) ? 'icon-chevron-left-blue' : 'icon-chevron-left-gray' }} icon--xsmall"></i>
+          {!! get_previous_posts_link( 'Previous Page' ) ? previous_posts_link( 'Previous Page' ) : __('Previous Page') !!}
+        </div>
+        <div class="inline-block text--gray margin-left-small">
+          {!! get_next_posts_link( 'Next Page' ) ? next_posts_link( 'Next Page' ) : __('Next Page') !!}
+          <i class="{{ get_next_posts_link( 'Next Page' ) ? 'icon-chevron-right-blue' : 'icon-chevron-right-gray' }} icon--xsmall"></i>
+        </div>
+      </div>
     </div>
-    <div class="col large-up-width-1-3 padding-horz-xlarge medium-up-padding-horz-small">
-      <div class="border-all radius padding-horz-large padding-bottom-xlarge">
+    <div class="sidebar col width-100 large-up-width-2-5 padding-horz-xlarge medium-up-padding-horz-small">
+      <div class="sidebar_title border-center margin-bottom-medium">
+        <div
+            class="head-4 text--bold inline-block border--gray-dark bg-white padding-right-xsmall">{{ __('About', 'ccblog') }}</div>
+      </div>
+      {!! get_field('footer_content', 'option') !!}
+      <div
+          class="mailChimp mailChimp-layout2 col width-100 bg-blue-light padding-large border--blue-light border--thin border-all margin-top-medium">
+        <div class="head-5">
+          <span class="margin-right-xsmall">{{ __('Get', 'ccblog') }} <i
+              class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span><a href="#"
+                                                                                                           class="inline-block text--blue">{{ __('Learn more') }} <i class="icon-chevron-right-blue icon--xxsmall"></i></a></div>
         @php
-          $args = array(
-            'tag' => 'MOOCWatch',
-            'posts_per_page' => 1,
-          );
-          $query = new WP_Query($args);
+          mc4wp_show_form('63147');
         @endphp
-        @if($query->have_posts())
-          @while ($query->have_posts()) @php($query->the_post())
-            {{ the_title() }}
-          @endwhile
-          @php wp_reset_postdata(); @endphp
-        @endif
       </div>
     </div>
   </div>
-  @if(get_field('set_footer_CTA') && get_field('set_footer_CTA') != 'none')
+  @if(get_field('set_footer_CTA', $pageForPosts) && get_field('set_footer_CTA', $pageForPosts) != 'none')
     @php
-      $msgType = 'partials.featuredMsg-' . get_field('set_footer_CTA');
+      $msgType = 'partials.featuredMsg-' . get_field('set_footer_CTA', $pageForPosts);
     @endphp
     @include($msgType)
   @endif
