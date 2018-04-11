@@ -2,10 +2,16 @@
   <div class="max-width-xl width-centered padding-mediumpadding-vert-small flex-horz-middle">
     <div class="head-2 col width-4-16"><i class="symbol-classcentral-blue symbol--large"></i></div>
     <div class="CTA_text col width-9-16 head-2 padding-right-medium padding-left-xlarge margin-vert-xlarge">
-      {{ __('Get personalized course recommendations, track subjects and courses with reminders, and more.', 'ccblog') }}
+      {!! get_field('CTA_2_text', 'option') !!}
     </div>
     <div class="CTA_links text-right col width-3-16 inline-block row">
-      <a href="" class="CTA_link btn--large btn-blue head-3 line--medium">{{ __('Sign up for free', 'ccblog') }}</a>
+      <a
+        href="{{ get_field('CTA_2_sign-up_link', 'option')['url'] }}"
+        target="{{ get_field('CTA_2_sign-up_link', 'option')['target'] }}"
+        class="CTA_link btn--large btn-blue head-3 line--medium"
+      >
+        {{ get_field('CTA_2_sign-up_link', 'option')['title'] }}
+      </a>
     </div>
   </div>
 </div>

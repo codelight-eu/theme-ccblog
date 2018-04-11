@@ -171,10 +171,13 @@ $footerContent
     ->addWysiwyg('footer_title')
     ->addWysiwyg('footer_content')
     ->addTab('CTA_1')
-      ->addText('test')
+      ->addWysiwyg('CTA_1_text')
+      ->addLink('CTA_1_facebook_link')
+      ->addLink('CTA_1_twitter_link')
     ->addTab('CTA_2')
-      ->addText('test2')
-    ->setLocation('options_page', '==', 'acf-options-footer-content');
+      ->addWysiwyg('CTA_2_text')
+      ->addLink('CTA_2_sign-up_link')
+  ->setLocation('options_page', '==', 'acf-options-footer-content');
 
 add_action('acf/init', function() use ($footerContent) {
   acf_add_local_field_group($footerContent->build());

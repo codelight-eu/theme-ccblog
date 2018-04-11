@@ -65,4 +65,10 @@
       </div>
     </div>
   </div>
+  @if(get_field('set_footer_CTA') && get_field('set_footer_CTA') != 'none')
+    @php
+      $msgType = 'partials.featuredMsg-' . get_field('set_footer_CTA');
+    @endphp
+    @include($msgType)
+  @endif
 @endsection

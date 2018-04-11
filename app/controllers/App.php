@@ -2,9 +2,7 @@
 
 namespace App;
 
-use Sober\Controller\Controller;
-
-class App extends Controller
+class App
 {
     public function siteName()
     {

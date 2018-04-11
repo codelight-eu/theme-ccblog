@@ -1,8 +1,8 @@
 <p class="text-1">{{ __('Tagged in', 'ccblog') }}</p>
-<h1 class="head-1 text--bold inline-block bg-white padding-right-medium">{!! App::title() !!}</h1>
-@if(get_field('set_related_tags', get_queried_object('term_id')))
+<h1 class="head-1 text--bold inline-block bg-white padding-right-medium">{!! \App\App::title() !!}</h1>
+@if(get_field('set_related_tags', get_queried_object_id()))
   @php
-    $tags = get_field('set_related_tags', get_queried_object('term_id'));
+    $tags = get_field('set_related_tags', get_queried_object_id());
   @endphp
   <div class="row margin-top-medium">
     <div class="flush-left margin-right-small text-2 margin-top-xxsmall">
