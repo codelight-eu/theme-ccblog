@@ -36,12 +36,7 @@
             class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
             href='{{ $linkURL }}'>{{$category->name}}</a></div>
     @endforeach
-
-    <a href="#" class="moocwatchToggle hidden medium-up-inline-block xlarge-hidden padding-vert-xxsmall padding-left-xsmall">
-    <span class="inline-block text--charcoal text-1">
-      <i class="symbol-moocwatch-charcoal symbol--small"></i> <i class="hidden medium-up-inline-block icon--xsmall icon-chevron-down"></i>
-    </span>
-    </a>
+    <div class="inline-block">@include('partials.quickArticles')</div>
   </div>
 
   <a href="#" class="menuToggle flush-right xlarge-up-hidden">

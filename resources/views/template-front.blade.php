@@ -13,7 +13,22 @@
       "largeUp": "padding-horz-large"
     }'>
 
-    <div class="frontIntro padding-horz-small hidden xlarge-up-block">
+    <div class="frontIntro padding-horz-small hidden text-center margin-top-xxsmall xlarge-up-block">
+      <div class="frontIntro_logo inline-block">
+        <i class="symbol-moocreport-blue symbol--xlarge block margin-bottom-xxsmall"></i>
+        <div class="block margin-right-large head-6 flush-right text--gray"><span class="flush-left">by</span> <i class="symbol-classcentral-gray symbol--small margin-top-xxsmall"></i></div>
+      </div>
+      <div class="frontIntro_text text-1 text--italic">
+      @if (have_posts())
+        @while (have_posts())  @php(the_post())
+        @if(get_the_content())
+          <div class="frontIntro_text text-1 text--italic margin-top-large">
+          {!! get_the_content() !!}
+          </div>
+        @endif
+        @endwhile
+      @endif
+      </div>
       <div class="category text-center border-bottom border--thin border--gray-dark padding-vert-xxsmall">
         @php
           $categories = get_categories();
@@ -31,6 +46,7 @@
                 class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
                 href='{{ $linkURL }}'>{{$category->name}}</a></div>
         @endforeach
+        <div class="inline-block">@include('partials.quickArticles')</div>
       </div>
     </div>
     @php
