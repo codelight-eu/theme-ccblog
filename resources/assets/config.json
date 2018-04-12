@@ -4,8 +4,11 @@
       "./scripts/main.js",
       "./styles/main.scss"
     ],
-    "customizer": [
-      "./scripts/customizer.js"
+    "admin": [
+      "./scripts/admin.js"
+    ],
+    "editor": [
+      "./styles/editor.scss"
     ]
   },
   "publicPath": "/app/themes/theme-ccblog",

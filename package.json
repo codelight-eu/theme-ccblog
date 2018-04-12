@@ -103,7 +103,7 @@
     "yargs": "~11.0.0"
   },
   "dependencies": {
-    "classcentral-style": "git+https://github.com/classcentral/classcentral-style.git#v0.4.8",
+    "classcentral-style": "git+https://github.com/classcentral/classcentral-style.git#v0.4.12",
     "jquery": "^3.3.1"
   }
 }
