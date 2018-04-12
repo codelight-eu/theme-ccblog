@@ -3,8 +3,8 @@
       class="logo_link head-4 block text--blue-bright"
       href="{{ home_url('/') }}"
       data-responsive='{"xxlargeUp": "head-2"}'>
-    <span class="text--bold">MOOC</span> REPORT
+    <i class="symbol-moocreport-blue symbol--small large-up-symbol--large"></i>
   </a>
-  <div class="block text-5 flush-right text--gray">by<i
+  <div class="block head-6 flush-right text--gray">by<i
         class="symbol-classcentral-gray symbol--xsmall medium-up-symbol--small"></i></div>
 </div>
