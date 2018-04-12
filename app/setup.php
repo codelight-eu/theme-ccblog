@@ -163,6 +163,12 @@ if( function_exists('acf_add_options_page') ) {
     'menu_title'	=> 'Footer content',
     'parent_slug'	=> 'theme-general-settings',
   ));
+
+  acf_add_options_sub_page(array(
+    'page_title' 	=> 'Sidebar Settings',
+    'menu_title'	=> 'Sidebar content',
+    'parent_slug'	=> 'theme-general-settings',
+  ));
 }
 
 /* Set up footer */
@@ -181,6 +187,16 @@ $footerContent
 
 add_action('acf/init', function() use ($footerContent) {
   acf_add_local_field_group($footerContent->build());
+});
+
+/* Set up sidebar */
+$sidebar = new FieldsBuilder('sidebar');
+$sidebar
+  ->addLink('sidebar_link')
+  ->setLocation('options_page', '==', 'acf-options-sidebar-content');
+
+add_action('acf/init', function() use ($sidebar) {
+  acf_add_local_field_group($sidebar->build());
 });
 
 /* Add custom field for User Form */

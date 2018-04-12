@@ -58,8 +58,10 @@
           class="mailChimp mailChimp-layout2 col width-100 bg-blue-light padding-large border--blue-light border--thin border-all margin-top-medium">
         <div class="head-5">
           <span class="margin-right-xsmall">{{ __('Get', 'ccblog') }} <i
-              class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span><a href="#"
-                                                                                                           class="inline-block text--blue">{{ __('Learn more') }} <i class="icon-chevron-right-blue icon--xxsmall"></i></a></div>
+              class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span>
+          <a href="{{ get_field('sidebar_link', 'option')['url'] }}" target="{{ get_field('sidebar_link', 'option')['target'] }}" class="inline-block text--blue">
+            {{ get_field('sidebar_link', 'option')['title'] }} <i class="icon-chevron-right-blue icon--xxsmall"></i>
+          </a></div>
         @php
           mc4wp_show_form('63147');
         @endphp
