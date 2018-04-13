@@ -23,13 +23,14 @@ class EditorPullQuoteButton
 
   public function registerTinymcePlugin(array $plugins)
   {
-    $plugins['pull_quote'] = \App\asset_path('scripts/admin.js');
+    $plugins['quote'] = \App\asset_path('scripts/admin.js');
     return $plugins;
   }
 
   public function addTinymceToolbarButton($buttons)
   {
     $buttons[] = 'pull_quote';
+    $buttons[] = 'quote';
     return $buttons;
   }
 
