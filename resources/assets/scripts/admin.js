@@ -87,7 +87,7 @@
 
     };
 
-    editor.on('init', function(e) {
+    editor.on('init', function() {
       editor.formatter.register(
         'pull_quote_format', {
           block: 'div',
@@ -95,7 +95,6 @@
           wrapper: true,
         }
       );
-      console.log(e);
     });
 
     editor.addButton('pull_quote', {
@@ -107,9 +106,8 @@
       },
       onPostRender: function() {
         let ctrl = this;
-        editor.on('NodeChange', function(e) {
+        editor.on('NodeChange', function() {
           checkFormatMatch('pull', ctrl);
-          console.log(e);
         });
       },
     });
@@ -123,9 +121,8 @@
       },
       onPostRender: function() {
         let ctrl = this;
-        editor.on('NodeChange', function(e) {
+        editor.on('NodeChange', function() {
           checkFormatMatch('quote', ctrl);
-          console.log(e);
         });
       },
     });
