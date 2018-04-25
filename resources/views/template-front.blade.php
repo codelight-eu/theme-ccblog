@@ -65,7 +65,7 @@
     @endif
     @php wp_reset_query(); @endphp
     <div class="main row large-up-margin-top-large">
-      <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small">
+      <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
         <div class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-large">
           <h4 class="head-4 text--bold inline-block bg-white padding-right-medium">{{ __('Recent articles', 'ccblog') }}</h4>
         </div>
