@@ -220,3 +220,16 @@ $relatedTags
 add_action('acf/init', function() use ($relatedTags) {
   acf_add_local_field_group($relatedTags->build());
 });
+
+/* Add disclosure option for post */
+$disclosure = new FieldsBuilder('disclosure');
+$disclosure
+  ->addTrueFalse('edit_disclosure')
+  ->addWysiwyg('disclosure_text')
+    ->setDefaultValue('<strong class="text--bold">Disclosure:</strong> To support our site, Class Central may be compensated by some course providers.')
+    ->conditional('edit_disclosure', '==', '1')
+  ->setLocation('post_type', '==', 'post');
+
+add_action('acf/init', function() use ($disclosure) {
+  acf_add_local_field_group($disclosure->build());
+});

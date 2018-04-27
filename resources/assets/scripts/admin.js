@@ -56,12 +56,12 @@
           let $decoElement, $decoElement2;
           if (!$blockquote.find('.quote_deco').length) {
             if(type === 'pull'){
-              $decoElement = $('<span>&nbsp;</nb></span>').addClass('quote_deco absolute top left border-left border--blue border--thick height-100');
+              $decoElement = $('<span>&nbsp;</nb></span>').addClass('quote_deco absolute top left height-100');
               $blockquote.children().last().append($decoElement);
             }
             else {
-              $decoElement = $('<span><i class="icon-quote-open">&nbsp;</i></span>').addClass('quote_deco absolute top left');
-              $decoElement2 = $('<span>&nbsp;<i class="icon-quote-close"></i></span>').addClass('quote_deco quote_deco-close absolute bottom right');
+              $decoElement = $('<span><i class="icon-quote-open">&ldquo;</i></span>').addClass('quote_deco absolute top left text--blue');
+              $decoElement2 = $('<span><i class="icon-quote-close">&rdquo;</i></span>').addClass('quote_deco quote_deco-close text--blue absolute bottom right');
               $blockquote.children().last().append($decoElement, $decoElement2);
             }
           }
@@ -91,7 +91,7 @@
       editor.formatter.register(
         'pull_quote_format', {
           block: 'div',
-          classes: ['quote', 'relative', 'padding-horz-large'],
+          classes: ['quote', 'relative', 'padding-horz-large', 'xlarge-up-padding-horz-xxlarge', 'padding-vert-xxsmall', 'margin-bottom-large'],
           wrapper: true,
         }
       );

@@ -1,0 +1,41 @@
+.classcentral-style-custom {
+  .quote {
+    font-size: 21px;
+    line-height: 1.3334;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .quote_deco {
+    position: absolute;
+
+    i {
+      text-indent: -99999rem;
+    }
+  }
+
+  .quote-pull {
+    .quote_deco {
+      border-left: 6px solid #5074e9;
+    }
+  }
+
+  .quote-quote {
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (min-width: 769px) {
+  .classcentral-style-custom {
+    .quote {
+      font-size: 35px;
+      line-height: 1.4856;
+      margin-left: -80px;
+      margin-right: -80px;
+    }
+  }
+}
