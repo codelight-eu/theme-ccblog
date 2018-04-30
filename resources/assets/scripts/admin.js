@@ -112,20 +112,5 @@
         });
       },
     });
-
-    editor.addButton('quote', {
-      title: 'Insert quote',
-      text: 'Quote',
-      icon: false,
-      onclick: function() {
-        toggleBlockquoteFormat('quote');
-      },
-      onPostRender: function() {
-        let ctrl = this;
-        editor.on('NodeChange', function() {
-          checkFormatMatch('quote', ctrl);
-        });
-      },
-    });
   });
 })();
