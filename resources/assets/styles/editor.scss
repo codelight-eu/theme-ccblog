@@ -11,9 +11,12 @@
 .quote_deco {
   position: absolute;
   pointer-events: none;
+  display: none;
 }
 
 .quote-pull {
+  border-left: 6px solid #5074e9;
+
   .quote_deco {
     border-left: 6px solid #5074e9;
     left: 0;
@@ -25,7 +28,12 @@
 .quote-quote {
   padding-left: 60px;
 
-  .quote_deco {
+  &::before,
+  &::after {
+    content: '\201C';
+    position: absolute;
+    pointer-events: none;
+    display: block;
     font-size: 100px;
     left: 0;
     top: 0;
@@ -33,7 +41,8 @@
     line-height: 0.5;
   }
 
-  .quote_deco-close {
+  &::after {
+    content: '\201D';
     left: auto;
     top: auto;
     right: 0;

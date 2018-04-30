@@ -3,6 +3,7 @@
   const tinymce = window.tinymce;
 
   tinymce.PluginManager.add('quote', function (editor) {
+
     let checkFormatMatch = function(type, ctrl) {
 
       // Check if the selection matches the format
@@ -56,12 +57,12 @@
           let $decoElement, $decoElement2;
           if (!$blockquote.find('.quote_deco').length) {
             if(type === 'pull'){
-              $decoElement = $('<span>&nbsp;</nb></span>').addClass('quote_deco absolute top left height-100');
+              $decoElement = $('<span>&nbsp;</span>').addClass('quote_deco absolute top left height-100');
               $blockquote.children().last().append($decoElement);
             }
             else {
-              $decoElement = $('<span><i class="icon-quote-open">&ldquo;</i></span>').addClass('quote_deco absolute top left text--blue');
-              $decoElement2 = $('<span><i class="icon-quote-close">&rdquo;</i></span>').addClass('quote_deco quote_deco-close text--blue absolute bottom right');
+              $decoElement = $('<span><i class="icon-quote-open">&nbsp;</i></span>').addClass('quote_deco absolute top left text--blue');
+              $decoElement2 = $('<span><i class="icon-quote-close">&nbsp;</i></span>').addClass('quote_deco quote_deco-close text--blue absolute bottom right');
               $blockquote.children().last().append($decoElement, $decoElement2);
             }
           }
@@ -126,13 +127,5 @@
         });
       },
     });
-
-    /*editor.addCommand('pull_quote', function () {
-      let text = editor.selection.getContent({
-
-      });
-      let creatingElement = '<div class="pullQuote">' + text +'</div>';
-      tinymce.activeEditor.execCommand('mceInsertContent', false, creatingElement)
-    });*/
   });
 })();

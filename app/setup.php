@@ -233,3 +233,13 @@ $disclosure
 add_action('acf/init', function() use ($disclosure) {
   acf_add_local_field_group($disclosure->build());
 });
+
+/* Add image to category */
+$catIcon = new FieldsBuilder('category_options');
+$catIcon
+  ->addImage('category_icon')
+  ->setLocation('taxonomy', '==', 'category');
+
+add_action('acf/init', function() use ($catIcon) {
+  acf_add_local_field_group($catIcon->build());
+});
