@@ -62,14 +62,16 @@
     </div>
     @php
       $args = array(
-        'posts_per_page' => -1,
+        'posts_per_page' => 1,
+        'orderby' => 'date',
+        'order' => 'DESC',
       );
       $featurePostId = get_field('set_featured_post');
       $query = new WP_Query($args);
     @endphp
     @if($query->have_posts())
       @while($query->have_posts()) @php($query->the_post())
-      @if(get_the_id() == $featurePostId)
+      @if(get_field('set_featured'))
         @include('partials.featuredPost')
       @endif
       @endwhile

@@ -135,8 +135,9 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 /* Create fields for featured items */
 $setFeaturedPost = new FieldsBuilder('featured_post');
 $setFeaturedPost
-  ->addPostObject('set_featured_post', ['return_format' => 'id'])
-  ->setLocation('page_template', '==', 'views/template-front.blade.php');
+  ->addTrueFalse('set_featured')
+  ->setInstructions(__('The post with the newest published date will be displayed on front page','ccblog'))
+  ->setLocation('post_type', '==', 'post');
 
 $setFeaturedMessage = new FieldsBuilder('call_to_action');
 $setFeaturedMessage
