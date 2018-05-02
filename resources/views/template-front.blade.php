@@ -5,7 +5,18 @@
 
 @section('content')
 
-  @include('partials.header-full')
+  <header
+      class="row padding-top-small padding-bottom-xxsmall padding-horz-medium border--thin border--gray-dark xlarge-up-absolute width-100 border-box"
+      data-responsive='{
+      "mediumUp": "padding-top-medium padding-bottom-small",
+      "xsmallOnly": "border-bottom",
+      "smallOnly": "border-bottom",
+      "mediumOnly": "border-bottom",
+      "largeOnly": "border-bottom"
+      }'>
+    @include('partials.navbar.navbar-largeScrn', ['frontPage' => true])
+    @include('partials.navbar.navbar-mobile')
+  </header>
   <div
       class="max-width-xl width-centered margin-top-medium row text--charcoal"
       data-responsive='{
@@ -13,7 +24,7 @@
       "largeUp": "padding-horz-large"
     }'>
 
-    <div class="frontIntro padding-horz-small hidden text-center margin-top-xxsmall xlarge-up-block">
+    <div class="frontIntro padding-horz-small hidden text-center margin-top-xxsmall xlarge-up-block large-up-margin-top-medium">
       <div class="frontIntro_logo inline-block">
         <i class="symbol-moocreport-blue symbol--xlarge block margin-bottom-xxsmall"></i>
         <div class="block margin-right-large head-6 flush-right text--gray"><span class="flush-left">by</span> <i class="symbol-classcentral-gray symbol--small margin-top-xxsmall"></i></div>
