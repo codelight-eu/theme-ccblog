@@ -14,17 +14,17 @@ const toggleController = () => {
     ITEM: $(Selector.ITEM),
   };
 
-  const timeoutTime = 200;
+  const timeoutTime = 300;
 
   function init() {
     let isVisible = false;
 
-    $element.TOGGLE.mouseover(function () {
+    $element.TOGGLE.hover(function () {
       const $theItem = $(this).find(Selector.ITEM);
       isVisible = true;
       $theItem.addClass(ClassName.VISIBLE);
       $theItem.removeClass(ClassName.HIDDEN);
-    }).mouseout(function () {
+    }, function () {
       const $theItem = $(this).find(Selector.ITEM);
       setTimeout(function(){
         if(!isVisible) {
