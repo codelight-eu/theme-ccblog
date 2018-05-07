@@ -40,7 +40,6 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
         'footer1' => __('Footer Navigation 1', 'sage'),
         'footer2' => __('Footer Navigation 2', 'sage'),
         'footer3' => __('Footer Navigation 3', 'sage'),
@@ -135,8 +134,14 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 /* Create fields for featured items */
 $setFeaturedPost = new FieldsBuilder('featured_post');
 $setFeaturedPost
-  ->addTrueFalse('set_featured')
-  ->setInstructions(__('The post with the newest published date will be displayed on front page','ccblog'))
+  ->addTrueFalse('set_featured', ['wrapper' => ['width' => 20]])
+  ->addRadio('set_featured_position', ['choices' => ['Position Top' => 'position_top', 'Position Sidebar' => 'position_sidebar'],'wrapper' => ['width' => 30]])
+    ->setInstructions(__('The post with the newest published date will be displayed on the chosen position','ccblog'))
+    ->conditional("set_featured", '==', '1')
+  ->addWysiwyg('section_title', ['wrapper' => ['width' => 25]])
+    ->conditional("set_featured_position", '==', 'position_sidebar')
+  ->addWysiwyg('short_title', ['wrapper' => ['width' => 25]])
+    ->conditional("set_featured_position", '==', 'position_sidebar')
   ->setLocation('post_type', '==', 'post');
 
 $setFeaturedMessage = new FieldsBuilder('call_to_action');
@@ -225,8 +230,8 @@ add_action('acf/init', function() use ($relatedTags) {
 /* Add disclosure option for post */
 $disclosure = new FieldsBuilder('disclosure');
 $disclosure
-  ->addTrueFalse('edit_disclosure')
-  ->addWysiwyg('disclosure_text')
+  ->addTrueFalse('edit_disclosure', ['wrapper' => ['width' => 20]])
+  ->addWysiwyg('disclosure_text',['wrapper' => ['width' => 80]])
     ->setDefaultValue('<strong class="text--bold">Disclosure:</strong> To support our site, Class Central may be compensated by some course providers.')
     ->conditional('edit_disclosure', '==', '1')
   ->setLocation('post_type', '==', 'post');
