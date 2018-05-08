@@ -129,7 +129,7 @@
                 </div>
               </div>
               <time
-                  class="featurePost_date block head-5 text-center text--thin text--italic"
+                  class="featurePost_date block head-5 text-center text--italic"
                   datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
               @if (has_post_thumbnail( get_the_ID() ) )
                 @php $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' ); @endphp

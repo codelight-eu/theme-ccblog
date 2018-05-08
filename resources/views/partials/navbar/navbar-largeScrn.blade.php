@@ -5,15 +5,15 @@
 @endphp
 <div class="navbar-largeScrn hidden large-up-block text-right xxlarge-up-text-center">
   @include("partials.logo")
-  <ul class="externalLinks flush-left margin-left-large relative">
+  <ul class="externalLinks flush-left margin-left-large text-left">
     <li data-toggle-link>
       <a href="#" class="externalLinks_toggle">
         <i class="icon-menu"></i>
       </a>
-      <ul class="externalLinks_container absolute top left right animate-fade-hidden width-centered padding-medium bg-white margin-top-xlarge"
+      <ul class="externalLinks_container absolute  head-5 margin-top-xsmall animate-fade-hidden width-centered padding-medium bg-white margin-left-medium border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-high"
       data-toggle-item>
-        <li><a href="#" class="block padding-left-xsmall">class-central.com</a></li>
-        <li><a href="#" class="block text--blue"><i class="icon-course icon--small"></i>Browse Courses</a></li>
+        <li><a href="#" class="block text--blue padding-left-xsmall margin-bottom-small">class-central.com</a></li>
+        <li><a href="#" class="block text--charcoal"><i class="icon-course icon--small"></i>Browse Courses</a></li>
         <li><a href="#" class="block text--charcoal"><i class="icon-search icon--small"></i>Search</a></li>
         <li><a href="#" class="block text--charcoal"><i class="icon-star icon--small"></i>Write a Review</a></li>
       </ul>

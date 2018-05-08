@@ -19,6 +19,13 @@ const toggleController = () => {
   function init() {
     let isVisible = false;
 
+    $element.ITEM.each(function(){
+      $(this).css({
+        'transform': 'translateX(-50%)',
+        'max-width': '300px',
+      });
+    });
+
     $element.TOGGLE.hover(function () {
       const $theItem = $(this).find(Selector.ITEM);
       isVisible = true;
