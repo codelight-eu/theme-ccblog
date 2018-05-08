@@ -9,8 +9,8 @@
   <header
       class="row padding-top-small padding-bottom-xxsmall padding-horz-medium border-bottom border--thin border--gray-dark"
       data-responsive='{"mediumUp": "padding-top-medium padding-bottom-small"}'>
-  @include('partials.navbar.navbar-largeScrn')
-  @include('partials.navbar.navbar-mobile')
+    @include('partials.navbar.navbar-largeScrn')
+    @include('partials.navbar.navbar-mobile')
   </header>
   <div class="max-width-xl width-centered"
        data-responsive='{
@@ -62,10 +62,14 @@
           class="mailChimp mailChimp-layout2 col width-100 bg-blue-light padding-large border--blue-light border--thin border-all margin-top-medium">
         <div class="head-5">
           <span class="margin-right-xsmall">{{ __('Get', 'ccblog') }} <i
-              class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span>
-          <a href="{{ get_field('sidebar_link', 'option')['url'] }}" target="{{ get_field('sidebar_link', 'option')['target'] }}" class="inline-block text--blue">
-            {{ get_field('sidebar_link', 'option')['title'] }} <i class="icon-chevron-right-blue icon--xxsmall"></i>
-          </a></div>
+                class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span>
+          @if(get_field('sidebar_link', 'option'))
+            <a href="{{ get_field('sidebar_link', 'option')['url'] }}"
+               target="{{ get_field('sidebar_link', 'option')['target'] }}" class="inline-block text--blue">
+              {{ get_field('sidebar_link', 'option')['title'] }} <i class="icon-chevron-right-blue icon--xxsmall"></i>
+            </a>
+          @endif
+        </div>
         @php
           mc4wp_show_form('63147');
         @endphp

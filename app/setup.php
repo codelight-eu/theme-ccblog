@@ -43,6 +43,7 @@ add_action('after_setup_theme', function () {
         'footer1' => __('Footer Navigation 1', 'sage'),
         'footer2' => __('Footer Navigation 2', 'sage'),
         'footer3' => __('Footer Navigation 3', 'sage'),
+        'CC-links' => __('Class Central links', 'sage'),
     ]);
 
     /**
@@ -140,7 +141,7 @@ $setFeaturedPost
     ->conditional("set_featured", '==', '1')
   ->addWysiwyg('section_title', ['wrapper' => ['width' => 25]])
     ->conditional("set_featured_position", '==', 'position_sidebar')
-  ->addText('short_title', ['wrapper' => ['width' => 25]])
+  ->addWysiwyg('short_title', ['wrapper' => ['width' => 25]])
     ->conditional("set_featured_position", '==', 'position_sidebar')
   ->setLocation('post_type', '==', 'post');
 
@@ -171,8 +172,8 @@ if( function_exists('acf_add_options_page') ) {
   ));
 
   acf_add_options_sub_page(array(
-    'page_title' 	=> 'Sidebar Settings',
-    'menu_title'	=> 'Sidebar content',
+    'page_title' 	=> 'External Links',
+    'menu_title'	=> 'External Links',
     'parent_slug'	=> 'theme-general-settings',
   ));
 }
@@ -180,29 +181,45 @@ if( function_exists('acf_add_options_page') ) {
 /* Set up footer */
 $footerContent = new FieldsBuilder('footer');
 $footerContent
-    ->addWysiwyg('footer_title')
-    ->addWysiwyg('footer_content')
+  ->addGroup('footer_container', ['wrapper' => ['width' => 50]])
+    ->addWysiwyg('footer_title', ['wrapper' => ['width' => 50]])
+    ->addWysiwyg('footer_content', ['wrapper' => ['width' => 50]])
+  ->endGroup()
+  ->addGroup('call_to_action', ['wrapper' => ['width' => 50]])
     ->addTab('CTA_1')
-      ->addWysiwyg('CTA_1_text')
-      ->addLink('CTA_1_facebook_link')
-      ->addLink('CTA_1_twitter_link')
+      ->addWysiwyg('CTA_1_text',['wrapper' => ['width' => 50]])
+      ->addGroup('CTA_1_links',['wrapper' => ['width' => 50]])
+        ->addLink('CTA_1_facebook_link')
+        ->addLink('CTA_1_twitter_link')
+      ->endGroup()
     ->addTab('CTA_2')
-      ->addWysiwyg('CTA_2_text')
-      ->addLink('CTA_2_sign-up_link')
+      ->addWysiwyg('CTA_2_text',['wrapper' => ['width' => 50]])
+      ->addLink('CTA_2_sign-up_link',['wrapper' => ['width' => 50]])
+  ->endGroup()
   ->setLocation('options_page', '==', 'acf-options-footer-content');
 
 add_action('acf/init', function() use ($footerContent) {
   acf_add_local_field_group($footerContent->build());
 });
 
-/* Set up sidebar */
+/* Set up class central links */
+$ccLinks = new FieldsBuilder('class_central');
+$ccLinks
+  ->addLink('link_1')
+  ->addLink('link_2')
+  ->addLink('link_3')
+  ->addLink('link_4')
+  ->setLocation('options_page', '==', 'acf-options-external-links');
+
+/* Set up sidebar link */
 $sidebar = new FieldsBuilder('sidebar');
 $sidebar
   ->addLink('sidebar_link')
-  ->setLocation('options_page', '==', 'acf-options-sidebar-content');
+  ->setLocation('options_page', '==', 'acf-options-external-links');
 
-add_action('acf/init', function() use ($sidebar) {
+add_action('acf/init', function() use ($sidebar, $ccLinks) {
   acf_add_local_field_group($sidebar->build());
+  acf_add_local_field_group($ccLinks->build());
 });
 
 /* Add custom field for User Form */
