@@ -211,15 +211,24 @@ $ccLinks
   ->addLink('link_4')
   ->setLocation('options_page', '==', 'acf-options-external-links');
 
+/* Set up follow links */
+$follow = new FieldsBuilder('follow_links');
+$follow
+  ->addLink('rss')
+  ->addLink('facebook')
+  ->addLink('twitter')
+  ->setLocation('options_page', '==', 'acf-options-external-links');
+
 /* Set up sidebar link */
 $sidebar = new FieldsBuilder('sidebar');
 $sidebar
   ->addLink('sidebar_link')
   ->setLocation('options_page', '==', 'acf-options-external-links');
 
-add_action('acf/init', function() use ($sidebar, $ccLinks) {
+add_action('acf/init', function() use ($sidebar, $ccLinks, $follow) {
   acf_add_local_field_group($sidebar->build());
   acf_add_local_field_group($ccLinks->build());
+  acf_add_local_field_group($follow->build());
 });
 
 /* Add custom field for User Form */
