@@ -4,14 +4,14 @@
     <i class="icon-menu-charcoal icon--medium"></i>
   </a>
   <div
-      class="menu hidden border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row xlarge-up-hidden">
+      class="menu border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row xlarge-up-hidden border-all">
     <div class="menu_left col width-100 small-up-width-1-3">
-      <div class="block padding-top-small padding-right-small padding-bottom-small">
+      <div class="block padding-right-small padding-bottom-small">
         <span class="inline-block text-1 text--bold">{{ __('Categories', 'ccblog') }}</span>
       </div>
       <div
-          class="category width-1-2 small-up-width-100 padding-vert-xxsmall"
-          data-responsive='{"xsmallOnly": "border-bottom"}'
+          class="category width-1-2 small-up-width-100 padding-bottom-xsmall"
+          data-responsive='{"xsmallOnly": "border-bottom  border--gray-dark border--thin"}'
       >
         @php
           $categories = get_categories();
@@ -34,24 +34,17 @@
     <div
         class="menu_right col width-100 small-up-width-2-3 small-up-padding-left-large"
         data-responsive='{
-          "smallUp": "border-left"
-    }'>
-      <a href="#" class="moocwatchToggle hidden xlarge-up-inline-block padding-vert-xxsmall padding-left-xsmall">
-        <span class="inline-block text--charcoal text-1"><i class="symbol-moocwatch-charcoal symbol--small"></i> <i
-              class="hidden medium-up-inline-block icon--xsmall icon-chevron-down"></i></span>
-      </a>
-      <div class="MoocWatch width-1-2 small-up-width-100 padding-vert-large border-bottom">
-        <div class="xlarge-up-hidden padding-vert-xxsmall">
-          <span class="inline-block text-1"><i class="symbol-moocwatch-charcoal symbol--small"></i></span>
+          "smallUp": "border-left border--gray-dark border--thin"
+        }'>
+      <div class="width-2-3 small-up-width-100 padding-bottom-large"
+           data-responsive='{"xsmallOnly": "padding-top-large"}'>
+        <div class="xlarge-up-hidden">
+          <span class="inline-block head-6"><strong class="text--bold">MOOC</strong>WATCH</span>
         </div>
-        <div class="test">testcotnent</div>
-        <div class="test">testcotnent</div>
-        <div class="test">testcotnent</div>
+        @include('partials.quickArticles')
       </div>
-      <div class="need3Linki-mobiilimenüüs padding-vert-large">
-        <div class="test">testcotnent</div>
-        <div class="test">testcotnent</div>
-        <div class="test">testcotnent</div>
+      <div class="padding-vert-large border-top border--gray-dark border--thin width-1-2 small-up-width-2-3">
+        @include('partials.externalLinks')
       </div>
     </div>
   </div>

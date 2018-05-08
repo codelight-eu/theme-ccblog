@@ -141,7 +141,7 @@ $setFeaturedPost
     ->conditional("set_featured", '==', '1')
   ->addWysiwyg('section_title', ['wrapper' => ['width' => 25]])
     ->conditional("set_featured_position", '==', 'position_sidebar')
-  ->addWysiwyg('short_title', ['wrapper' => ['width' => 25]])
+  ->addText('short_title', ['wrapper' => ['width' => 25]])
     ->conditional("set_featured_position", '==', 'position_sidebar')
   ->setLocation('post_type', '==', 'post');
 
