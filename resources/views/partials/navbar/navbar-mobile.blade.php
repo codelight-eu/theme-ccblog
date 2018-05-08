@@ -1,4 +1,9 @@
-<div class="navbar-mobile large-up-hidden" data-toggle-clickable>
+@php
+  if(!isset($frontPage)){
+  $frontPage = false;
+  }
+@endphp
+<div class="navbar-mobile xlarge-up-hidden @if($frontPage)large-up-hidden @endif" data-toggle-link>
   @include("partials.logo")
     <span class="menuToggle flush-right xlarge-up-hidden cursor-pointer">
     <i class="icon-menu-charcoal icon--medium"></i>

@@ -3,14 +3,14 @@
   $frontPage = false;
   }
 @endphp
-<div class="navbar-largeScrn hidden large-up-block text-right xxlarge-up-text-center">
+<div class="navbar-largeScrn hidden @if(!$frontPage)large-up-block @endif xlarge-up-block text-right xxlarge-up-text-center">
   @include("partials.logo")
   <ul class="flush-left margin-left-large text-left">
     <li data-toggle-link>
       <span class="externalLinks_toggle cursor-pointer">
         <i class="icon-menu"></i>
       </span>
-      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white margin-left-medium border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-high" data-toggle-item>
+      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white margin-left-medium border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-high" data-toggle-item data-toggle-setCenter>
         @include('partials.externalLinks')
       </div>
     </li>
@@ -48,5 +48,7 @@
     @include('partials.follow')
   </div>
   <div
-      class="inline-block flush-right margin-right-xsmall @if($frontPage)hidden @endif">@include('partials.quickArticles')</div>
+      class="inline-block text-left flush-right margin-right-xsmall @if($frontPage)hidden @endif">
+    @include('partials.quickArticles-opener')
+  </div>
 </div>
