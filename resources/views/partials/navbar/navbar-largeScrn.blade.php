@@ -7,9 +7,9 @@
   @include("partials.logo")
   <ul class="flush-left margin-left-large text-left">
     <li data-toggle-link>
-      <a href="#" class="externalLinks_toggle">
+      <span class="externalLinks_toggle cursor-pointer">
         <i class="icon-menu"></i>
-      </a>
+      </span>
       <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white margin-left-medium border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-high" data-toggle-item>
         @include('partials.externalLinks')
       </div>

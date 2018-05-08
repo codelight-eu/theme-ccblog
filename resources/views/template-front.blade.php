@@ -64,13 +64,13 @@
         @endforeach
         <ul class="inline-block text-left">
           <li data-toggle-link>
-            <a href="#"
-               class="quickArticles_toggle hidden medium-up-inline-block xlarge-hidden padding-vert-xxsmall padding-left-xsmall">
+            <span
+               class="quickArticles_toggle cursor-pointer hidden medium-up-inline-block xlarge-hidden padding-vert-xxsmall padding-left-xsmall">
               <span class="inline-block text--charcoal text-1">
                 <i class="symbol-moocwatch-charcoal symbol--small"></i> <i
                     class="hidden medium-up-inline-block icon--xsmall icon-chevron-down"></i>
               </span>
-            </a>
+            </span>
             <div
                 class="animate-fade-hidden width-100 absolute margin-left-xxlarge margin-top-xsmall bg-white border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-high"
                 data-toggle-item>

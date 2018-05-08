@@ -1,10 +1,11 @@
-<div class="navbar-mobile large-up-hidden">
+<div class="navbar-mobile large-up-hidden" data-toggle-clickable>
   @include("partials.logo")
-    <a href="#" class="menuToggle flush-right xlarge-up-hidden">
+    <span class="menuToggle flush-right xlarge-up-hidden cursor-pointer">
     <i class="icon-menu-charcoal icon--medium"></i>
-  </a>
+  </span>
   <div
-      class="menu border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row xlarge-up-hidden border-all">
+      class="menu animate-fade-hidden border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row xlarge-up-hidden border-all"
+      data-toggle-item>
     <div class="menu_left col width-100 small-up-width-1-3">
       <div class="block padding-right-small padding-bottom-small">
         <span class="inline-block text-1 text--bold">{{ __('Categories', 'ccblog') }}</span>
