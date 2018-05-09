@@ -34,6 +34,10 @@ const HOVERABLEController = () => {
       $element.HOVERABLE.hover(function () {
         const $theItem = $(this).find(Selector.ITEM);
         isVisible = true;
+        $element.ITEM.each(function(){
+          $(this).removeClass(ClassName.VISIBLE);
+          $(this).addClass(ClassName.HIDDEN);
+        });
         $theItem.addClass(ClassName.VISIBLE);
         $theItem.removeClass(ClassName.HIDDEN);
       }, function () {
@@ -53,6 +57,10 @@ const HOVERABLEController = () => {
           $theItem.addClass(ClassName.HIDDEN);
           $theItem.removeClass(ClassName.VISIBLE);
         } else {
+          $element.ITEM.each(function(){
+            $(this).removeClass(ClassName.VISIBLE);
+            $(this).addClass(ClassName.HIDDEN);
+          });
           $theItem.addClass(ClassName.VISIBLE);
           $theItem.removeClass(ClassName.HIDDEN);
         }

@@ -45,7 +45,7 @@
       <div class="width-2-3 small-up-width-100 padding-bottom-large"
            data-responsive='{"xsmallOnly": "padding-top-large"}'>
         <div class="xlarge-up-hidden">
-          <span class="inline-block head-6"><strong class="text--bold">MOOC</strong>WATCH</span>
+          <span class="inline-block head-6"><i class="symbol-moocwatch-charcoal symbol--small"></i></span>
         </div>
         @include('partials.quickArticles')
       </div>
