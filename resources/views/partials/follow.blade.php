@@ -1,5 +1,4 @@
-<ul class="follow">
-  <li class="pull margin-right-xsmall head-5 margin-top-xxsmall">{{ __('Stay up to date', 'ccblog') }}</li>
+<ul class="follow inline-block">
   @if(get_field('rss', 'option'))
   <li class="pull margin-right-xsmall">
     <a href="{{ get_field('rss', 'option')['url'] }}" target="{{ get_field('rss', 'option')['target'] }}" title="{{ get_field('rss', 'option')['title'] }}">

@@ -70,6 +70,7 @@
     </div>
   </div>
   <div class="flush-right margin-top-xxsmall">
+    <div class="pull margin-right-xsmall head-5 margin-top-xxsmall">{{ __('Stay up to date', 'ccblog') }}</div>
     @include('partials.follow')
   </div>
   <div

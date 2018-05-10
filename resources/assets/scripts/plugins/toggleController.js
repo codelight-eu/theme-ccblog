@@ -5,6 +5,7 @@ const toggleController = () => {
   const ClassName = {
     VISIBLE: 'animate-fade-entered',
     HIDDEN: 'animate-fade-hidden',
+    OPENSTATE: 'js-toggle-opened',
   };
 
   const Selector = {
@@ -13,11 +14,13 @@ const toggleController = () => {
     CLICKABLE: '[data-toggle-clickable]',
     ITEM: '[data-toggle-item]',
     CENTRIZE: '[data-toggle-setCenter]',
+    CONTENT: '[data-toggle-content]',
   };
 
   const $element = {
     HOVERABLE: $(Selector.HOVERABLE),
     CLICKABLE: $(Selector.CLICKABLE),
+    CONTAINER: $(Selector.CONTAINER),
     ITEM: $(Selector.ITEM),
   };
 
@@ -43,6 +46,9 @@ const toggleController = () => {
         $element.ITEM.each(function(){
           $(this).removeClass(ClassName.VISIBLE);
           $(this).addClass(ClassName.HIDDEN);
+        });
+        $element.CONTAINER.each(function(){
+          $(this).removeClass(ClassName.OPENSTATE);
         });
         $theItem.addClass(ClassName.VISIBLE);
         $theItem.removeClass(ClassName.HIDDEN);
@@ -84,6 +90,9 @@ const toggleController = () => {
             $(this).removeClass(ClassName.VISIBLE);
             $(this).addClass(ClassName.HIDDEN);
           });
+          $element.CONTAINER.each(function(){
+            $(this).removeClass(ClassName.OPENSTATE);
+          });
           $theItem.addClass(ClassName.VISIBLE);
           $theItem.removeClass(ClassName.HIDDEN);
         }
@@ -92,10 +101,12 @@ const toggleController = () => {
 
     /* toggle function for clicking */
     $element.CLICKABLE.click(function () {
-      const $theItem = $(this).find(Selector.ITEM);
+      const $theContainer = $(this).parents(Selector.CONTAINER);
+      const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
       if ($theItem.hasClass(ClassName.VISIBLE)) {
         $theItem.addClass(ClassName.HIDDEN);
         $theItem.removeClass(ClassName.VISIBLE);
+        $theContainer.removeClass(ClassName.OPENSTATE);
       } else {
         $element.ITEM.each(function(){
           $(this).removeClass(ClassName.VISIBLE);
@@ -103,6 +114,7 @@ const toggleController = () => {
         });
         $theItem.addClass(ClassName.VISIBLE);
         $theItem.removeClass(ClassName.HIDDEN);
+        $theContainer.addClass(ClassName.OPENSTATE);
       }
     });
   }

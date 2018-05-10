@@ -1,0 +1,17 @@
+.follow_content-state1 {
+  display: block;
+}
+
+.follow_content-state2 {
+  display: none;
+}
+
+.follow-mobile.js-toggle-opened {
+  .follow_content-state1 {
+    display: none;
+  }
+
+  .follow_content-state2 {
+    display: block;
+  }
+}

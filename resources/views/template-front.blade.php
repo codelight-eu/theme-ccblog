@@ -10,7 +10,7 @@
     @include('partials.navbar.navbar-largeScrn', ['frontPage' => true])
     @include('partials.navbar.navbar-mobile', ['frontPage' => true])
   </header>
-  @include('partials.follow-mobile')
+  @include('partials.follow-mobile', array('frontPage' => 'true'))
   <div
       class="max-width-xl width-centered padding-top-medium row text--charcoal"
       data-responsive='{

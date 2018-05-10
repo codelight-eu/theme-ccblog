@@ -12,6 +12,7 @@
     @include('partials.navbar.navbar-largeScrn')
     @include('partials.navbar.navbar-mobile')
   </header>
+  @include('partials.follow-mobile')
   <div class="max-width-xl width-centered"
        data-responsive='{
       "mediumUp": "padding-horz-medium",
