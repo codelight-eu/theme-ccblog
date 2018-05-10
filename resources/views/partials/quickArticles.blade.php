@@ -14,7 +14,7 @@
           </div>
         @endif
         <div class="quickArticle_content overflow-hidden margin-top-xxsmall">
-          <p>{{ the_date('F Y') }}</p>
+          <a class="block text--charcoal" href="{{ get_permalink() }}">{{ the_date('F Y') }}</a>
           <a class="text--bold head-5 text--charcoal" href="{{ get_permalink() }}">
             @if(get_field('short_title'))
               {!! get_field('short_title') !!}

@@ -6,19 +6,13 @@
 @section('content')
 
   <header
-      class="row padding-top-small padding-bottom-xxsmall padding-horz-medium border--thin border--gray-dark xlarge-up-absolute width-100 border-box"
-      data-responsive='{
-      "mediumUp": "padding-top-medium padding-bottom-small",
-      "xsmallOnly": "border-bottom",
-      "smallOnly": "border-bottom",
-      "mediumOnly": "border-bottom",
-      "largeOnly": "border-bottom"
-      }'>
+      class="row z-high xlarge-up-absolute padding-top-medium padding-bottom-small padding-horz-medium width-100 border-box">
     @include('partials.navbar.navbar-largeScrn', ['frontPage' => true])
     @include('partials.navbar.navbar-mobile', ['frontPage' => true])
   </header>
+  @include('partials.follow-mobile')
   <div
-      class="max-width-xl width-centered margin-top-medium row text--charcoal"
+      class="max-width-xl width-centered padding-top-medium row text--charcoal"
       data-responsive='{
       "mediumUp": "padding-horz-medium",
       "largeUp": "padding-horz-large"

@@ -2,28 +2,33 @@
   if(!isset($frontPage)){
   $frontPage = false;
   }
+  if(!isset($article)){
+  $article = false;
+  }
 @endphp
-<div class="navbar-largeScrn hidden @if(!$frontPage)large-up-block @endif xlarge-up-block text-right xxlarge-up-text-center">
+<div class="navbar-largeScrn hidden @if(!$frontPage)large-up-block @endif xlarge-up-block text-right"
+     data-responsive='{"fullMenuBreakpointUp": "xxlarge-up-text-center"}'>
   @include("partials.logo")
   <ul class="flush-left margin-left-large text-left">
-    <li data-toggle-link>
-      <span class="externalLinks_toggle cursor-pointer">
+    <li  data-toggle-container>
+      <span class="externalLinks_toggle cursor-pointer" data-toggle-link>
         <i class="icon-menu"></i>
       </span>
-      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white margin-left-medium border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-high" data-toggle-item data-toggle-setCenter>
+      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white margin-left-medium border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-low" data-toggle-item data-toggle-setCenter>
         @include('partials.externalLinks')
       </div>
     </li>
   </ul>
   <div
       class="category head-5 hidden large-up-flush-right @if(!$frontPage)medium-up-inline-block @endif"
-      data-toggle-link>
-    <div class="category-toggle margin-top-xsmall xxlarge-up-hidden cursor-pointer">
+      data-toggle-container>
+    <div class="category-toggle margin-top-xsmall cursor-pointer" data-responsive='{"fullMenuBreakpointUp": "hidden"}' data-toggle-link>
       {{ __('Categories', 'ccblog') }}
       <i class="medium-up-inline-block icon--xsmall icon-chevron-down"></i>
     </div>
     <div
-        class="xxlarge-up-hidden margin-top-small margin-left-xlarge padding-vert-medium absolute text-left animate-fade-hidden bg-white radius shadow arrow arrow-top-middle arrow--medium border-all border--gray-dark border--thin z-high"
+        class="margin-top-small margin-left-xlarge padding-vert-medium absolute text-left animate-fade-hidden bg-white radius shadow arrow arrow-top-middle arrow--medium border-all border--gray-dark border--thin z-low"
+        data-responsive='{"fullMenuBreakpointUp": "hidden"}'
         data-toggle-item
         data-toggle-setCenter>
       @php
@@ -44,7 +49,8 @@
       @endforeach
     </div>
     <div
-        class="xxlarge-up-inline hidden relative text-left">
+        class="hidden relative text-left"
+        data-responsive='{"fullMenuBreakpointUp": "xxlarge-up-inline"}'>
       @php
         $categories = get_categories();
         $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
@@ -71,3 +77,4 @@
     @include('partials.quickArticles-opener')
   </div>
 </div>
+@include('partials.navbar.contextBar', array('article' => $article))

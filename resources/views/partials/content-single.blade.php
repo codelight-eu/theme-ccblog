@@ -2,6 +2,12 @@
   $categories = get_the_category();
   $tags = get_the_tags();
 @endphp
+<header
+    class="row padding-top-small padding-bottom-xxsmall padding-horz-medium border-bottom border--thin border--gray-dark"
+    data-responsive='{"mediumUp": "padding-top-medium padding-bottom-small"}'>
+  @include('partials.navbar.navbar-largeScrn', array('article' => 'true'))
+  @include('partials.navbar.navbar-mobile')
+</header>
 <article @php(post_class('article max-width-l border-box width-centered text--charcoal padding-left-large padding-right-large large-up-padding-horz-xxlarge padding-top-medium padding-bottom-xsmall medium-up-padding-bottom-xxlarge'))>
   <header class="text-center margin-bottom-medium medium-up-margin-bottom-xxlarge">
     <div class="disclosure text-2 text--blue margin-bottom-xlarge medium-up-margin-bottom-large margin-top-xsmall medium-up-margin-top-medium">

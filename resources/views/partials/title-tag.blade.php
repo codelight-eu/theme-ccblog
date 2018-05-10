@@ -1,5 +1,5 @@
 <p class="text-1">{{ __('Tagged in', 'ccblog') }}</p>
-<h1 class="head-1 text--bold inline-block bg-white padding-right-medium">{!! \App\App::title() !!}</h1>
+<h1 class="head-2 medium-up-head-1 text--bold inline-block bg-white padding-right-medium">{!! \App\App::title() !!}</h1>
 @if(get_field('set_related_tags', get_queried_object_id()))
   @php
     $tags = get_field('set_related_tags', get_queried_object_id());

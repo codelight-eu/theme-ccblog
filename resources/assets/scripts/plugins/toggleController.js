@@ -1,4 +1,4 @@
-const HOVERABLEController = () => {
+const toggleController = () => {
 
   const BreakPoint = 1024;
 
@@ -8,13 +8,16 @@ const HOVERABLEController = () => {
   };
 
   const Selector = {
+    CONTAINER: '[data-toggle-container]',
     HOVERABLE: '[data-toggle-link]',
+    CLICKABLE: '[data-toggle-clickable]',
     ITEM: '[data-toggle-item]',
     CENTRIZE: '[data-toggle-setCenter]',
   };
 
   const $element = {
     HOVERABLE: $(Selector.HOVERABLE),
+    CLICKABLE: $(Selector.CLICKABLE),
     ITEM: $(Selector.ITEM),
   };
 
@@ -23,7 +26,8 @@ const HOVERABLEController = () => {
   function init() {
     let isVisible = false;
 
-    $element.HOVERABLE.find(Selector.CENTRIZE).each(function () {
+    /* Adjust targeted content */
+    $element.HOVERABLE.parents(Selector.CONTAINER).find(Selector.CENTRIZE).each(function () {
       $(this).css({
         'transform': 'translateX(-50%)',
         'max-width': '300px',
@@ -31,8 +35,10 @@ const HOVERABLEController = () => {
     });
 
     if(window.matchMedia(`(min-width: ${BreakPoint}px)`).matches) {
+
+      /* Show and hide content on hover */
       $element.HOVERABLE.hover(function () {
-        const $theItem = $(this).find(Selector.ITEM);
+        const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
         isVisible = true;
         $element.ITEM.each(function(){
           $(this).removeClass(ClassName.VISIBLE);
@@ -41,7 +47,7 @@ const HOVERABLEController = () => {
         $theItem.addClass(ClassName.VISIBLE);
         $theItem.removeClass(ClassName.HIDDEN);
       }, function () {
-        const $theItem = $(this).find(Selector.ITEM);
+        const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
         setTimeout(function () {
           if (!isVisible) {
             $theItem.removeClass(ClassName.VISIBLE);
@@ -50,9 +56,26 @@ const HOVERABLEController = () => {
         }, timeoutTime);
         isVisible = false;
       });
+
+      /* When hovering content, disable hiding */
+      let $contentItem;
+      $element.ITEM.hover(function(){
+        $contentItem = $(this);
+        isVisible = true;
+      }, function(){
+        isVisible = false;
+        setTimeout(function () {
+          if (!isVisible) {
+            $contentItem.removeClass(ClassName.VISIBLE);
+            $contentItem.addClass(ClassName.HIDDEN);
+          }
+        }, timeoutTime);
+      });
+
     } else {
+      /* Make hoverable toggle-content visible on clicks on smaller screens */
       $element.HOVERABLE.click(function () {
-        const $theItem = $(this).find(Selector.ITEM);
+        const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
         if ($theItem.hasClass(ClassName.VISIBLE)) {
           $theItem.addClass(ClassName.HIDDEN);
           $theItem.removeClass(ClassName.VISIBLE);
@@ -66,9 +89,25 @@ const HOVERABLEController = () => {
         }
       });
     }
+
+    /* toggle function for clicking */
+    $element.CLICKABLE.click(function () {
+      const $theItem = $(this).find(Selector.ITEM);
+      if ($theItem.hasClass(ClassName.VISIBLE)) {
+        $theItem.addClass(ClassName.HIDDEN);
+        $theItem.removeClass(ClassName.VISIBLE);
+      } else {
+        $element.ITEM.each(function(){
+          $(this).removeClass(ClassName.VISIBLE);
+          $(this).addClass(ClassName.HIDDEN);
+        });
+        $theItem.addClass(ClassName.VISIBLE);
+        $theItem.removeClass(ClassName.HIDDEN);
+      }
+    });
   }
 
   init();
 };
 
-export default HOVERABLEController;
+export default toggleController;

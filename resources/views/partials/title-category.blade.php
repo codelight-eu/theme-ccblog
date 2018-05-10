@@ -10,7 +10,7 @@
 </div>
 @endif
 <div class="overflow-hidden">
-  <h1 class="head-1 text--bold inline-block bg-white padding-right-medium margin-top-xsmall margin-bottom-xsmall large-up-margin-bottom-small">{!! \App\App::title() !!}</h1>
+  <h1 class="head-2 medium-up-head-1 text--bold inline-block bg-white padding-right-medium margin-top-xsmall margin-bottom-xsmall large-up-margin-bottom-small">{!! \App\App::title() !!}</h1>
   <div class="text-1">
     {!! category_description() !!}
   </div>

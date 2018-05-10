@@ -1,16 +1,16 @@
 @php
   $tag = get_term_by('name', 'MOOCWatch', 'post_tag');
 @endphp
-<div data-toggle-link>
+<div data-toggle-container>
   <span
     class="quickArticles_toggle cursor-pointer hidden medium-up-inline-block xlarge-hidden padding-vert-xxsmall padding-left-xsmall">
-    <span class="inline-block text--charcoal text-1">
+    <span class="inline-block text--charcoal text-1" data-toggle-link>
       <i class="symbol-moocwatch-charcoal symbol--small"></i> <i
         class="hidden medium-up-inline-block icon--xsmall icon-chevron-down"></i>
     </span>
   </span>
   <div
-    class="animate-fade-hidden width-100 absolute margin-left-xxlarge margin-top-xsmall bg-white border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-high"
+    class="animate-fade-hidden width-100 absolute margin-left-xxlarge margin-top-xsmall bg-white border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-low"
     data-toggle-item data-toggle-setCenter>
     <div class="padding-horz-large">
       @include('partials.quickArticles')

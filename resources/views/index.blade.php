@@ -7,8 +7,8 @@
 
 @section('content')
   <header
-      class="row padding-top-small padding-bottom-xxsmall padding-horz-medium border-bottom border--thin border--gray-dark"
-      data-responsive='{"mediumUp": "padding-top-medium padding-bottom-small"}'>
+      class="row z-high padding-top-small padding-horz-medium padding-top-medium padding-bottom-small border--thin border--gray-dark"
+      data-responsive='{"largeUp": "border-bottom"}'>
     @include('partials.navbar.navbar-largeScrn')
     @include('partials.navbar.navbar-mobile')
   </header>
