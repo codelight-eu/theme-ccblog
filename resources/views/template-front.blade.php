@@ -5,12 +5,12 @@
 
 @section('content')
 
+  @include('partials.follow-mobile', array('frontPage' => 'true'))
   <header
       class="row z-high xlarge-up-absolute padding-top-medium padding-bottom-small padding-horz-medium width-100 border-box">
     @include('partials.navbar.navbar-largeScrn', ['frontPage' => true])
     @include('partials.navbar.navbar-mobile', ['frontPage' => true])
   </header>
-  @include('partials.follow-mobile', array('frontPage' => 'true'))
   <div
       class="max-width-xl width-centered padding-top-medium row text--charcoal"
       data-responsive='{

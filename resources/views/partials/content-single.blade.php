@@ -2,6 +2,7 @@
   $categories = get_the_category();
   $tags = get_the_tags();
 @endphp
+@include('partials.follow-mobile', array('article' => 'true'))
 <header
     class="row padding-top-small padding-bottom-xxsmall padding-horz-medium border-bottom border--thin border--gray-dark"
     data-responsive='{"mediumUp": "padding-top-medium padding-bottom-small"}'>

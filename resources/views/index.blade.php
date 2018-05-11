@@ -6,13 +6,13 @@
 @extends('layouts.app')
 
 @section('content')
+  @include('partials.follow-mobile')
   <header
       class="row z-high padding-top-small padding-horz-medium padding-top-medium padding-bottom-small border--thin border--gray-dark"
       data-responsive='{"largeUp": "border-bottom"}'>
     @include('partials.navbar.navbar-largeScrn')
     @include('partials.navbar.navbar-mobile')
   </header>
-  @include('partials.follow-mobile')
   <div class="max-width-xl width-centered"
        data-responsive='{
       "mediumUp": "padding-horz-medium",
