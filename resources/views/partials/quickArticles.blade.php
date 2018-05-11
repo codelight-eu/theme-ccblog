@@ -16,8 +16,8 @@
         <div class="quickArticle_content overflow-hidden margin-top-xxsmall">
           <a class="block text--charcoal" href="{{ get_permalink() }}">{{ the_date('F Y') }}</a>
           <a class="text--bold head-5 text--charcoal" href="{{ get_permalink() }}">
-            @if(get_field('short_title'))
-              {!! get_field('short_title') !!}
+            @if(get_field('sidebar_settings')['short_title'])
+              {!! get_field('sidebar_settings')['short_title'] !!}
             @else
               {{ the_title() }}
             @endif

@@ -120,8 +120,12 @@
             <div
                 class="featurePost-sidebar border-all border--thin border--gray-dark radius padding-horz-large large-up-padding-bottom-xxlarge padding-bottom-xlarge margin-bottom-xlarge medium-up-margin-bottom-xxlarge">
               <div class="text-center">
-                <div class="text--charcoal relative nudge-top-half head-3 padding-horz-small bg-white inline-block">
-                  {!! get_field('section_title') !!}
+                <div class="text--charcoal relative nudge-top-half padding-horz-small bg-white inline-block">
+                  @if(get_field('sidebar_settings')['set_section_title'] == 'title_custom')
+                    <span class="head-3">{!! get_field('sidebar_settings')['section_title'] !!}</span>
+                  @elseif(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
+                    @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i> <span class="head-4">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
+                  @endif
                 </div>
               </div>
               <time
@@ -137,7 +141,7 @@
               @endif
               <h2 class="head-2 text-center margin-top-xsmall">
                 <a href="{{ get_permalink() }}" class="text--charcoal">
-                  {!! get_field('short_title') ? get_field('short_title') : the_title() !!}
+                  {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
                 </a></h2>
               <div
                   class="featurePost_description text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>

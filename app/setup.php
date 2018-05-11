@@ -139,10 +139,15 @@ $setFeaturedPost
   ->addRadio('set_featured_position', ['choices' => ['Position Top' => 'position_top', 'Position Sidebar' => 'position_sidebar'],'wrapper' => ['width' => 30]])
     ->setInstructions(__('The post with the newest published date will be displayed on the chosen position','ccblog'))
     ->conditional("set_featured", '==', '1')
-  ->addWysiwyg('section_title', ['wrapper' => ['width' => 25]])
-    ->conditional("set_featured_position", '==', 'position_sidebar')
-  ->addText('short_title', ['wrapper' => ['width' => 25]])
-    ->conditional("set_featured_position", '==', 'position_sidebar')
+  ->addGroup('sidebar_settings', ['wrapper' => ['width' => 50]])
+  ->conditional("set_featured_position", '==', 'position_sidebar')
+    ->addRadio('set_section_title', ['choices' => ['Use MOOCWATCH No' => 'title_moocwatch', 'Use custom title' => 'title_custom']])
+    ->addNumber('moocwatch_no')
+      ->conditional("set_section_title", '==', 'title_moocwatch')
+    ->addWysiwyg('section_title')
+      ->conditional("set_section_title", '==', 'title_custom')
+    ->addText('short_title')
+  ->endGroup()
   ->setLocation('post_type', '==', 'post');
 
 $setFeaturedMessage = new FieldsBuilder('call_to_action');
