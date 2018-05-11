@@ -6,6 +6,7 @@ const toggleController = () => {
     VISIBLE: 'animate-fade-entered',
     HIDDEN: 'animate-fade-hidden',
     OPENSTATE: 'js-toggle-opened',
+    ZINDEX: 'z-high',
   };
 
   const Selector = {
@@ -81,10 +82,12 @@ const toggleController = () => {
     } else {
       /* Make hoverable toggle-content visible on clicks on smaller screens */
       $element.HOVERABLE.click(function () {
+        const $theContainer = $(this).parents(Selector.CONTAINER);
         const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
         if ($theItem.hasClass(ClassName.VISIBLE)) {
           $theItem.addClass(ClassName.HIDDEN);
           $theItem.removeClass(ClassName.VISIBLE);
+          $theContainer.removeClass(ClassName.ZINDEX);
         } else {
           $element.ITEM.each(function(){
             $(this).removeClass(ClassName.VISIBLE);
@@ -95,6 +98,7 @@ const toggleController = () => {
           });
           $theItem.addClass(ClassName.VISIBLE);
           $theItem.removeClass(ClassName.HIDDEN);
+          $theContainer.addClass(ClassName.ZINDEX);
         }
       });
     }

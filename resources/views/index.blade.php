@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="sidebar col width-100 large-up-width-2-5 padding-horz-xlarge medium-up-padding-horz-small">
+    <div class="sidebar col width-100 large-up-width-2-5 padding-horz-xlarge medium-up-padding-horz-small margin-bottom-xxlarge">
       <div class="sidebar_title border-center margin-bottom-medium">
         <div
             class="head-4 text--bold inline-block border--gray-dark bg-white padding-right-xsmall">{{ __('About', 'ccblog') }}</div>
