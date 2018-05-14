@@ -97,11 +97,11 @@
   </footer>
 </article>
 <div class="bg-gray padding-top-large padding-bottom-xxlarge large-up-padding-bottom-large border-top border--gray-dark border--thin border-bottom">
-  <div class="max-width-l border-box width-centered padding-horz-xxlarge">
+  <div class="max-width-l border-box width-centered padding-horz-medium">
     @php(related_posts(['template' => 'yarpp-template-ccblog.php']))
   </div>
 </div>
-<div class="comments max-width-l border-box width-centered padding-horz-medium margin-bottom-xxlarge">
+<div class="comments max-width-l border-box width-centered padding-horz-medium large-up-padding-horz-xxlarge margin-bottom-xxlarge">
   <div class="comments_icon text-center margin-top-medium margin-bottom-xsmall">
     <i class="icon-comment icon--xlarge"></i>
   </div>

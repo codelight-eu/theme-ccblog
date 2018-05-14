@@ -14,7 +14,11 @@
           </div>
         @endif
         <div class="quickArticle_content overflow-hidden margin-top-xxsmall">
-          <a class="block text--charcoal" href="{{ get_permalink() }}">{{ the_date('F Y') }}</a>
+          <a class="block text--charcoal" href="{{ get_permalink() }}">{{ the_date('F Y') }}
+            @if(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
+              @if(get_field('sidebar_settings')['moocwatch_no'])<i class="dot margin-bottom-xxsmall"></i> {{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}@endif
+            @endif
+          </a>
           <a class="text--bold head-5 text--charcoal" href="{{ get_permalink() }}">
             @if(get_field('sidebar_settings')['short_title'])
               {!! get_field('sidebar_settings')['short_title'] !!}
