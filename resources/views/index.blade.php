@@ -6,13 +6,19 @@
 @extends('layouts.app')
 
 @section('content')
-
-  @include('partials.header-full')
+  @include('partials.follow-mobile')
+  <header
+      class="row z-high padding-top-small padding-horz-medium padding-top-medium padding-bottom-small border--thin border--gray-dark"
+      data-responsive='{"largeUp": "border-bottom"}'>
+    @include('partials.navbar.navbar-largeScrn')
+    @include('partials.navbar.navbar-mobile')
+  </header>
   <div class="max-width-xl width-centered"
        data-responsive='{
       "mediumUp": "padding-horz-medium",
       "largeUp": "padding-horz-large"
     }'>
+    @include('partials.breadcrumbs')
     @include('partials.sectionTitle')
   </div>
   <div
@@ -48,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="sidebar col width-100 large-up-width-2-5 padding-horz-xlarge medium-up-padding-horz-small">
+    <div class="sidebar col width-100 large-up-width-2-5 padding-horz-xlarge medium-up-padding-horz-small margin-bottom-xxlarge">
       <div class="sidebar_title border-center margin-bottom-medium">
         <div
             class="head-4 text--bold inline-block border--gray-dark bg-white padding-right-xsmall">{{ __('About', 'ccblog') }}</div>
@@ -58,10 +64,14 @@
           class="mailChimp mailChimp-layout2 col width-100 bg-blue-light padding-large border--blue-light border--thin border-all margin-top-medium">
         <div class="head-5">
           <span class="margin-right-xsmall">{{ __('Get', 'ccblog') }} <i
-              class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span>
-          <a href="{{ get_field('sidebar_link', 'option')['url'] }}" target="{{ get_field('sidebar_link', 'option')['target'] }}" class="inline-block text--blue">
-            {{ get_field('sidebar_link', 'option')['title'] }} <i class="icon-chevron-right-blue icon--xxsmall"></i>
-          </a></div>
+                class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span>
+          @if(get_field('sidebar_link', 'option'))
+            <a href="{{ get_field('sidebar_link', 'option')['url'] }}"
+               target="{{ get_field('sidebar_link', 'option')['target'] }}" class="inline-block text--blue">
+              {{ get_field('sidebar_link', 'option')['title'] }} <i class="icon-chevron-right-blue icon--xxsmall"></i>
+            </a>
+          @endif
+        </div>
         @php
           mc4wp_show_form('63147');
         @endphp

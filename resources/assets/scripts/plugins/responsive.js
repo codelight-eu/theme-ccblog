@@ -13,6 +13,7 @@ const mediaSizes = {
   "xxlargeUp": (screenSize) => (screenSize > breakpoints.xxlarge),
   "xxlargeOnly": (screenSize) => (screenSize > breakpoints.xxlarge && screenSize <= breakpoints.fullMenuBreakpoint),
   "fullMenuBreakpointUp": (screenSize) => (screenSize > breakpoints.fullMenuBreakpoint),
+  "fullMenuBreakpointOnly": (screenSize) => (screenSize > breakpoints.fullMenuBreakpoint),
 };
 
 class Responsive {

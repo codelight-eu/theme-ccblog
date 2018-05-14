@@ -40,10 +40,10 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
         'footer1' => __('Footer Navigation 1', 'sage'),
         'footer2' => __('Footer Navigation 2', 'sage'),
         'footer3' => __('Footer Navigation 3', 'sage'),
+        'CC-links' => __('Class Central links', 'sage'),
     ]);
 
     /**
@@ -135,8 +135,20 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 /* Create fields for featured items */
 $setFeaturedPost = new FieldsBuilder('featured_post');
 $setFeaturedPost
-  ->addPostObject('set_featured_post', ['return_format' => 'id'])
-  ->setLocation('page_template', '==', 'views/template-front.blade.php');
+  ->addTrueFalse('set_featured', ['wrapper' => ['width' => 20]])
+  ->addRadio('set_featured_position', ['choices' => ['Position Top' => 'position_top', 'Position Sidebar' => 'position_sidebar'],'wrapper' => ['width' => 30]])
+    ->setInstructions(__('The post with the newest published date will be displayed on the chosen position','ccblog'))
+    ->conditional("set_featured", '==', '1')
+  ->addGroup('sidebar_settings', ['wrapper' => ['width' => 50]])
+  ->conditional("set_featured_position", '==', 'position_sidebar')
+    ->addRadio('set_section_title', ['choices' => ['Use MOOCWATCH No' => 'title_moocwatch', 'Use custom title' => 'title_custom']])
+    ->addNumber('moocwatch_no')
+      ->conditional("set_section_title", '==', 'title_moocwatch')
+    ->addWysiwyg('section_title')
+      ->conditional("set_section_title", '==', 'title_custom')
+    ->addText('short_title')
+  ->endGroup()
+  ->setLocation('post_type', '==', 'post');
 
 $setFeaturedMessage = new FieldsBuilder('call_to_action');
 $setFeaturedMessage
@@ -165,8 +177,8 @@ if( function_exists('acf_add_options_page') ) {
   ));
 
   acf_add_options_sub_page(array(
-    'page_title' 	=> 'Sidebar Settings',
-    'menu_title'	=> 'Sidebar content',
+    'page_title' 	=> 'External Links',
+    'menu_title'	=> 'External Links',
     'parent_slug'	=> 'theme-general-settings',
   ));
 }
@@ -174,29 +186,54 @@ if( function_exists('acf_add_options_page') ) {
 /* Set up footer */
 $footerContent = new FieldsBuilder('footer');
 $footerContent
-    ->addWysiwyg('footer_title')
-    ->addWysiwyg('footer_content')
+  ->addGroup('footer_container', ['wrapper' => ['width' => 50]])
+    ->addWysiwyg('footer_title', ['wrapper' => ['width' => 50]])
+    ->addWysiwyg('footer_content', ['wrapper' => ['width' => 50]])
+  ->endGroup()
+  ->addGroup('call_to_action', ['wrapper' => ['width' => 50]])
     ->addTab('CTA_1')
-      ->addWysiwyg('CTA_1_text')
-      ->addLink('CTA_1_facebook_link')
-      ->addLink('CTA_1_twitter_link')
+      ->addWysiwyg('CTA_1_text',['wrapper' => ['width' => 50]])
+      ->addGroup('CTA_1_links',['wrapper' => ['width' => 50]])
+        ->addLink('CTA_1_facebook_link')
+        ->addLink('CTA_1_twitter_link')
+      ->endGroup()
     ->addTab('CTA_2')
-      ->addWysiwyg('CTA_2_text')
-      ->addLink('CTA_2_sign-up_link')
+      ->addWysiwyg('CTA_2_text',['wrapper' => ['width' => 50]])
+      ->addLink('CTA_2_sign-up_link',['wrapper' => ['width' => 50]])
+  ->endGroup()
   ->setLocation('options_page', '==', 'acf-options-footer-content');
 
 add_action('acf/init', function() use ($footerContent) {
   acf_add_local_field_group($footerContent->build());
 });
 
-/* Set up sidebar */
+/* Set up class central links */
+$ccLinks = new FieldsBuilder('class_central');
+$ccLinks
+  ->addLink('link_1')
+  ->addLink('link_2')
+  ->addLink('link_3')
+  ->addLink('link_4')
+  ->setLocation('options_page', '==', 'acf-options-external-links');
+
+/* Set up follow links */
+$follow = new FieldsBuilder('follow_links');
+$follow
+  ->addLink('rss')
+  ->addLink('facebook')
+  ->addLink('twitter')
+  ->setLocation('options_page', '==', 'acf-options-external-links');
+
+/* Set up sidebar link */
 $sidebar = new FieldsBuilder('sidebar');
 $sidebar
   ->addLink('sidebar_link')
-  ->setLocation('options_page', '==', 'acf-options-sidebar-content');
+  ->setLocation('options_page', '==', 'acf-options-external-links');
 
-add_action('acf/init', function() use ($sidebar) {
+add_action('acf/init', function() use ($sidebar, $ccLinks, $follow) {
   acf_add_local_field_group($sidebar->build());
+  acf_add_local_field_group($ccLinks->build());
+  acf_add_local_field_group($follow->build());
 });
 
 /* Add custom field for User Form */
@@ -219,4 +256,27 @@ $relatedTags
 
 add_action('acf/init', function() use ($relatedTags) {
   acf_add_local_field_group($relatedTags->build());
+});
+
+/* Add disclosure option for post */
+$disclosure = new FieldsBuilder('disclosure');
+$disclosure
+  ->addTrueFalse('edit_disclosure', ['wrapper' => ['width' => 20]])
+  ->addWysiwyg('disclosure_text',['wrapper' => ['width' => 80]])
+    ->setDefaultValue('<strong class="text--bold">Disclosure:</strong> To support our site, Class Central may be compensated by some course providers.')
+    ->conditional('edit_disclosure', '==', '1')
+  ->setLocation('post_type', '==', 'post');
+
+add_action('acf/init', function() use ($disclosure) {
+  acf_add_local_field_group($disclosure->build());
+});
+
+/* Add image to category */
+$catIcon = new FieldsBuilder('category_options');
+$catIcon
+  ->addImage('category_icon')
+  ->setLocation('taxonomy', '==', 'category');
+
+add_action('acf/init', function() use ($catIcon) {
+  acf_add_local_field_group($catIcon->build());
 });

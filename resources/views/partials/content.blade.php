@@ -13,7 +13,7 @@ $imageUrl = get_the_post_thumbnail_url('large');
     </h2>
   </header>
   <div class="article_summary text-1 margin-top-xxsmall margin-bottom-small medium-up-margin-bottom-medium">
-    {!! the_excerpt() !!}
+    {!! has_excerpt() ? the_excerpt() : '' !!}
   </div>
   @if(get_the_post_thumbnail())
   <div class="article_image radius overflow-hidden margin-bottom-small medium-up-margin-bottom-medium">

@@ -3,6 +3,7 @@
   const tinymce = window.tinymce;
 
   tinymce.PluginManager.add('quote', function (editor) {
+
     let checkFormatMatch = function(type, ctrl) {
 
       // Check if the selection matches the format
@@ -56,12 +57,12 @@
           let $decoElement, $decoElement2;
           if (!$blockquote.find('.quote_deco').length) {
             if(type === 'pull'){
-              $decoElement = $('<span>&nbsp;</nb></span>').addClass('quote_deco absolute top left border-left border--blue border--thick height-100');
+              $decoElement = $('<span>&nbsp;</span>').addClass('quote_deco absolute top left height-100');
               $blockquote.children().last().append($decoElement);
             }
             else {
-              $decoElement = $('<span><i class="icon-quote-open">&nbsp;</i></span>').addClass('quote_deco absolute top left');
-              $decoElement2 = $('<span>&nbsp;<i class="icon-quote-close"></i></span>').addClass('quote_deco quote_deco-close absolute bottom right');
+              $decoElement = $('<span><i class="icon-quote-open">&nbsp;</i></span>').addClass('quote_deco absolute top left text--blue');
+              $decoElement2 = $('<span><i class="icon-quote-close">&nbsp;</i></span>').addClass('quote_deco quote_deco-close text--blue absolute bottom right');
               $blockquote.children().last().append($decoElement, $decoElement2);
             }
           }
@@ -87,15 +88,14 @@
 
     };
 
-    editor.on('init', function(e) {
+    editor.on('init', function() {
       editor.formatter.register(
         'pull_quote_format', {
           block: 'div',
-          classes: ['quote', 'relative', 'padding-horz-large'],
+          classes: ['quote', 'relative', 'padding-horz-large', 'xlarge-up-padding-horz-xxlarge', 'padding-vert-xxsmall', 'margin-bottom-large'],
           wrapper: true,
         }
       );
-      console.log(e);
     });
 
     editor.addButton('pull_quote', {
@@ -107,35 +107,10 @@
       },
       onPostRender: function() {
         let ctrl = this;
-        editor.on('NodeChange', function(e) {
+        editor.on('NodeChange', function() {
           checkFormatMatch('pull', ctrl);
-          console.log(e);
         });
       },
     });
-
-    editor.addButton('quote', {
-      title: 'Insert quote',
-      text: 'Quote',
-      icon: false,
-      onclick: function() {
-        toggleBlockquoteFormat('quote');
-      },
-      onPostRender: function() {
-        let ctrl = this;
-        editor.on('NodeChange', function(e) {
-          checkFormatMatch('quote', ctrl);
-          console.log(e);
-        });
-      },
-    });
-
-    /*editor.addCommand('pull_quote', function () {
-      let text = editor.selection.getContent({
-
-      });
-      let creatingElement = '<div class="pullQuote">' + text +'</div>';
-      tinymce.activeEditor.execCommand('mceInsertContent', false, creatingElement)
-    });*/
   });
 })();

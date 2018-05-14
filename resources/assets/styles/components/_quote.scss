@@ -1,0 +1,86 @@
+.classcentral-style-custom {
+  .quote {
+    font-size: 1.3125rem;
+    line-height: 1.3334;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .quote_deco {
+    position: absolute;
+  }
+
+  .quote-pull {
+    .quote_deco {
+      border-left: 6px solid #5074e9;
+    }
+  }
+
+  .quote-quote,
+  .cc-blockquote,
+  blockquote {
+    text-align: center;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.875rem;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 2.8125rem;
+      height: 2.8125rem;
+      display: block;
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%20viewBox%3D%220%200%2050%2050%22%3E%3Ctitle%3Eoutlinequote-open%3C%2Ftitle%3E%3Cpath%20d%3D%22M22.22534%2C29.72461a5.17959%2C5.17959%2C0%2C0%2C1-1.57519%2C4.0498%2C5.90832%2C5.90832%2C0%2C0%2C1-4.125%2C1.42579%2C5.74333%2C5.74333%2C0%2C0%2C1-4.7251-2.1377%2C8.73891%2C8.73891%2C0%2C0%2C1-1.7251-5.66309%2C12.704%2C12.704%2C0%2C0%2C1%2C2.6626-7.6123%2C13.38184%2C13.38184%2C0%2C0%2C1%2C7.01269-4.98731%2C1.56766%2C1.56766%2C0%2C0%2C1%2C.89991.1504l.6748.89941q.45043.52588-.2998%2C1.125a8.03766%2C8.03766%2C0%2C0%2C0-3.8252%2C7.5%2C6.02077%2C6.02077%2C0%2C0%2C1%2C3.6377%2C1.72559A4.85653%2C4.85653%2C0%2C0%2C1%2C22.22534%2C29.72461Zm17.69971%2C0a5.17929%2C5.17929%2C0%2C0%2C1-1.57471%2C4.0498%2C5.90914%2C5.90914%2C0%2C0%2C1-4.125%2C1.42579%2C5.7427%2C5.7427%2C0%2C0%2C1-4.7251-2.1377%2C8.739%2C8.739%2C0%2C0%2C1-1.72509-5.66309%2C12.704%2C12.704%2C0%2C0%2C1%2C2.66259-7.6123A13.37878%2C13.37878%2C0%2C0%2C1%2C37.45%2C14.7998a1.56969%2C1.56969%2C0%2C0%2C1%2C.90039.1504l.67481.89941q.4497.52588-.29981%2C1.125a8.03763%2C8.03763%2C0%2C0%2C0-3.82519%2C7.5%2C6.02074%2C6.02074%2C0%2C0%2C1%2C3.63769%2C1.72559A4.85808%2C4.85808%2C0%2C0%2C1%2C39.92505%2C29.72461Z%22%20fill%3D%22%235074e9%22%2F%3E%3C%2Fsvg%3E');
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+      pointer-events: none;
+      font-size: 6.25rem;
+      left: 0;
+      top: 0;
+      color: #5074e9;
+      line-height: 0.5;
+    }
+
+    &::after {
+      content: '';
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%20viewBox%3D%220%200%2050%2050%22%3E%3Ctitle%3Eoutlinequote-close%3C%2Ftitle%3E%3Cpath%20d%3D%22M22.22485%2C22.59961a12.70178%2C12.70178%2C0%2C0%2C1-2.66259%2C7.6123%2C13.38652%2C13.38652%2C0%2C0%2C1-7.01221%2C4.98829%2C1.55341%2C1.55341%2C0%2C0%2C1-.8999-.1504l-.6753-.90039q-.4497-.52294.3003-1.125a8.03821%2C8.03821%2C0%2C0%2C0%2C3.8247-7.5%2C6.00367%2C6.00367%2C0%2C0%2C1-3.6372-1.72461%2C4.85167%2C4.85167%2C0%2C0%2C1-1.3877-3.52539%2C5.18211%2C5.18211%2C0%2C0%2C1%2C1.5752-4.0498%2C5.91436%2C5.91436%2C0%2C0%2C1%2C4.125-1.42481%2C5.745%2C5.745%2C0%2C0%2C1%2C4.72461%2C2.1377A8.74534%2C8.74534%2C0%2C0%2C1%2C22.22485%2C22.59961Zm17.7002%2C0a12.70173%2C12.70173%2C0%2C0%2C1-2.6626%2C7.6123%2C13.38581%2C13.38581%2C0%2C0%2C1-7.01269%2C4.98829q-.82618%2C0-.89991-.1504l-.6748-.90039q-.45043-.52294.2998-1.125a8.03767%2C8.03767%2C0%2C0%2C0%2C3.8252-7.5%2C6.00639%2C6.00639%2C0%2C0%2C1-3.6377-1.72461%2C4.85126%2C4.85126%2C0%2C0%2C1-1.3872-3.52539%2C5.18354%2C5.18354%2C0%2C0%2C1%2C1.5747-4.0498%2C5.91606%2C5.91606%2C0%2C0%2C1%2C4.125-1.42481A5.74589%2C5.74589%2C0%2C0%2C1%2C38.2%2C16.9375%2C8.74808%2C8.74808%2C0%2C0%2C1%2C39.92505%2C22.59961Z%22%20fill%3D%22%235074e9%22%2F%3E%3C%2Fsvg%3E');
+      left: auto;
+      top: auto;
+      right: 0;
+      bottom: 0;
+      line-height: 0;
+    }
+  }
+
+  blockquote small {
+    display: block;
+    margin-top: 1.875rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.125rem;
+    color: #5074e9;
+  }
+}
+
+@media (min-width: 1025px) {
+  .classcentral-style-custom {
+    .quote,
+    .cc-blockquote,
+    blockquote {
+      font-size: 1.5rem;
+      line-height: 1.3334;
+      margin-left: -5rem;
+      margin-right: -5rem;
+    }
+
+    blockquote small {
+      float: right;
+      margin-right: 4.375rem;
+      font-size: 1.375rem;
+    }
+  }
+}
