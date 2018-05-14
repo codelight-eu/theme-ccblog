@@ -8,7 +8,7 @@
       <a
         href="{{ get_field('CTA_2_sign-up_link', 'option')['url'] }}"
         target="{{ get_field('CTA_2_sign-up_link', 'option')['target'] }}"
-        class="CTA_link btn--large btn-blue head-3 line--medium"
+        class="CTA_link btn--large btn-blue head-3 text--bold line--medium"
       >
         {{ get_field('CTA_2_sign-up_link', 'option')['title'] }}
       </a>

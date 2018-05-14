@@ -47,7 +47,7 @@
           @if($categories)
           @foreach($categories as $category)
             <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
-              <a class="btn-navy btn--small text--normal" href="{{ get_category_link($category->term_id) }}">{{ $category->name }}</a>
+              <a class="btn-navy btn--small" href="{{ get_category_link($category->term_id) }}">{{ $category->name }}</a>
             </div>
           @endforeach
           @endif
@@ -61,7 +61,7 @@
           @if($tags)
           @foreach($tags as $tag)
             <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
-              <a class="btn-gray btn--small text--normal" href="{{ get_tag_link($tag->term_id) }}">{{ $tag->name }}</a>
+              <a class="btn-gray btn--small" href="{{ get_tag_link($tag->term_id) }}">{{ $tag->name }}</a>
             </div>
           @endforeach
           @endif
