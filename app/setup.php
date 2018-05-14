@@ -186,10 +186,7 @@ if( function_exists('acf_add_options_page') ) {
 /* Set up footer */
 $footerContent = new FieldsBuilder('footer');
 $footerContent
-  ->addGroup('footer_container', ['wrapper' => ['width' => 50]])
-    ->addWysiwyg('footer_title', ['wrapper' => ['width' => 50]])
-    ->addWysiwyg('footer_content', ['wrapper' => ['width' => 50]])
-  ->endGroup()
+  ->addWysiwyg('footer_content', ['wrapper' => ['width' => 50]])
   ->addGroup('call_to_action', ['wrapper' => ['width' => 50]])
     ->addTab('CTA_1')
       ->addWysiwyg('CTA_1_text',['wrapper' => ['width' => 50]])
