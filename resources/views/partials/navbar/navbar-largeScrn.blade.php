@@ -16,7 +16,7 @@
       <span class="externalLinks_toggle cursor-pointer" data-toggle-link>
         <i class="icon-menu-charcoal"></i>
       </span>
-      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white @if(!$frontPage)margin-left-medium @endif border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-low" data-toggle-item @if(!$frontPage) data-toggle-setCenter @endif>
+      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white @if(!$frontPage)margin-left-medium arrow-top-middle @else arrow-top-left @endif border-all border--gray-dark border--thin shadow radius arrow--medium z-low" data-toggle-item @if(!$frontPage) data-toggle-setCenter @endif>
         @include('partials.externalLinks')
       </div>
     </li>
