@@ -18,6 +18,7 @@
       "mediumUp": "padding-horz-medium",
       "largeUp": "padding-horz-large"
     }'>
+    @include('partials.breadcrumbs')
     @include('partials.sectionTitle')
   </div>
   <div
