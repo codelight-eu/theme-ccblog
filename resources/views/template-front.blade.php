@@ -80,7 +80,7 @@
       <div
           class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
         <div class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-large">
-          <h4 class="head-4 text--bold inline-block bg-white padding-right-medium">{{ __('Recent articles', 'ccblog') }}</h4>
+          <h4 class="head-4 inline-block bg-white padding-right-medium"><strong class="text--bold">{{ __('Recent articles', 'ccblog') }}</strong></h4>
         </div>
 
         @if (!have_posts())
@@ -139,8 +139,8 @@
                   </a>
                 </div>
               @endif
-              <h2 class="head-2 text-center margin-top-xsmall">
-                <a href="{{ get_permalink() }}" class="text--charcoal">
+              <h2 class="text-center margin-top-xsmall">
+                <a href="{{ get_permalink() }}" class="text--charcoal head-2 text--bold">
                   {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
                 </a></h2>
               <div

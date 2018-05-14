@@ -47,7 +47,7 @@
           @if($categories)
           @foreach($categories as $category)
             <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
-              <a class="btn-navy btn--small text--normal" href="{{ get_category_link($category->term_id) }}">{{ $category->name }}</a>
+              <a class="btn-navy btn--small" href="{{ get_category_link($category->term_id) }}">{{ $category->name }}</a>
             </div>
           @endforeach
           @endif
@@ -61,7 +61,7 @@
           @if($tags)
           @foreach($tags as $tag)
             <div class="margin-right-xsmall margin-bottom-xsmall inline-block">
-              <a class="btn-gray btn--small text--normal" href="{{ get_tag_link($tag->term_id) }}">{{ $tag->name }}</a>
+              <a class="btn-gray btn--small" href="{{ get_tag_link($tag->term_id) }}">{{ $tag->name }}</a>
             </div>
           @endforeach
           @endif
@@ -97,11 +97,11 @@
   </footer>
 </article>
 <div class="bg-gray padding-top-large padding-bottom-xxlarge large-up-padding-bottom-large border-top border--gray-dark border--thin border-bottom">
-  <div class="max-width-l border-box width-centered padding-horz-xxlarge">
+  <div class="max-width-l border-box width-centered padding-horz-medium">
     @php(related_posts(['template' => 'yarpp-template-ccblog.php']))
   </div>
 </div>
-<div class="comments max-width-l border-box width-centered padding-horz-medium margin-bottom-xxlarge">
+<div class="comments max-width-l border-box width-centered padding-horz-medium large-up-padding-horz-xxlarge margin-bottom-xxlarge">
   <div class="comments_icon text-center margin-top-medium margin-bottom-xsmall">
     <i class="icon-comment icon--xlarge"></i>
   </div>

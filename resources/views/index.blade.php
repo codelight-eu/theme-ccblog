@@ -30,7 +30,7 @@
     <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small">
       <div
           class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-medium large-up-margin-bottom-large">
-        <h4 class="head-4 text--bold inline-block bg-white padding-right-medium">{{ __('Most Recent', 'ccblog') }}</h4>
+        <h4 class="head-4 inline-block bg-white padding-right-medium"><strong class="text--bold">{{ __('Most Recent', 'ccblog') }}</strong></h4>
       </div>
 
       @if (!have_posts())
@@ -57,7 +57,7 @@
     <div class="sidebar col width-100 large-up-width-2-5 padding-horz-xlarge medium-up-padding-horz-small margin-bottom-xxlarge">
       <div class="sidebar_title border-center margin-bottom-medium">
         <div
-            class="head-4 text--bold inline-block border--gray-dark bg-white padding-right-xsmall">{{ __('About', 'ccblog') }}</div>
+            class="head-4 inline-block border--gray-dark bg-white padding-right-xsmall"><strong class="text--bold">{{ __('About', 'ccblog') }}</strong></div>
       </div>
       {!! get_field('footer_content', 'option') !!}
       <div
@@ -67,7 +67,7 @@
                 class="symbol-moocwatch-charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}</span>
           @if(get_field('sidebar_link', 'option'))
             <a href="{{ get_field('sidebar_link', 'option')['url'] }}"
-               target="{{ get_field('sidebar_link', 'option')['target'] }}" class="inline-block text--blue">
+               target="{{ get_field('sidebar_link', 'option')['target'] }}" class="inline-block text--blue head-6 text--bold">
               {{ get_field('sidebar_link', 'option')['title'] }} <i class="icon-chevron-right-blue icon--xxsmall"></i>
             </a>
           @endif

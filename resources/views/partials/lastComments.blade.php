@@ -7,7 +7,7 @@
 @endphp
 <section id="comments" class="comments margin-bottom-xxlarge padding-horz-xsmall">
   <div class="comments_titleCont border-center border--thin border--gray-dark margin-bottom-medium">
-    <div class="head-4 bg-white inline-block text--bold padding-right-medium">{{ __('Join the conversation', 'ccblog') }}</div>
+    <div class="head-4 bg-white inline-block padding-right-medium"><strong class="text--bold">{{ __('Join the conversation', 'ccblog') }}</strong></div>
   </div>
   @if( !empty( $comments ) )
     <ul>
@@ -24,15 +24,15 @@
           <div class="comment_head row margin-bottom-medium">
             <div class="comment_icon flush-left margin-right-medium margin-top-xsmall"><i class="icon-comment size--large bgSize--xxlarge"></i></div>
             <div class="comment_title">
-              <div class="text--bold margin-bottom-xsmall head-6">{{ __('Comment from', 'ccblog') }}</div>
-              <h2 class="head-3 text--bold overflow-hidden">
-                <a href="{{ $commentLink }}" class="text--charcoal">{{ $commentTitle }}</a>
+              <div class="margin-bottom-xsmall head-6"><strong class="text--bold">{{ __('Comment from', 'ccblog') }}</strong></div>
+              <h2 class="overflow-hidden">
+                <a href="{{ $commentLink }}" class="text--charcoal head-3 text--bold">{{ $commentTitle }}</a>
               </h2>
             </div>
           </div>
           <div class="comment_body">
             <span class="margin-right-xsmall">"{!! $commentContent !!}"</span>
-            <a href="{{ $commentLink }}" class="comment_link inline-block text--blue-bright head-6 text--bold">{{ __('Show more...', 'ccblog') }}</a>
+            <a href="{{ $commentLink }}" class="comment_link inline-block text--blue-bright head-6"><strong class="text--bold">{{ __('Show more...', 'ccblog') }}</strong></a>
           </div>
           <div class="comment_footer head-6 margin-top-xsmall">
             <div class="comment_author text--bold inline-block margin-right-xsmall">{{ $comment->comment_author }}</div>

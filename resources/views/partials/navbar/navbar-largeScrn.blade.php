@@ -8,13 +8,15 @@
 @endphp
 <div class="navbar-largeScrn hidden @if(!$frontPage)large-up-block @endif xlarge-up-block text-right"
      data-responsive='{"fullMenuBreakpointUp": "xxlarge-up-text-center"}'>
-  @include("partials.logo")
-  <ul class="flush-left margin-left-large text-left">
+  @if(!$frontPage)
+    @include("partials.logo")
+  @endif
+  <ul class="flush-left @if(!$frontPage)margin-left-large @endif text-left">
     <li  data-toggle-container>
       <span class="externalLinks_toggle cursor-pointer" data-toggle-link>
-        <i class="icon-menu"></i>
+        <i class="icon-menu-charcoal"></i>
       </span>
-      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white margin-left-medium border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-low" data-toggle-item data-toggle-setCenter>
+      <div class="absolute animate-fade-hidden margin-top-xsmall width-centered padding-medium bg-white @if(!$frontPage)margin-left-medium @endif border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-low" data-toggle-item @if(!$frontPage) data-toggle-setCenter @endif>
         @include('partials.externalLinks')
       </div>
     </li>
