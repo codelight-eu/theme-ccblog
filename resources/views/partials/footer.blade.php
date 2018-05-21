@@ -35,7 +35,7 @@
         {{ __('About', 'ccblog') }} <i class="symbol-moocreport-charcoal symbol--medium"></i>
       </div>
     </div>
-    <div class="footer_text">
+    <div class="footer_text wysiwyg">
       {!! get_field('footer_content', 'option') !!}
     </div>
   </div>

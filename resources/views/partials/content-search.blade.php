@@ -5,7 +5,7 @@
       @include('partials/entry-meta')
     @endif
   </header>
-  <div class="entry-summary">
+  <div class="entry-summary wysiwyg">
     @php(the_excerpt())
   </div>
 </article>
