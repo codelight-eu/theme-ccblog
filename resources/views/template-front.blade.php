@@ -65,13 +65,17 @@
         'order' => 'DESC',
       );
       $counter = 0;
+      $featuredID = '';
       $query = new WP_Query($args);
     @endphp
     @if($query->have_posts())
       @while($query->have_posts()) @php($query->the_post())
       @if(get_field('set_featured_position') == 'position_top' && $counter < 1)
         @include('partials.featuredPost')
-        @php($counter++)
+        @php
+          $counter++;
+          $featuredID = get_the_ID();
+          @endphp
       @endif
       @endwhile
     @endif
@@ -90,87 +94,91 @@
           {!! get_search_form(false) !!}
         @endif
         @php
-          $args = array(
-            'posts_per_page' => 9,
-          );
+          $args = [];
+          if($featuredID == ''){
+            $args['posts_per_page'] = 10;
+          } else {
+            $args['posts_per_page'] = 9;
+            $args['post__not_in'] = [$featuredID];
+          }
           $query = new WP_Query($args);
         @endphp
         @if($query->have_posts())
           @while ($query->have_posts()) @php($query->the_post())
-          @include('partials.content')
-          @endwhile
-        @endif
-
-        {!! get_the_posts_navigation() !!}
-      </div>
-      <div
-          class="sidebar col large-up-width-2-5 margin-top-large large-up-margin-top-reset padding-horz-xlarge medium-up-padding-horz-small padding-top-xsmall relative">
-        @php
-          $args = array(
-            'orderby' => 'date',
-            'order' => 'DESC',
-            'posts_per_page' => -1,
-          );
-          $counter = 0;
-          $query = new WP_Query($args);
-        @endphp
-        @if($query->have_posts())
-          @while ($query->have_posts()) @php($query->the_post())
-          @if(get_field('set_featured_position') == 'position_sidebar' && $counter < 1)
-            <div
-                class="featurePost-sidebar border-all border--thin border--gray-dark radius padding-horz-large large-up-padding-bottom-xxlarge padding-bottom-xlarge margin-bottom-xlarge medium-up-margin-bottom-xxlarge">
-              <div class="text-center">
-                <div class="text--charcoal relative nudge-top-half padding-horz-small bg-white inline-block">
-                  @if(get_field('sidebar_settings')['set_section_title'] == 'title_custom')
-                    <span class="head-3 wysiwyg">{!! get_field('sidebar_settings')['section_title'] !!}</span>
-                  @elseif(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
-                    @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i> <span class="head-4">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
-                  @endif
-                </div>
-              </div>
-              <time
-                  class="featurePost_date block head-5 text-center text--italic"
-                  datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
-              @if (has_post_thumbnail( get_the_ID() ) )
-                @php $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' ); @endphp
-                <div class="featurePost_imageCont margin-top-xsmall">
-                  <a href="{{ get_permalink() }}" class="text--charcoal">
-                    <img class="width-100" src="{{ $image[0] }}">
-                  </a>
-                </div>
-              @endif
-              <h2 class="text-center margin-top-xsmall">
-                <a href="{{ get_permalink() }}" class="text--charcoal head-2 text--bold">
-                  {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
-                </a></h2>
-              <div
-                  class="featurePost_description wysiwyg text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
-              <div class="featurePost_authorCont flex-vert-middle">
-                @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
-              </div>
-              <div
-                  class="mailChimp row bg-blue-light padding-large border--blue-light border--thin border-all text-center margin-top-medium">
-                <div class="head-5">{{ __('Get', 'ccblog') }} <i
-                      class="symbol-moocwatch-charcoal symbol--charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}
-                </div>
-                @php
-                  mc4wp_show_form('63147');
-                @endphp
-              </div>
-            </div>
-            @php($counter++)
+            @include('partials.content')
+            @endwhile
           @endif
-          @endwhile
-          @php wp_reset_postdata(); @endphp
-        @endif
-        @include('partials.lastComments')
+
+          {!! get_the_posts_navigation() !!}
+        </div>
+        <div
+            class="sidebar col large-up-width-2-5 margin-top-large large-up-margin-top-reset padding-horz-xlarge medium-up-padding-horz-small padding-top-xsmall relative">
+          @php
+            $args = array(
+              'orderby' => 'date',
+              'order' => 'DESC',
+              'posts_per_page' => -1,
+            );
+            $counter = 0;
+            $query = new WP_Query($args);
+          @endphp
+          @if($query->have_posts())
+            @while ($query->have_posts()) @php($query->the_post())
+            @if(get_field('set_featured_position') == 'position_sidebar' && $counter < 1)
+              <div
+                  class="featurePost-sidebar border-all border--thin border--gray-dark radius padding-horz-large large-up-padding-bottom-xxlarge padding-bottom-xlarge margin-bottom-xlarge medium-up-margin-bottom-xxlarge">
+                <div class="text-center">
+                  <div class="text--charcoal relative nudge-top-half padding-horz-small bg-white inline-block">
+                    @if(get_field('sidebar_settings')['set_section_title'] == 'title_custom')
+                      <span class="head-3 wysiwyg">{!! get_field('sidebar_settings')['section_title'] !!}</span>
+                    @elseif(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
+                      @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i> <span class="head-4">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
+                    @endif
+                  </div>
+                </div>
+                <time
+                    class="featurePost_date block head-5 text-center text--italic"
+                    datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
+                @if (has_post_thumbnail( get_the_ID() ) )
+                  @php $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' ); @endphp
+                  <div class="featurePost_imageCont margin-top-xsmall">
+                    <a href="{{ get_permalink() }}" class="text--charcoal">
+                      <img class="width-100" src="{{ $image[0] }}">
+                    </a>
+                  </div>
+                @endif
+                <h2 class="text-center margin-top-xsmall">
+                  <a href="{{ get_permalink() }}" class="text--charcoal head-2 text--bold">
+                    {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
+                  </a></h2>
+                <div
+                    class="featurePost_description wysiwyg text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
+                <div class="featurePost_authorCont flex-vert-middle">
+                  @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
+                </div>
+                <div
+                    class="mailChimp row bg-blue-light padding-large border--blue-light border--thin border-all text-center margin-top-medium">
+                  <div class="head-5">{{ __('Get', 'ccblog') }} <i
+                        class="symbol-moocwatch-charcoal symbol--charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}
+                  </div>
+                  @php
+                    mc4wp_show_form('63147');
+                  @endphp
+                </div>
+              </div>
+              @php($counter++)
+            @endif
+            @endwhile
+            @php wp_reset_postdata(); @endphp
+          @endif
+          @include('partials.lastComments')
+        </div>
       </div>
     </div>
-  </div>
-  @if(get_field('set_footer_CTA') && get_field('set_footer_CTA') != 'none')
-    @php
-      $msgType = 'partials.featuredMsg-' . get_field('set_footer_CTA');
-    @endphp
-    @include($msgType)
-  @endif
-@endsection
+    @if(get_field('set_footer_CTA') && get_field('set_footer_CTA') != 'none')
+      @php
+        $msgType = 'partials.featuredMsg-' . get_field('set_footer_CTA');
+      @endphp
+      @include($msgType)
+    @endif
+  @endsection
