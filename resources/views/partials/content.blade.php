@@ -12,7 +12,7 @@ $imageUrl = get_the_post_thumbnail_url('large');
       <a class="text--charcoal head-3 medium-up-head-2 text--bold" href="{{ $link }}">{{ get_the_title() }}</a>
     </h2>
   </header>
-  <div class="article_summary text-1 margin-top-xxsmall margin-bottom-small medium-up-margin-bottom-medium">
+  <div class="article_summary wysiwyg text-1 margin-top-xxsmall margin-bottom-small medium-up-margin-bottom-medium">
     {!! has_excerpt() ? the_excerpt() : '' !!}
   </div>
   @if(get_the_post_thumbnail())

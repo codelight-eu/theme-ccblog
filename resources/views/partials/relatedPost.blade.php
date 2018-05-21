@@ -13,7 +13,7 @@
   <h3 class="head-3 margin-bottom-xsmall"><a class="text--charcoal text--bold" href="{{ get_permalink() }}"
                                              rel="bookmark">{{ get_the_title() }}</a><!-- ({{ get_the_score() }})-->
   </h3>
-  <div class="relatedPost_description margin-bottom-medium">
+  <div class="relatedPost_description wysiwyg margin-bottom-medium">
     {!! get_the_excerpt() !!}
   </div>
   <div class="relatedPost_author head-6">

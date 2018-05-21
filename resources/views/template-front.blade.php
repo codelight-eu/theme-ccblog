@@ -29,7 +29,7 @@
         @if (have_posts())
           @while (have_posts())  @php(the_post())
           @if(get_the_content())
-            <div class="frontIntro_text text-1 text--italic margin-top-large">
+            <div class="frontIntro_text wysiwyg text-1 text--italic margin-top-large">
               {!! get_the_content() !!}
             </div>
           @endif
@@ -91,7 +91,7 @@
         @endif
         @php
           $args = array(
-            'posts_per_page' => 4,
+            'posts_per_page' => 9,
           );
           $query = new WP_Query($args);
         @endphp
@@ -122,7 +122,7 @@
               <div class="text-center">
                 <div class="text--charcoal relative nudge-top-half padding-horz-small bg-white inline-block">
                   @if(get_field('sidebar_settings')['set_section_title'] == 'title_custom')
-                    <span class="head-3">{!! get_field('sidebar_settings')['section_title'] !!}</span>
+                    <span class="head-3 wysiwyg">{!! get_field('sidebar_settings')['section_title'] !!}</span>
                   @elseif(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
                     @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i> <span class="head-4">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
                   @endif
@@ -144,7 +144,7 @@
                   {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
                 </a></h2>
               <div
-                  class="featurePost_description text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
+                  class="featurePost_description wysiwyg text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
               <div class="featurePost_authorCont flex-vert-middle">
                 @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
               </div>

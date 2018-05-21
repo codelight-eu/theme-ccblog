@@ -19,7 +19,7 @@
         class="article_date head-4 text--italic hidden medium-up-block medium-up-margin-bottom-xsmall">{{ get_the_date('F j, Y') }}</div>
     <h1 class="article_title head-1 margin-bottom-small width-4-5 width-centered">{{ get_the_title() }}</h1>
     <div
-        class="article_intro head-3 width-centered width-3-4">{!! has_excerpt() ? the_excerpt() : '' !!}</div>
+        class="article_intro wysiwyg head-3 width-centered width-3-4">{!! has_excerpt() ? the_excerpt() : '' !!}</div>
     <div class="inline-block medium-up-text-1 overflow-hidden">
       @include('partials.author', array(
         'author_imageContClass' => 'size--xxsmall medium-up-size--small',
@@ -33,7 +33,7 @@
     </div>
   </header>
   <div class="border-bottom margin-horz-xsmall border--gray-dark border--thin margin-bottom-medium medium-up-hidden"></div>
-  <div class="articleContent entry-content text-2 medium-up-text-1 margin-bottom-small large-up-margin-bottom-xxlarge">
+  <div class="articleContent wysiwyg entry-content text-2 medium-up-text-1 margin-bottom-small large-up-margin-bottom-xxlarge">
     @php(the_content())
   </div>
   <footer>
