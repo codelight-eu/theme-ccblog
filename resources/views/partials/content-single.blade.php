@@ -12,7 +12,7 @@
 </header>
 <article @php(post_class('article max-width-l border-box width-centered text--charcoal padding-left-large padding-right-large large-up-padding-horz-xxlarge padding-top-medium padding-bottom-xsmall medium-up-padding-bottom-xxlarge'))>
   <header class="text-center margin-bottom-medium">
-    <div class="disclosure text-2 text--blue margin-bottom-xlarge medium-up-margin-bottom-large margin-top-xsmall medium-up-margin-top-medium">
+    <div class="disclosure wysiwyg text-2 text--blue margin-bottom-xlarge medium-up-margin-bottom-large margin-top-xsmall medium-up-margin-top-medium">
       {!! get_post_field('edit_disclosure') ? get_post_field('disclosure_text') : __('<strong class="text--bold">Disclosure:</strong> To support our site, Class Central may be compensated by some course providers.','ccblog') !!}
     </div>
     <div
