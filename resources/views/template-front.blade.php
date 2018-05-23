@@ -124,7 +124,7 @@
           @endphp
           @if($query->have_posts())
             @while ($query->have_posts()) @php($query->the_post())
-            @if(get_field('set_featured_position') == 'position_sidebar' && $counter < 1)
+            @if(get_field('set_featured') == 'true' && get_field('set_featured_position') == 'position_sidebar' && $counter < 1)
               <div
                   class="featurePost-sidebar border-all border--thin border--gray-dark radius padding-horz-large large-up-padding-bottom-xxlarge padding-bottom-xlarge margin-bottom-xlarge medium-up-margin-bottom-xxlarge">
                 <div class="text-center">
@@ -139,8 +139,11 @@
                 <time
                     class="featurePost_date block head-5 text-center text--italic"
                     datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
-                @if (has_post_thumbnail( get_the_ID() ) )
-                  @php $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' ); @endphp
+                @if (has_post_thumbnail( get_the_ID() ) || get_field('set_cropped_illustration') )
+                  @php
+                    if(get_field('set_cropped_illustration')) $image = wp_get_attachment_image_src( get_field('set_cropped_illustration')['id'], 'medium_large' );
+                    else if(has_post_thumbnail( get_the_ID() )) $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' );
+                  @endphp
                   <div class="featurePost_imageCont margin-top-xsmall">
                     <a href="{{ get_permalink() }}" class="text--charcoal">
                       <img class="width-100" src="{{ $image[0] }}">
