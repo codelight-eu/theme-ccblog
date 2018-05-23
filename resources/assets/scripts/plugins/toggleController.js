@@ -7,6 +7,8 @@ const toggleController = () => {
     HIDDEN: 'animate-fade-hidden',
     OPENSTATE: 'js-toggle-opened',
     ZINDEX: 'z-high',
+    ICON_MENU: 'icon-menu-charcoal',
+    ICON_X: 'icon-x-charcoal',
   };
 
   const Selector = {
@@ -16,6 +18,9 @@ const toggleController = () => {
     ITEM: '[data-toggle-item]',
     CENTRIZE: '[data-toggle-setCenter]',
     CONTENT: '[data-toggle-content]',
+    ICON: '[class*="icon-"]',
+    ICON_MENU: '.' + ClassName.ICON_MENU,
+    ICON_X: '.' + ClassName.ICON_X,
   };
 
   const $element = {
@@ -84,10 +89,15 @@ const toggleController = () => {
       $element.HOVERABLE.click(function () {
         const $theContainer = $(this).parents(Selector.CONTAINER);
         const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
+        const $theIcon = $(this).find(Selector.ICON).eq(0);
         if ($theItem.hasClass(ClassName.VISIBLE)) {
           $theItem.addClass(ClassName.HIDDEN);
           $theItem.removeClass(ClassName.VISIBLE);
           $theContainer.removeClass(ClassName.ZINDEX);
+          if($theIcon.length > 0 && $theIcon.hasClass(ClassName.ICON_X)){
+            $theIcon.removeClass(ClassName.ICON_X);
+            $theIcon.addClass(ClassName.ICON_MENU);
+          }
         } else {
           $element.ITEM.each(function(){
             $(this).removeClass(ClassName.VISIBLE);
@@ -99,6 +109,10 @@ const toggleController = () => {
           $theItem.addClass(ClassName.VISIBLE);
           $theItem.removeClass(ClassName.HIDDEN);
           $theContainer.addClass(ClassName.ZINDEX);
+          if($theIcon.length > 0 && $theIcon.hasClass(ClassName.ICON_MENU)){
+            $theIcon.addClass(ClassName.ICON_X);
+            $theIcon.removeClass(ClassName.ICON_MENU);
+          }
         }
       });
     }

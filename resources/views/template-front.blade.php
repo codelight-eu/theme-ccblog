@@ -7,7 +7,7 @@
 
   @include('partials.follow-mobile', array('frontPage' => 'true'))
   <header
-      class="row z-high xlarge-up-absolute padding-top-medium padding-bottom-small padding-horz-medium width-100 border-box">
+      class="row z-high xlarge-up-absolute padding-horz-medium padding-top-medium width-100 border-box">
     @include('partials.navbar.navbar-largeScrn', ['frontPage' => true])
     @include('partials.navbar.navbar-mobile', ['frontPage' => true])
   </header>
@@ -21,7 +21,7 @@
     <div
         class="frontIntro padding-horz-small hidden text-center margin-top-xxsmall xlarge-up-block large-up-margin-top-medium">
       <div class="frontIntro_logo inline-block">
-        <i class="symbol-moocreport-blue symbol--xlarge block margin-bottom-xxsmall"></i>
+        <i class="symbol-moocreport-blue symbol--large block margin-bottom-xxsmall"></i>
         <div class="block margin-right-large head-6 flush-right text--gray"><span class="flush-left">by</span> <i
               class="symbol-classcentral-gray symbol--small margin-top-xxsmall"></i></div>
       </div>
@@ -29,7 +29,7 @@
         @if (have_posts())
           @while (have_posts())  @php(the_post())
           @if(get_the_content())
-            <div class="frontIntro_text wysiwyg text-1 text--italic margin-top-large">
+            <div class="frontIntro_text wysiwyg text-1 text--italic margin-top-medium">
               {!! get_the_content() !!}
             </div>
           @endif
@@ -41,8 +41,8 @@
           $categories = get_categories();
           $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
           $itemClass = 'block medium-up-inline-block padding-small ';
-          $linkClass = 'inline-block text--charcoal text-1';
-          $activeLinkClass = 'inline-block text--blue border-bottom border--blue text-1';
+          $linkClass = 'inline-block text--charcoal head-5';
+          $activeLinkClass = 'inline-block text--blue border-bottom border--blue head-5';
         @endphp
         @foreach($categories as $category)
           @php
