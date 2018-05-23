@@ -23,7 +23,7 @@
       <div class="frontIntro_logo inline-block">
         <i class="symbol-moocreport-blue symbol--large block margin-bottom-xxsmall"></i>
         <div class="block margin-right-large head-6 flush-right text--gray"><span class="flush-left">by</span> <i
-              class="symbol-classcentral-gray symbol--small margin-top-xxsmall"></i></div>
+              class="symbol-classcentral-gray symbol--small margin-top-xxsmall padding-left-xsmall"></i></div>
       </div>
       <div class="frontIntro_text text-1 text--italic">
         @if (have_posts())
