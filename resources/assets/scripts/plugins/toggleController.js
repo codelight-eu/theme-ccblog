@@ -3,12 +3,11 @@ const toggleController = () => {
   const BreakPoint = 1024;
 
   const ClassName = {
-    VISIBLE: 'animate-fade-entered',
-    HIDDEN: 'animate-fade-hidden',
+    ANIM_VISIBLE: 'animate-fade-entered',
+    ANIM_HIDDEN: 'animate-fade-hidden',
+    INVISIBLE: 'invisible',
     OPENSTATE: 'js-toggle-opened',
     ZINDEX: 'z-high',
-    ICON_MENU: 'icon-menu-charcoal',
-    ICON_X: 'icon-x-charcoal',
   };
 
   const Selector = {
@@ -18,9 +17,8 @@ const toggleController = () => {
     ITEM: '[data-toggle-item]',
     CENTRIZE: '[data-toggle-setCenter]',
     CONTENT: '[data-toggle-content]',
-    ICON: '[class*="icon-"]',
-    ICON_MENU: '.' + ClassName.ICON_MENU,
-    ICON_X: '.' + ClassName.ICON_X,
+    ICON_OPEN: '[data-toggle-icon-open]',
+    ICON_CLOSE: '[data-toggle-icon-close]',
   };
 
   const $element = {
@@ -50,20 +48,20 @@ const toggleController = () => {
         const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
         isVisible = true;
         $element.ITEM.each(function(){
-          $(this).removeClass(ClassName.VISIBLE);
-          $(this).addClass(ClassName.HIDDEN);
+          $(this).removeClass(ClassName.ANIM_VISIBLE);
+          $(this).addClass(ClassName.ANIM_HIDDEN);
         });
         $element.CONTAINER.each(function(){
           $(this).removeClass(ClassName.OPENSTATE);
         });
-        $theItem.addClass(ClassName.VISIBLE);
-        $theItem.removeClass(ClassName.HIDDEN);
+        $theItem.addClass(ClassName.ANIM_VISIBLE);
+        $theItem.removeClass(ClassName.ANIM_HIDDEN);
       }, function () {
         const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
         setTimeout(function () {
           if (!isVisible) {
-            $theItem.removeClass(ClassName.VISIBLE);
-            $theItem.addClass(ClassName.HIDDEN);
+            $theItem.removeClass(ClassName.ANIM_VISIBLE);
+            $theItem.addClass(ClassName.ANIM_HIDDEN);
           }
         }, timeoutTime);
         isVisible = false;
@@ -78,8 +76,8 @@ const toggleController = () => {
         isVisible = false;
         setTimeout(function () {
           if (!isVisible) {
-            $contentItem.removeClass(ClassName.VISIBLE);
-            $contentItem.addClass(ClassName.HIDDEN);
+            $contentItem.removeClass(ClassName.ANIM_VISIBLE);
+            $contentItem.addClass(ClassName.ANIM_HIDDEN);
           }
         }, timeoutTime);
       });
@@ -89,29 +87,30 @@ const toggleController = () => {
       $element.HOVERABLE.click(function () {
         const $theContainer = $(this).parents(Selector.CONTAINER);
         const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
-        const $theIcon = $(this).find(Selector.ICON).eq(0);
-        if ($theItem.hasClass(ClassName.VISIBLE)) {
-          $theItem.addClass(ClassName.HIDDEN);
-          $theItem.removeClass(ClassName.VISIBLE);
+        const $openIcon = $(this).find(Selector.ICON_OPEN);
+        const $closeIcon = $(this).find(Selector.ICON_CLOSE);
+        if ($theItem.hasClass(ClassName.ANIM_VISIBLE)) {
+          $theItem.addClass(ClassName.ANIM_HIDDEN);
+          $theItem.removeClass(ClassName.ANIM_VISIBLE);
           $theContainer.removeClass(ClassName.ZINDEX);
-          if($theIcon.length > 0 && $theIcon.hasClass(ClassName.ICON_X)){
-            $theIcon.removeClass(ClassName.ICON_X);
-            $theIcon.addClass(ClassName.ICON_MENU);
+          if($openIcon.length > 0 && $closeIcon.length > 0){
+            $openIcon.removeClass(ClassName.INVISIBLE);
+            $closeIcon.addClass(ClassName.INVISIBLE);
           }
         } else {
           $element.ITEM.each(function(){
-            $(this).removeClass(ClassName.VISIBLE);
-            $(this).addClass(ClassName.HIDDEN);
+            $(this).removeClass(ClassName.ANIM_VISIBLE);
+            $(this).addClass(ClassName.ANIM_HIDDEN);
           });
           $element.CONTAINER.each(function(){
             $(this).removeClass(ClassName.OPENSTATE);
           });
-          $theItem.addClass(ClassName.VISIBLE);
-          $theItem.removeClass(ClassName.HIDDEN);
+          $theItem.addClass(ClassName.ANIM_VISIBLE);
+          $theItem.removeClass(ClassName.ANIM_HIDDEN);
           $theContainer.addClass(ClassName.ZINDEX);
-          if($theIcon.length > 0 && $theIcon.hasClass(ClassName.ICON_MENU)){
-            $theIcon.addClass(ClassName.ICON_X);
-            $theIcon.removeClass(ClassName.ICON_MENU);
+          if($openIcon.length > 0 && $closeIcon.length > 0){
+            $closeIcon.removeClass(ClassName.INVISIBLE);
+            $openIcon.addClass(ClassName.INVISIBLE);
           }
         }
       });
@@ -121,17 +120,17 @@ const toggleController = () => {
     $element.CLICKABLE.click(function () {
       const $theContainer = $(this).parents(Selector.CONTAINER);
       const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM);
-      if ($theItem.hasClass(ClassName.VISIBLE)) {
-        $theItem.addClass(ClassName.HIDDEN);
-        $theItem.removeClass(ClassName.VISIBLE);
+      if ($theItem.hasClass(ClassName.ANIM_VISIBLE)) {
+        $theItem.addClass(ClassName.ANIM_HIDDEN);
+        $theItem.removeClass(ClassName.ANIM_VISIBLE);
         $theContainer.removeClass(ClassName.OPENSTATE);
       } else {
         $element.ITEM.each(function(){
-          $(this).removeClass(ClassName.VISIBLE);
-          $(this).addClass(ClassName.HIDDEN);
+          $(this).removeClass(ClassName.ANIM_VISIBLE);
+          $(this).addClass(ClassName.ANIM_HIDDEN);
         });
-        $theItem.addClass(ClassName.VISIBLE);
-        $theItem.removeClass(ClassName.HIDDEN);
+        $theItem.addClass(ClassName.ANIM_VISIBLE);
+        $theItem.removeClass(ClassName.ANIM_HIDDEN);
         $theContainer.addClass(ClassName.OPENSTATE);
       }
     });

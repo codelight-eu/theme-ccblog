@@ -25,7 +25,8 @@
     <i class="icon-menu-charcoal icon--medium invisible inline"></i>
   @else
     <span class="menuToggle flush-right cursor-pointer" data-toggle-link>
-    <i class="icon-menu-charcoal icon--medium"></i>
+    <i class="icon-menu-charcoal icon--medium" data-toggle-icon-open></i>
+    <i class="icon-x-charcoal icon--xsmall invisible absolute right top margin-right-large margin-top-medium padding-top-xxsmall" data-toggle-icon-close></i>
   </span>
     <div
         class="navbar_content animate-fade-hidden border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row border-all"
