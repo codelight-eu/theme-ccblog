@@ -4,7 +4,7 @@
   }
 @endphp
 <div
-    class="contextBar hidden @if($article) xlarge-up-block @endif xxlarge-up-block border-box bg-white z-high animate-fade-hidden border-bottom border--gray-dark border--thin left right top fixed text-center padding-horz-medium padding-top-xsmall padding-bottom-small"
+    class="contextBar hidden @if($article) xlarge-up-block @endif xxlarge-up-block border-box bg-white z-high animate-fade-hidden border-bottom border--gray-dark border--thin left right top fixed text-center padding-horz-medium padding-top-xsmall padding-bottom-xsmall"
     data-contextBar>
   @include("partials.logo", array('isContext' => 'true'))
   @if($article)

@@ -11,7 +11,7 @@
     <i class="symbol-moocreport-blue symbol--small large-up-symbol--large"></i>
   </a>
   @if(!$isContext)
-  <div class="block head-6 flush-right text--gray">by<i
+  <div class="logo_console block head-6 flush-right text--gray">by<i
         class="symbol-classcentral-gray symbol--xsmall medium-up-symbol--small"></i></div>
-    @endif
+  @endif
 </div>

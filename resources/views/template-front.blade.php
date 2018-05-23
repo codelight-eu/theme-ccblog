@@ -7,7 +7,7 @@
 
   @include('partials.follow-mobile', array('frontPage' => 'true'))
   <header
-      class="row z-high xlarge-up-absolute padding-top-medium padding-bottom-small padding-horz-medium width-100 border-box">
+      class="row z-high xlarge-up-absolute padding-horz-medium padding-top-medium width-100 border-box">
     @include('partials.navbar.navbar-largeScrn', ['frontPage' => true])
     @include('partials.navbar.navbar-mobile', ['frontPage' => true])
   </header>
@@ -21,15 +21,15 @@
     <div
         class="frontIntro padding-horz-small hidden text-center margin-top-xxsmall xlarge-up-block large-up-margin-top-medium">
       <div class="frontIntro_logo inline-block">
-        <i class="symbol-moocreport-blue symbol--xlarge block margin-bottom-xxsmall"></i>
+        <i class="symbol-moocreport-blue symbol--large block margin-bottom-xxsmall"></i>
         <div class="block margin-right-large head-6 flush-right text--gray"><span class="flush-left">by</span> <i
-              class="symbol-classcentral-gray symbol--small margin-top-xxsmall"></i></div>
+              class="symbol-classcentral-gray symbol--small margin-top-xxsmall padding-left-xsmall"></i></div>
       </div>
       <div class="frontIntro_text text-1 text--italic">
         @if (have_posts())
           @while (have_posts())  @php(the_post())
           @if(get_the_content())
-            <div class="frontIntro_text wysiwyg text-1 text--italic margin-top-large">
+            <div class="frontIntro_text wysiwyg text-1 text--italic margin-top-medium">
               {!! get_the_content() !!}
             </div>
           @endif
@@ -41,8 +41,8 @@
           $categories = get_categories();
           $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
           $itemClass = 'block medium-up-inline-block padding-small ';
-          $linkClass = 'inline-block text--charcoal text-1';
-          $activeLinkClass = 'inline-block text--blue border-bottom border--blue text-1';
+          $linkClass = 'inline-block text--charcoal head-5';
+          $activeLinkClass = 'inline-block text--blue border-bottom border--blue head-5';
         @endphp
         @foreach($categories as $category)
           @php
@@ -82,7 +82,7 @@
     @php wp_reset_query(); @endphp
     <div class="main row large-up-margin-top-large">
       <div
-          class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
+          class="col xlarge-up-width-2-3 width-100 padding-horz-xlarge medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
         <div class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-large">
           <h4 class="head-4 inline-block bg-white padding-right-medium"><strong class="text--bold">{{ __('Recent articles', 'ccblog') }}</strong></h4>
         </div>
@@ -112,7 +112,7 @@
           {!! get_the_posts_navigation() !!}
         </div>
         <div
-            class="sidebar col large-up-width-2-5 margin-top-large large-up-margin-top-reset padding-horz-xlarge medium-up-padding-horz-small padding-top-xsmall relative">
+            class="sidebar col width-100 xlarge-up-width-1-3 margin-top-large large-up-margin-top-reset padding-horz-xlarge medium-up-padding-horz-small padding-top-xsmall relative">
           @php
             $args = array(
               'orderby' => 'date',
@@ -124,7 +124,7 @@
           @endphp
           @if($query->have_posts())
             @while ($query->have_posts()) @php($query->the_post())
-            @if(get_field('set_featured_position') == 'position_sidebar' && $counter < 1)
+            @if(get_field('set_featured') == 'true' && get_field('set_featured_position') == 'position_sidebar' && $counter < 1)
               <div
                   class="featurePost-sidebar border-all border--thin border--gray-dark radius padding-horz-large large-up-padding-bottom-xxlarge padding-bottom-xlarge margin-bottom-xlarge medium-up-margin-bottom-xxlarge">
                 <div class="text-center">
@@ -132,15 +132,18 @@
                     @if(get_field('sidebar_settings')['set_section_title'] == 'title_custom')
                       <span class="head-3 wysiwyg">{!! get_field('sidebar_settings')['section_title'] !!}</span>
                     @elseif(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
-                      @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i> <span class="head-4">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
+                      @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i><span class="head-4 padding-left-xsmall">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
                     @endif
                   </div>
                 </div>
                 <time
                     class="featurePost_date block head-5 text-center text--italic"
                     datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
-                @if (has_post_thumbnail( get_the_ID() ) )
-                  @php $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' ); @endphp
+                @if (has_post_thumbnail( get_the_ID() ) || get_field('set_cropped_illustration') )
+                  @php
+                    if(get_field('set_cropped_illustration')) $image = wp_get_attachment_image_src( get_field('set_cropped_illustration')['id'], 'medium_large' );
+                    else if(has_post_thumbnail( get_the_ID() )) $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium_large' );
+                  @endphp
                   <div class="featurePost_imageCont margin-top-xsmall">
                     <a href="{{ get_permalink() }}" class="text--charcoal">
                       <img class="width-100" src="{{ $image[0] }}">
@@ -148,18 +151,18 @@
                   </div>
                 @endif
                 <h2 class="text-center margin-top-xsmall">
-                  <a href="{{ get_permalink() }}" class="text--charcoal head-2 text--bold">
+                  <a href="{{ get_permalink() }}" class="text--charcoal head-3 text--bold">
                     {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
                   </a></h2>
                 <div
-                    class="featurePost_description wysiwyg text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
+                    class="featurePost_description text-3 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
                 <div class="featurePost_authorCont flex-vert-middle">
                   @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
                 </div>
                 <div
-                    class="mailChimp row bg-blue-light padding-large border--blue-light border--thin border-all text-center margin-top-medium">
+                    class="mailChimp row bg-blue-light padding-medium border--blue-light border--thin border-all text-center margin-top-medium">
                   <div class="head-5">{{ __('Get', 'ccblog') }} <i
-                        class="symbol-moocwatch-charcoal symbol--charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}
+                        class="symbol-moocwatch-charcoal symbol--charcoal symbol--small"></i> <span class="xlarge-up-block">{{ __('in your inbox.', 'ccblog') }}</span>
                   </div>
                   @php
                     mc4wp_show_form('63147');

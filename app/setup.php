@@ -233,7 +233,7 @@ add_action('acf/init', function() use ($sidebar, $ccLinks, $follow) {
   acf_add_local_field_group($follow->build());
 });
 
-/* Add custom field for User Form */
+/* Add custom field to User Form */
 $userShortDesc = new FieldsBuilder('user_short_description');
 $userShortDesc
   ->addWysiwyg('short_description')
@@ -243,7 +243,7 @@ add_action('acf/init', function() use ($userShortDesc) {
   acf_add_local_field_group($userShortDesc->build());
 });
 
-/* Add related tags field for Tags */
+/* Add related tags field to Tags */
 $relatedTags = new FieldsBuilder('related_tags');
 $relatedTags
   ->addTaxonomy('set_related_tags', [
@@ -255,7 +255,7 @@ add_action('acf/init', function() use ($relatedTags) {
   acf_add_local_field_group($relatedTags->build());
 });
 
-/* Add disclosure option for post */
+/* Add disclosure option to post */
 $disclosure = new FieldsBuilder('disclosure');
 $disclosure
   ->addTrueFalse('edit_disclosure', ['wrapper' => ['width' => 20]])
@@ -266,6 +266,16 @@ $disclosure
 
 add_action('acf/init', function() use ($disclosure) {
   acf_add_local_field_group($disclosure->build());
+});
+
+/* Add cropped image field to post */
+$croppedImage = new FieldsBuilder('cropped_illustration');
+$croppedImage
+  ->addImage('set_cropped_illustration')
+  ->setLocation('post_type', '==', 'post');
+
+add_action('acf/init', function() use ($croppedImage) {
+  acf_add_local_field_group($croppedImage->build());
 });
 
 /* Add image to category */

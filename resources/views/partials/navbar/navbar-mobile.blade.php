@@ -14,7 +14,7 @@
       class="spaceHolder invisible padding-top-medium padding-bottom-medium margin-top-xxsmall xlarge-up-hidden @if(!$frontPage)large-up-hidden @endif"></div>
 @endif
 <div
-    class="@if(!$contextBar)navbar-mobile xlarge-up-hidden z-low @elseif($contextBar && $article) navbar-mobileArticleContext animate-fade-hidden xlarge-up-hidden z-high @else navbar-mobileContext animate-fade-hidden xxlarge-up-hidden z-low @endif @if(!$frontPage && !$contextBar)large-up-hidden @endif fixed left right top padding-horz-medium padding-top-medium padding-bottom-small bg-white border-bottom border--gray-dark border--thin border-box"
+    class="@if(!$contextBar)navbar-mobile xlarge-up-hidden z-low @elseif($contextBar && $article) navbar-mobileArticleContext animate-fade-hidden xlarge-up-hidden z-high @else navbar-mobileContext animate-fade-hidden xxlarge-up-hidden z-low @endif @if(!$frontPage && !$contextBar)large-up-hidden @endif fixed left right top padding-horz-medium padding-top-small padding-bottom-xxsmall bg-white border-bottom border--gray-dark border--thin border-box"
     data-toggle-container @if($contextBar)data-contextBar @endif>
   @include("partials.logo")
   @if($article && $contextBar)
@@ -25,7 +25,8 @@
     <i class="icon-menu-charcoal icon--medium invisible inline"></i>
   @else
     <span class="menuToggle flush-right cursor-pointer" data-toggle-link>
-    <i class="icon-menu-charcoal icon--medium"></i>
+    <i class="icon-menu-charcoal icon--medium" data-toggle-icon-open></i>
+    <i class="icon-x-charcoal icon--xsmall invisible absolute right top margin-right-large margin-top-medium padding-top-xxsmall" data-toggle-icon-close></i>
   </span>
     <div
         class="navbar_content animate-fade-hidden border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row border-all"

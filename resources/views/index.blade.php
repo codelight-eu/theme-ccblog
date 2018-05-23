@@ -8,8 +8,8 @@
 @section('content')
   @include('partials.follow-mobile')
   <header
-      class="row z-high padding-top-small padding-horz-medium padding-top-medium padding-bottom-small border--thin border--gray-dark"
-      data-responsive='{"largeUp": "border-bottom"}'>
+      class="row z-high padding-top-small padding-horz-medium padding-top-medium border--thin border--gray-dark"
+      data-responsive='{"largeUp": "border-bottom padding-bottom-small"}'>
     @include('partials.navbar.navbar-largeScrn')
     @include('partials.navbar.navbar-mobile')
   </header>

@@ -24,7 +24,7 @@
           <div class="comment_head row margin-bottom-medium">
             <div class="comment_icon flush-left margin-right-medium margin-top-xsmall"><i class="icon-comment size--large bgSize--xxlarge"></i></div>
             <div class="comment_title">
-              <div class="margin-bottom-xsmall head-6"><strong class="text--bold">{{ __('Comment from', 'ccblog') }}</strong></div>
+              <div class="margin-bottom-xxsmall head-6"><strong class="text--bold">{{ __('Comment from', 'ccblog') }}</strong></div>
               <h2 class="overflow-hidden">
                 <a href="{{ $commentLink }}" class="text--charcoal head-3 text--bold">{{ $commentTitle }}</a>
               </h2>
@@ -32,7 +32,7 @@
           </div>
           <div class="comment_body">
             <span class="margin-right-xsmall">"{!! $commentContent !!}"</span>
-            <a href="{{ $commentLink }}" class="comment_link inline-block text--blue-bright head-6"><strong class="text--bold">{{ __('Show more...', 'ccblog') }}</strong></a>
+            <a href="{{ $commentLink }}" class="comment_link inline-block text--blue-bright head-6"><strong class="text--bold text--blue text-2">{{ __('Show more...', 'ccblog') }}</strong></a>
           </div>
           <div class="comment_footer head-6 margin-top-xsmall">
             <div class="comment_author text--bold inline-block margin-right-xsmall">{{ $comment->comment_author }}</div>

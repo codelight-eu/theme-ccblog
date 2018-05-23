@@ -6,10 +6,14 @@
     @if ( $posts->have_posts() )
       @while ($posts->have_posts()) @php($posts->the_post())
       <li class="quickArcicles_item row margin-top-medium">
-        @if(get_the_post_thumbnail())
+        @if(get_the_post_thumbnail() || get_field('set_cropped_illustration'))
           <div class="quickArcicles_image width-1-3 flush-left margin-right-small hidden medium-up-block">
             <a class="text--charcoal" href="{{ get_permalink() }}">
-              {!! the_post_thumbnail('small', ['class' => 'width-100 height-100 block border-all']) !!}
+              @if(get_field('set_cropped_illustration'))
+                <img class='width-100 height-100 block border-all' src="{{ get_field('set_cropped_illustration')['sizes']['thumbnail'] }}" alt="">
+              @elseif(get_the_post_thumbnail())
+                {!! the_post_thumbnail('small', ['class' => 'width-100 height-100 block border-all']) !!}
+              @endif
             </a>
           </div>
         @endif
