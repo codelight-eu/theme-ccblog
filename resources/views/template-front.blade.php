@@ -82,7 +82,7 @@
     @php wp_reset_query(); @endphp
     <div class="main row large-up-margin-top-large">
       <div
-          class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
+          class="col xlarge-up-width-2-3 width-100 padding-horz-xlarge medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
         <div class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-large">
           <h4 class="head-4 inline-block bg-white padding-right-medium"><strong class="text--bold">{{ __('Recent articles', 'ccblog') }}</strong></h4>
         </div>
@@ -112,7 +112,7 @@
           {!! get_the_posts_navigation() !!}
         </div>
         <div
-            class="sidebar col large-up-width-2-5 margin-top-large large-up-margin-top-reset padding-horz-xlarge medium-up-padding-horz-small padding-top-xsmall relative">
+            class="sidebar col width-100 xlarge-up-width-1-3 margin-top-large large-up-margin-top-reset padding-horz-xlarge medium-up-padding-horz-small padding-top-xsmall relative">
           @php
             $args = array(
               'orderby' => 'date',
@@ -132,7 +132,7 @@
                     @if(get_field('sidebar_settings')['set_section_title'] == 'title_custom')
                       <span class="head-3 wysiwyg">{!! get_field('sidebar_settings')['section_title'] !!}</span>
                     @elseif(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
-                      @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i> <span class="head-4">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
+                      @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i><span class="head-4 padding-left-xsmall">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
                     @endif
                   </div>
                 </div>
@@ -151,18 +151,18 @@
                   </div>
                 @endif
                 <h2 class="text-center margin-top-xsmall">
-                  <a href="{{ get_permalink() }}" class="text--charcoal head-2 text--bold">
+                  <a href="{{ get_permalink() }}" class="text--charcoal head-3 text--bold">
                     {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
                   </a></h2>
                 <div
-                    class="featurePost_description wysiwyg text-2 large-up-text-1 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
+                    class="featurePost_description text-3 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
                 <div class="featurePost_authorCont flex-vert-middle">
                   @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
                 </div>
                 <div
-                    class="mailChimp row bg-blue-light padding-large border--blue-light border--thin border-all text-center margin-top-medium">
+                    class="mailChimp row bg-blue-light padding-medium border--blue-light border--thin border-all text-center margin-top-medium">
                   <div class="head-5">{{ __('Get', 'ccblog') }} <i
-                        class="symbol-moocwatch-charcoal symbol--charcoal symbol--small"></i> {{ __('in your inbox.', 'ccblog') }}
+                        class="symbol-moocwatch-charcoal symbol--charcoal symbol--small"></i> <span class="xlarge-up-block">{{ __('in your inbox.', 'ccblog') }}</span>
                   </div>
                   @php
                     mc4wp_show_form('63147');
