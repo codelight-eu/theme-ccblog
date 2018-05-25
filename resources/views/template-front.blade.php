@@ -132,7 +132,7 @@
                     @if(get_field('sidebar_settings')['set_section_title'] == 'title_custom')
                       <span class="head-3 wysiwyg">{!! get_field('sidebar_settings')['section_title'] !!}</span>
                     @elseif(get_field('sidebar_settings')['set_section_title'] == 'title_moocwatch')
-                      @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal"></i><span class="head-4 padding-left-xsmall">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
+                      @if(get_field('sidebar_settings')['moocwatch_no'])<i class="symbol-moocwatch-charcoal symbol--small"></i><span class="head-4 padding-left-xsmall">{{ __('No.', 'ccblog') }} {{ get_field('sidebar_settings')['moocwatch_no'] }}</span>@endif
                     @endif
                   </div>
                 </div>
@@ -155,7 +155,7 @@
                     {!! get_field('sidebar_settings')['short_title'] ? get_field('sidebar_settings')['short_title'] : the_title() !!}
                   </a></h2>
                 <div
-                    class="featurePost_description text-3 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
+                    class="featurePost_description text-2 margin-top-medium margin-bottom-small large-up-margin-bottom-medium">{!! get_the_excerpt() !!}</div>
                 <div class="featurePost_authorCont flex-vert-middle">
                   @include('partials.author', array('author_imageContClass' => 'size--xsmall medium-up-size--small'))
                 </div>
