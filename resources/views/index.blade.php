@@ -27,7 +27,7 @@
       "mediumUp": "padding-horz-medium",
       "largeUp": "padding-horz-large"
     }'>
-    <div class="col large-up-width-3-5 padding-horz-xlarge medium-up-padding-horz-small">
+    <div class="col width-100 xlarge-up-width-2-3 padding-horz-medium medium-up-padding-horz-small">
       <div
           class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-medium large-up-margin-bottom-large">
         <h4 class="head-4 inline-block bg-white padding-right-medium"><strong
@@ -56,13 +56,13 @@
       </div>
     </div>
     <div
-        class="sidebar col width-100 large-up-width-2-5 padding-horz-xlarge medium-up-padding-horz-small margin-bottom-xxlarge">
+        class="sidebar col width-100 xlarge-up-width-1-3 padding-horz-medium medium-up-padding-horz-small margin-bottom-xxlarge">
       <div class="sidebar_title border-center margin-bottom-medium">
         <div
             class="head-4 inline-block border--gray-dark bg-white padding-right-xsmall"><strong
               class="text--bold">{{ __('About', 'ccblog') }}</strong></div>
       </div>
-      <div class="sidebar_content wysiwyg">
+      <div class="sidebar_content wysiwyg--text-2">
         {!! get_field('footer_content', 'option') !!}
       </div>
       <div
