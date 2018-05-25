@@ -19,8 +19,8 @@
   @include("partials.logo")
   @if($article && $contextBar)
     <div
-        class="contextBar_title head-4 text--bold inline-block flush-left margin-left-medium margin-top-xsmall text-left xsmall-only-width-1-2 width-2-4">
-      {{ mb_strimwidth(get_the_title(), 0, 30, '...') }}
+        class="contextBar_title head-4 truncate truncate--large inline-block flush-left margin-left-medium margin-top-xsmall text-left xsmall-only-width-1-2 width-4-7">
+      {{ get_the_title() }}
     </div>
     <i class="icon-menu-charcoal icon--medium invisible inline"></i>
   @else
@@ -44,7 +44,7 @@
             $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
             $itemClass = 'block padding-vert-xsmall padding-right-small';
             $linkClass = 'inline-block text--charcoal';
-            $activeLinkClass = 'inline-block text--blue border-bottom border--blue';
+            $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue';
           @endphp
           @foreach($categories as $category)
             @php

@@ -13,6 +13,6 @@
 
 @endphp
 
-<div class="breadcrumbs text-3 text--gray padding-horz-xlarge medium-up-padding-horz-small margin-top-large">
+<div class="breadcrumbs text-3 text--gray padding-horz-medium medium-up-padding-horz-small margin-top-large">
   {{ __('MOOC Report', 'ccblog') }} {!! $chevron . $page !!}
 </div>

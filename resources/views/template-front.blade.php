@@ -42,7 +42,7 @@
           $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
           $itemClass = 'block medium-up-inline-block padding-small ';
           $linkClass = 'inline-block text--charcoal head-5';
-          $activeLinkClass = 'inline-block text--blue border-bottom border--blue head-5';
+          $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue head-5';
         @endphp
         @foreach($categories as $category)
           @php
@@ -82,7 +82,7 @@
     @php wp_reset_query(); @endphp
     <div class="main row large-up-margin-top-large">
       <div
-          class="col xlarge-up-width-2-3 width-100 padding-horz-xlarge medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
+          class="col xlarge-up-width-2-3 width-100 padding-horz-medium medium-up-padding-horz-small xlarge-up-margin-bottom-xxlarge">
         <div class="sectionSubtitle border-center border--thin border--gray-dark margin-bottom-large">
           <h4 class="head-4 inline-block bg-white padding-right-medium"><strong class="text--bold">{{ __('Recent articles', 'ccblog') }}</strong></h4>
         </div>
@@ -112,7 +112,7 @@
           {!! get_the_posts_navigation() !!}
         </div>
         <div
-            class="sidebar col width-100 xlarge-up-width-1-3 margin-top-large large-up-margin-top-reset padding-horz-xlarge medium-up-padding-horz-small padding-top-xsmall relative">
+            class="sidebar col width-100 xlarge-up-width-1-3 margin-top-large large-up-margin-top-reset padding-horz-medium medium-up-padding-horz-small padding-top-xsmall relative">
           @php
             $args = array(
               'orderby' => 'date',

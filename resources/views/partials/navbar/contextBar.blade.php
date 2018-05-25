@@ -8,11 +8,11 @@
     data-contextBar>
   @include("partials.logo", array('isContext' => 'true'))
   @if($article)
-    <div class="contextBar_title head-3 text--bold inline-block flush-left margin-left-medium margin-top-xsmall text-left width-3-5">
+    <div class="contextBar_title truncate truncate--xlarge head-3 inline-block flush-left margin-left-medium margin-top-xsmall text-left width-3-5">
       {{ get_the_title() }}
     </div>
   <div class="flush-right">
-    <div class="inline-block head-4 margin-right-xsmall">{{ __('Share this article', 'ccblog') }}</div>
+    <div class="inline-block head-5 margin-right-xsmall flush-left margin-top-xxsmall">{{ __('Share this article', 'ccblog') }}</div>
     @include('partials.social-article')
   </div>
   @else
@@ -22,7 +22,7 @@
       $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
       $itemClass = 'inline-block padding-vert-xsmall padding-horz-small';
       $linkClass = 'inline-block text--charcoal';
-      $activeLinkClass = 'inline-block text--blue border-bottom border--blue';
+      $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue';
     @endphp
     @foreach($categories as $category)
       @php

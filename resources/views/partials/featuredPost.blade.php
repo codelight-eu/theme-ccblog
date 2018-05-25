@@ -3,7 +3,7 @@ $link = get_permalink();
 $title = get_the_title();
 $imageUrl = get_the_post_thumbnail_url('large');
 @endphp
-<article @php(post_class('article row padding-left-xlarge padding-right-xlarge margin-top-small medium-up-padding-horz-small large-up-margin-vert-xxlarge margin-bottom-large'))>
+<article @php(post_class('article row padding-left-medium padding-right-medium margin-top-small medium-up-padding-horz-small large-up-margin-vert-xxlarge margin-bottom-large'))>
   <div class="col large-up-width-1-2 large-up-padding-right-medium relative">
   <header>
     <time

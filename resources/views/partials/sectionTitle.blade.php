@@ -1,4 +1,4 @@
-<div class="sectionTitle text--charcoal margin-vert-large medium-up-padding-horz-small padding-horz-xlarge row">
+<div class="sectionTitle text--charcoal margin-vert-large medium-up-padding-horz-small padding-horz-medium row">
   @if(is_author())
     @include('partials.title-author')
   @elseif(is_tag())

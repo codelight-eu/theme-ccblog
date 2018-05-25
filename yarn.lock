@@ -1065,9 +1065,9 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-"classcentral-style@git+https://github.com/classcentral/classcentral-style.git#v0.4.17":
-  version "0.4.17"
-  resolved "git+https://github.com/classcentral/classcentral-style.git#b3839da9c478a6c4461710a3780dd3db42cffb2e"
+"classcentral-style@git+https://github.com/classcentral/classcentral-style.git#v0.4.18":
+  version "0.4.18"
+  resolved "git+https://github.com/classcentral/classcentral-style.git#6d489847a8e6f3795129d149c99295d72fac19d7"
   dependencies:
     body-parser "1.17.2"
     datauri "^1.0.5"
