@@ -1,5 +1,5 @@
 <footer
-    class="footer padding-horz-medium max-width-xl row width-centered padding-top-xxlarge text--charcoal margin-bottom-xlarge large-up-block">
+    class="footer width-100 padding-horz-medium max-width-xl row width-centered padding-top-xxlarge text--charcoal large-up-block border-box">
   <div class="col width-100 large-up-width-1-2 text-center large-up-text-left xsmall-only-padding-bottom-xxlarge small-only-padding-bottom-xxlarge medium-only-padding-bottom-xxlarge">
     <div class="col width-100 small-up-width-1-3 margin-bottom-large">
       @if (has_nav_menu('footer1'))
