@@ -39,22 +39,12 @@
             class="category width-1-2 small-up-width-100 padding-bottom-xsmall"
             data-responsive='{"xsmallOnly": "border-bottom  border--gray-dark border--thin"}'
         >
-          @php
-            $categories = get_categories();
-            $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
-            $itemClass = 'block padding-vert-xsmall padding-right-small';
-            $linkClass = 'inline-block text--charcoal';
-            $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue';
-          @endphp
-          @foreach($categories as $category)
-            @php
-              $linkURL = get_category_link($category->term_id);
-            @endphp
-
-            <div class='{{ $itemClass }}'><a
-                  class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
-                  href='{{ $linkURL }}'>{{$category->name}}</a></div>
-          @endforeach
+          @if (has_nav_menu('mobileNav'))
+            @php $menu_obj = get_menu_by_location('mobileNav'); @endphp
+            {!! wp_nav_menu([
+            'theme_location' => 'mobileNav',
+            ]) !!}
+          @endif
         </div>
       </div>
       <div

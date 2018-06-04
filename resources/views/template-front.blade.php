@@ -37,26 +37,18 @@
         @endif
       </div>
       <div class="category text-center border-bottom border--thin border--gray-dark padding-vert-xxsmall">
-        @php
-          $categories = get_categories();
-          $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
-          $itemClass = 'block medium-up-inline-block padding-small ';
-          $linkClass = 'inline-block text--charcoal head-5';
-          $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue head-5';
-        @endphp
-        @foreach($categories as $category)
-          @php
-            $linkURL = get_category_link($category->term_id);
-          @endphp
-
-          <div class='{{ $itemClass }}'><a
-                class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
-                href='{{ $linkURL }}'>{{$category->name}}</a></div>
-        @endforeach
+        @if (has_nav_menu('mainNav'))
+          @php $menu_obj = get_menu_by_location('mainNav'); @endphp
+          {!! wp_nav_menu([
+          'theme_location' => 'mainNav',
+          'container_class' => 'inline-block',
+          ]) !!}
+        @endif
         <div class="inline-block text-left">
           @include('partials.quickArticles-opener')
         </div>
       </div>
+
     </div>
     @php
       $args = array(
