@@ -37,22 +37,12 @@
           data-responsive='{"fullMenuBreakpointUp": "hidden"}'
           data-toggle-item
           data-toggle-setCenter>
-        @php
-          $categories = get_categories();
-          $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
-          $itemClass = 'block padding-vert-xsmall padding-horz-xlarge';
-          $linkClass = 'inline-block text--charcoal';
-          $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue';
-        @endphp
-        @foreach($categories as $category)
-          @php
-            $linkURL = get_category_link($category->term_id);
-          @endphp
-
-          <div class='{{ $itemClass }}'><a
-                class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
-                href='{{ $linkURL }}'>{{$category->name}}</a></div>
-        @endforeach
+        @if (has_nav_menu('standardNav'))
+          @php $menu_obj = get_menu_by_location('standardNav'); @endphp
+          {!! wp_nav_menu([
+          'theme_location' => 'standardNavCollapsed',
+          ]) !!}
+        @endif
       </div>
     </div>
     <div class="inline-block"
@@ -60,22 +50,13 @@
       <div
           class="hidden relative text-left"
           data-responsive='{"fullMenuBreakpointUp": "xxlarge-up-inline"}'>
-        @php
-          $categories = get_categories();
-          $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
-          $itemClass = 'inline-block padding-vert-xsmall padding-horz-small';
-          $linkClass = 'inline-block text--charcoal';
-          $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue';
-        @endphp
-        @foreach($categories as $category)
-          @php
-            $linkURL = get_category_link($category->term_id);
-          @endphp
-
-          <div class='{{ $itemClass }}'><a
-                class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
-                href='{{ $linkURL }}'>{{$category->name}}</a></div>
-        @endforeach
+        @if (has_nav_menu('standardNav'))
+          @php $menu_obj = get_menu_by_location('standardNav'); @endphp
+          {!! wp_nav_menu([
+          'theme_location' => 'standardNav',
+          'container_class' => 'inline-block',
+          ]) !!}
+        @endif
       </div>
       <div
           class="inline-block text-left margin-top-xxsmall margin-right-medium @if($frontPage)hidden @endif">

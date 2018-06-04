@@ -17,22 +17,13 @@
   </div>
   @else
   <div class="category head-5 inline-block">
-    @php
-      $categories = get_categories();
-      $currentCatID = (is_category() ? get_category(get_query_var( 'cat' ))->cat_ID : false);
-      $itemClass = 'inline-block padding-vert-xsmall padding-horz-small';
-      $linkClass = 'inline-block text--charcoal';
-      $activeLinkClass = 'inline-block text--blue border-bottom border--thin border--blue';
-    @endphp
-    @foreach($categories as $category)
-      @php
-        $linkURL = get_category_link($category->term_id);
-      @endphp
-
-      <div class='{{ $itemClass }}'><a
-            class='{{ ($category->cat_ID == $currentCatID ? $activeLinkClass : $linkClass) }}'
-            href='{{ $linkURL }}'>{{$category->name}}</a></div>
-    @endforeach
+    @if (has_nav_menu('mainNav'))
+      @php $menu_obj = get_menu_by_location('mainNav'); @endphp
+      {!! wp_nav_menu([
+      'theme_location' => 'contextBarNav',
+      'container_class' => 'inline-block',
+      ]) !!}
+    @endif
   </div>
   <div class="flush-right margin-top-xxsmall">
     <div class="pull margin-right-xsmall head-5 margin-top-xxsmall">{{ __('Stay up to date', 'ccblog') }}</div>

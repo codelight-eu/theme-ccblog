@@ -2,15 +2,40 @@
 
 add_filter( 'nav_menu_link_attributes', 'alter_link_class', 10, 3 );
 function alter_link_class( $atts, $item, $args ) {
-  $class = 'text--blue'; // or something based on $item
+  if( $args->theme_location == 'mainNav' ) {
+    // add the desired attributes:
+    if($item->current) {
+      $class = 'inline-block text--blue border-bottom border--thin border--blue head-5';
+    } else {
+      $class = 'inline-block text--charcoal head-5';
+    }
+  } else if($args->theme_location == 'contextBarNav' || $args->theme_location == 'standardNav' || $args->theme_location == 'standardNavCollapsed' || $args->theme_location == 'mobileNav') {
+    if($item->current) {
+      $class = 'text--blue border-bottom border--thin border--blue';
+    } else {
+      $class = 'inline-block text--charcoal';
+    }
+  } else {
+    $class = 'text--blue';
+  }
+
   $atts['class'] = $class;
   return $atts;
 }
 
 add_filter('nav_menu_css_class','alter_item_classes',1,3);
-
 function alter_item_classes($classes, $item, $args) {
-  $classes[] = 'margin-bottom-xsmall';
+  if( $args->theme_location == 'mainNav' ) {
+    $classes[] = 'block medium-up-inline-block padding-small';
+  } else if($args->theme_location == 'contextBarNav' || $args->theme_location == 'standardNav') {
+    $classes[] = 'inline-block padding-vert-xsmall padding-horz-small';
+  } else if($args->theme_location == 'standardNavCollapsed') {
+    $classes[] = 'block padding-vert-xsmall padding-horz-xlarge';
+  } else if($args->theme_location == 'mobileNav') {
+    $classes[] = 'block padding-vert-xsmall padding-right-small';
+  } else {
+    $classes[] = 'margin-bottom-xsmall';
+  }
   return $classes;
 }
 
