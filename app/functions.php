@@ -23,6 +23,16 @@ function alter_link_class( $atts, $item, $args ) {
   return $atts;
 }
 
+add_filter( 'nav_menu_submenu_css_class', 'submenu_classes', 10, 4 );
+function submenu_classes( $classes, $args ) {
+  if($args->theme_location === 'standardNavCollapsed' || $args->theme_location === 'mobileNav'){
+    $classes[] = 'width-100 relative';
+  } else {
+    $classes[] = 'width-100 absolute margin-left-xxlarge margin-top-xsmall bg-white border-all border--gray-dark border--thin shadow radius arrow--medium arrow-top-middle z-low padding-vert-medium animate-fade-hidden';
+  }
+  return $classes;
+}
+
 add_filter('nav_menu_css_class','alter_item_classes',1,3);
 function alter_item_classes($classes, $item, $args) {
   if( $args->theme_location == 'mainNav' ) {
@@ -36,6 +46,10 @@ function alter_item_classes($classes, $item, $args) {
   } else {
     $classes[] = 'margin-bottom-xsmall';
   }
+  /*if(in_array('menu-item-has-children', $classes)){
+    $classes[] = 'icon--right icon-chevron-down icon--xsmall padding-right-xlarge';
+  }*/
+
   return $classes;
 }
 

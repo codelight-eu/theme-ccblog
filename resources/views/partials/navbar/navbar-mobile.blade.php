@@ -29,7 +29,7 @@
     <i class="icon-x-charcoal icon--xsmall invisible absolute right top margin-right-large margin-top-medium padding-top-xxsmall" data-toggle-icon-close></i>
   </span>
     <div
-        class="navbar_content animate-fade-hidden border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row border-all"
+        class="navbar_content js-toggle-noSubMenuHover animate-fade-hidden border-top margin-top-xxlarge absolute left right padding-horz-xlarge padding-vert-large z-high bg-white row border-all"
         data-toggle-item>
       <div class="menu_left col width-100 small-up-width-1-3 head-5">
         <div class="block padding-right-small padding-bottom-xsmall">
@@ -43,6 +43,7 @@
             @php $menu_obj = get_menu_by_location('mobileNav'); @endphp
             {!! wp_nav_menu([
             'theme_location' => 'mobileNav',
+            'link_after' => '<i class="menu_more-icon icon--xsmall icon-chevron-right"></i>',
             ]) !!}
           @endif
         </div>
