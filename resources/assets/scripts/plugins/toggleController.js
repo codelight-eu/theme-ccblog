@@ -87,7 +87,7 @@ const toggleController = () => {
         $theItem.addClass(ClassName.ANIM_VISIBLE);
         $theItem.removeClass(ClassName.ANIM_HIDDEN);
       }, function () {
-        const $theItem = $(this).parents(Selector.CONTAINER).find(Selector.ITEM).not(MenuSelector.NOT_HOVERABLE_ITEM);
+        const $theItem = $(this).parents(Selector.CONTAINER + ', ' + MenuSelector.CONTAINER).find(Selector.ITEM).not(MenuSelector.NOT_HOVERABLE_ITEM);
         /* Hide the hoverable element after timeout and when not hovering it */
         setTimeout(function () {
           if (!isVisible) {
