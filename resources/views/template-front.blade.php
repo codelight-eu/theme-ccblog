@@ -42,6 +42,7 @@
           {!! wp_nav_menu([
           'theme_location' => 'mainNav',
           'container_class' => 'inline-block',
+          'link_after' => '<i class="menu_more-icon icon--xsmall icon-chevron-down"></i>',
           ]) !!}
         @endif
         <div class="inline-block text-left">

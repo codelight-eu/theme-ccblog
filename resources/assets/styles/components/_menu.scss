@@ -1,0 +1,30 @@
+.classcentral-style-custom {
+  .menu-item:not(.menu-item-has-children) .menu_more-icon {
+    display: none;
+  }
+
+  .sub-menu {
+    .menu-item {
+      display: block;
+    }
+  }
+
+  .js-toggle-noSubMenuHover {
+    .sub-menu {
+      position: relative;
+      display: none;
+      margin-top: 5px;
+      padding-left: 10px;
+      border-left: 1px solid #e3e3e3;
+
+      &.js-toggle-show {
+        display: block;
+      }
+
+      .menu-item {
+        display: block;
+        padding: 5px 0;
+      }
+    }
+  }
+}

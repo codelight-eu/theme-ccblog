@@ -25,7 +25,7 @@
   </ul>
   <div
       class="category head-5 hidden @if(!$frontPage)medium-up-inline-block @endif">
-    <div class="inline-block hidden large-up-flush-right @if(!$frontPage)medium-up-inline-block @endif"
+    <div class="js-toggle-noSubMenuHover inline-block hidden large-up-flush-right @if(!$frontPage)medium-up-inline-block @endif"
          data-toggle-container>
       <div class="category-toggle margin-top-xsmall cursor-pointer" data-responsive='{"fullMenuBreakpointUp": "hidden"}'
            data-toggle-link>
@@ -41,6 +41,7 @@
           @php $menu_obj = get_menu_by_location('standardNav'); @endphp
           {!! wp_nav_menu([
           'theme_location' => 'standardNavCollapsed',
+          'link_after' => '<i class="menu_more-icon icon--xsmall icon-chevron-right"></i>',
           ]) !!}
         @endif
       </div>
@@ -55,6 +56,7 @@
           {!! wp_nav_menu([
           'theme_location' => 'standardNav',
           'container_class' => 'inline-block',
+          'link_after' => '<i class="menu_more-icon icon--xsmall icon-chevron-down"></i>',
           ]) !!}
         @endif
       </div>
