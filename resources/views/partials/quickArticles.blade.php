@@ -1,5 +1,5 @@
 @php
-  $args=array('posts_per_page'=>3, 'tag' => 'MOOCWatch');
+  $args=array('posts_per_page'=>3, 'cat' => 'MOOCWatch');
   $posts = new WP_Query( $args );
 @endphp
   <ul class="quickArticles head-5">
