@@ -1,5 +1,5 @@
 @php
-  $tag = get_term_by('name', 'MOOCWatch', 'post_tag');
+  $tag = get_term_by('name', 'MOOCWatch', 'category');
 @endphp
 <div data-toggle-container>
   <span
