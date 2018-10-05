@@ -5,17 +5,17 @@
       {!! get_field('call_to_action', 'option')['CTA_1_text'] !!}
     </div>
     <div class="CTA_links inline-block row">
-      @if(get_field('CTA_1_facebook_link', 'option'))
+      @if(get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_facebook_link'])
       <a
         href="{{ get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_facebook_link']['url'] }}"
         title="{{ get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_facebook_link']['title'] }}"
         target="{{ get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_facebook_link']['target'] }}"
-        class="CTA_link inline-block radius--50 col bg-white border-all border--thin border--gray-dark overflow-hidden @if(get_field('CTA_1_twitter_link', 'option'))margin-right-small @endif"
+        class="CTA_link inline-block radius--50 col bg-white border-all border--thin border--gray-dark overflow-hidden @if(get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_twitter_link'])margin-right-small @endif"
       >
         <i class="icon-facebook"></i>
       </a>
       @endif
-      @if(get_field('CTA_1_twitter_link', 'option'))
+      @if(get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_twitter_link'])
       <a
         href="{{ get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_twitter_link']['url'] }}"
         title="{{ get_field('call_to_action', 'option')['CTA_1_links']['CTA_1_twitter_link']['title'] }}"
