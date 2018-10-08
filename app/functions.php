@@ -83,8 +83,8 @@ function cc_get_reading_time() {
  * @param $attr
  * @return string
  */
-function get_course_date( $attr ) {
 
+add_shortcode('course_date', function ( $attr ) {
   $defaultDate = 'TBA';
   if(empty($attr) || empty($attr['id']) )
   {
@@ -114,27 +114,18 @@ function get_course_date( $attr ) {
   }
   set_transient( $cacheId, $date, DAY_IN_SECONDS);
   return $date;
-}
-add_shortcode('course_date', 'get_course_date');
-
-add_shortcode( 'review_widget', function() {
-  return \App\template('partials.review-widget');
 });
 
-
-function btn_go_to_class ($attr) {
-
+add_shortcode('btn_go_to_class', function ($attr) {
   if( !isset($attr['url']))
   {
     return '';
   }
   $url = $attr['url'];
   return "<div class='course-register-button'><a class='register-button btn--large btn-blue head-3 text--bold line--medium'  style='margin: 0 auto' target='_blank' href='{$url}'>Go to Class</a></div>";
-}
-add_shortcode('btn_go_to_class', 'btn_go_to_class');
+});
 
-function btn_go_to ($attr) {
-
+add_shortcode('btn_go_to', function ($attr) {
   if( !isset($attr['url']) && !isset($attr['text']) )
   {
     return '';
@@ -142,8 +133,7 @@ function btn_go_to ($attr) {
   $url = $attr['url'];
   $text = $attr['text'];
   return "<div class='course-register-button'><a class='register-button btn--large btn-blue head-3 text--bold line--medium'  style='margin: 0 auto' target='_blank' href='{$url}'>$text</a></div>";
-}
-add_shortcode('btn_go_to', 'btn_go_to');
+});
 
 
 add_action( 'wp_print_styles', 'tj_deregister_yarpp_header_styles' );
