@@ -3,7 +3,7 @@
 @endphp
 
 @if(have_comments())
-  <section id="comments">
+  <section id="comments" class="padding-bottom-medium border-bottom border--gray-dark border--thin">
     <div class="comments_header margin-bottom-large">
       <h3 class="head-1 text--bold">
         @php printf(_n('One comment for', '%1$s comments for', get_comments_number(), 'roots'), number_format_i18n(get_comments_number())); @endphp
@@ -44,21 +44,23 @@
 @endif
 
 @if(comments_open())
-  <section id="respond" class="margin-top-xxlarge padding-top-xlarge border-top border--gray-dark border--thin">
+  <section id="respond" class="margin-bottom-xxlarge padding-top-xlarge">
     <h3 class="margin-bottom-small head-1 text--bold">@php comment_form_title(__('Leave a reply', 'roots'), __('Leave a reply', 'roots')); @endphp</h3>
-    <p class="cancel-comment-reply">@php cancel_comment_reply_link(); @endphp</p>
     @if (get_option('comment_registration') && !is_user_logged_in())
       <p>@php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'roots'), wp_login_url(get_permalink())); @endphp</p>
     @else
       <form action="{!! get_option('siteurl') !!}/wp-comments-post.php" method="post" id="commentform" class="width-100 medium-up-width-3-4">
         @if (is_user_logged_in())
-          <p>
+
+          <div class="padding-xxsmall bg-gray radius margin-bottom-large">
+            <i class="icon-alert-blue icon--small"></i>
             @php printf(__('Logged in as <a href="%s/wp-admin/profile.php">%s</a>.', 'roots'), get_option('siteurl'), $user_identity); @endphp
             <a href="{{ wp_logout_url(get_permalink()) }}"
-               title="{{ _e('Log out of this account', 'roots') }}">{{ _e('Log out &raquo;', 'roots') }}</a>
-          </p>
+               title="{{ _e('Log out of this account', 'roots') }}"
+               class="margin-left-small">{{ _e('Log out &raquo;', 'roots') }}</a>
+          </div>
           <div class="form-group margin-top-large">
-            <label for="comment">{{ _e('Comment', 'roots') }}</label>
+            <label for="comment" class="text-1 margin-bottom-small block">{{ _e('Comment', 'roots') }}</label>
             <textarea name="comment" id="comment" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" rows="14" aria-required="true"></textarea>
           </div>
         @else
@@ -71,25 +73,20 @@
             <textarea name="comment" id="comment" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" rows="14" aria-required="true"></textarea>
           </div>
           <div class="form-group margin-top-large">
-            <label for="author" class="text-1 margin-bottom-small block">{{ _e('Name', 'roots') }} @if($req){{ _e('(required)', 'roots') }}@endif</label>
+            <label for="author" class="text-1 margin-bottom-small block">{{ _e('Name', 'roots') }} @if($req)<span class="text--italic">{{ _e('(Required)', 'roots') }}</span>@endif</label>
             <input type="text" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="author" id="author" value="{{ esc_attr($comment_author) }}"
                    size="22" @if($req) aria-required="true" @endif>
           </div>
           <div class="form-group margin-top-large">
             <label
-                for="email" class="text-1 margin-bottom-small block">{{ _e('Email', 'roots') }} @if($req)<span class="text--italic">{{ _e('(required)', 'roots') }}</span>@endif</label>
+                for="email" class="text-1 margin-bottom-small block">{{ _e('Email', 'roots') }} @if($req)<span class="text--italic">{{ _e('(Required)', 'roots') }}</span>@endif</label>
             <input type="email" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="email" id="email"
                    value="{{ esc_attr($comment_author_email) }}"
                    size="22" @if($req) aria-required="true" @endif>
           </div>
-          <div class="form-group margin-top-large">
-            <label for="url" class="text-1 margin-bottom-small block">{{ _e('Website', 'roots') }}</label>
-            <input type="url" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="url" id="url" value="{{ esc_attr($comment_author_url) }}"
-                   size="22">
-          </div>
         @endif
-        <p><input name="submit" class="margin-top-large head-3 text--bold btn--borderless btn-blue btn--large" type="submit" id="submit"
-                  value="{{ _e('Post Comment', 'roots') }}"></p>
+        <p class="margin-top-large"><input name="submit" class=" head-3 text--bold btn--borderless btn-blue btn--large" type="submit" id="submit"
+                  value="{{ _e('Post Comment', 'roots') }}"><span class="cancel-comment-reply margin-left-xlarge text-2">{!! get_cancel_comment_reply_link('Cancel') !!}</span></p>
         @php comment_id_fields(); @endphp
         @php do_action('comment_form', $post->ID); @endphp
       </form>

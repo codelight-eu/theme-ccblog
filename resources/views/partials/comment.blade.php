@@ -1,4 +1,4 @@
-<div class="border--gray-dark border--thin border-all padding-medium radius margin-bottom-large ">
+<div id="comment-<?php comment_ID(); ?>" class="border--gray-dark border--thin border-all padding-medium radius margin-bottom-large ">
   <div class="comment_header overflow-hidden margin-bottom-xsmall">
     <div class="comment_avatar flush-left margin-right-xsmall radius--50 overflow-hidden size--xxsmall">
       <?php echo get_avatar($comment, $size = '35', '', '', ['class' => 'width-100 block']); ?>
@@ -14,8 +14,9 @@
     <?php edit_comment_link(__('(Edit)', 'roots'), '', ''); ?>
 
     <?php if ($comment->comment_approved == '0') : ?>
-    <div class="alert alert-info">
-      <?php _e('Your comment is awaiting moderation.', 'roots'); ?>
+    <div class="alert alert-info padding-xxsmall bg-gray radius margin-vert-small">
+      <i class="icon-alert-blue icon--small"></i>
+      <?= _e('Your comment is awaiting moderation.', 'roots'); ?>
     </div>
     <?php endif; ?>
   </div>

@@ -13,6 +13,12 @@ use Roots\Sage\Template\BladeProvider;
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
   wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+
+  // on single blog post pages with comments open and threaded comments
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    // enqueue the javascript that performs in-link comment reply fanciness
+    wp_enqueue_script( 'comment-reply' );
+  }
 }, 100);
 
 /**

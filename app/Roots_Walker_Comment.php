@@ -9,8 +9,18 @@ namespace App;
 
 class Roots_Walker_Comment extends \Walker_Comment {
   function start_lvl(&$output, $depth = 0, $args = array()) {
-    $GLOBALS['comment_depth'] = $depth + 1; ?>
-    <ul <?php comment_class('media list-unstyled comment-' . get_comment_ID()); ?>>
+    $GLOBALS['comment_depth'] = $depth + 1;
+
+    $additional_classes = '';
+
+    if($GLOBALS['comment_depth'] > 1) {
+      $additional_classes = 'margin-left-small padding-left-xlarge border-left border--thin border--gray-dark ';
+    } else if($GLOBALS['comment_depth'] > 0) {
+      $additional_classes = 'margin-left-medium padding-left-large border-left border--thin border--gray-dark ';
+    }
+
+    ?>
+    <ul <?php comment_class($additional_classes . 'list-unstyled comment-' . get_comment_ID()); ?>>
     <?php
   }
 
@@ -27,9 +37,9 @@ class Roots_Walker_Comment extends \Walker_Comment {
     $additional_classes = '';
 
     if($GLOBALS['comment_depth'] > 2) {
-      $additional_classes = 'margin-left-small padding-left-xlarge border-left border--thin border--gray-dark ';
+      $additional_classes = ''; //'margin-left-small padding-left-xlarge border-left border--thin border--gray-dark ';
     } else if($GLOBALS['comment_depth'] > 1) {
-      $additional_classes = 'margin-left-medium padding-left-large border-left border--thin border--gray-dark ';
+      $additional_classes = ''; //'margin-left-medium padding-left-large border-left border--thin border--gray-dark ';
     }
 
     if (!empty($args['callback'])) {
@@ -39,7 +49,7 @@ class Roots_Walker_Comment extends \Walker_Comment {
 
     extract($args, EXTR_SKIP); ?>
 
-  <li id="comment-<?php comment_ID(); ?>" <?php comment_class($additional_classes . 'comment-' . get_comment_ID()); ?>>
+  <li <?php comment_class($additional_classes . 'comment-' . get_comment_ID()); ?>>
     <?php include(locate_template('views/partials/comment.blade.php')); ?>
   <?php
   }
