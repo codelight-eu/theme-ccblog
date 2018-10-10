@@ -103,7 +103,11 @@
   <div class="comments_icon text-center margin-top-medium margin-bottom-xsmall">
     <i class="icon-comment icon--xlarge"></i>
   </div>
-  @include('partials/comments')
+  <ul class="commentlist text--charcoal">
+  @php
+    comments_template();
+  @endphp
+  </ul>
 </div>
 @if(get_field('set_footer_CTA', $pageForPosts) && get_field('set_footer_CTA', $pageForPosts) != 'none')
   @php
