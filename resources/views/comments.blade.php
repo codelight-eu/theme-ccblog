@@ -44,44 +44,52 @@
 @endif
 
 @if(comments_open())
-  <section id="respond">
-    <h3>@php comment_form_title(__('Leave a Reply', 'roots'), __('Leave a Reply to %s', 'roots')); @endphp</h3>
+  <section id="respond" class="margin-top-xxlarge padding-top-xlarge border-top border--gray-dark border--thin">
+    <h3 class="margin-bottom-small head-1 text--bold">@php comment_form_title(__('Leave a reply', 'roots'), __('Leave a reply', 'roots')); @endphp</h3>
     <p class="cancel-comment-reply">@php cancel_comment_reply_link(); @endphp</p>
     @if (get_option('comment_registration') && !is_user_logged_in())
       <p>@php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'roots'), wp_login_url(get_permalink())); @endphp</p>
     @else
-      <form action="{!! get_option('siteurl') !!}/wp-comments-post.php" method="post" id="commentform">
+      <form action="{!! get_option('siteurl') !!}/wp-comments-post.php" method="post" id="commentform" class="width-100 medium-up-width-3-4">
         @if (is_user_logged_in())
           <p>
             @php printf(__('Logged in as <a href="%s/wp-admin/profile.php">%s</a>.', 'roots'), get_option('siteurl'), $user_identity); @endphp
             <a href="{{ wp_logout_url(get_permalink()) }}"
                title="{{ _e('Log out of this account', 'roots') }}">{{ _e('Log out &raquo;', 'roots') }}</a>
           </p>
+          <div class="form-group margin-top-large">
+            <label for="comment">{{ _e('Comment', 'roots') }}</label>
+            <textarea name="comment" id="comment" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" rows="14" aria-required="true"></textarea>
+          </div>
         @else
-          <div class="form-group">
-            <label for="author">{{ _e('Name', 'roots') }} @if($req){{ _e('(required)', 'roots') }}@endif</label>
-            <input type="text" class="form-control" name="author" id="author" value="{{ esc_attr($comment_author) }}"
+          <div class="padding-xxsmall bg-gray radius margin-bottom-large">
+            <i class="icon-alert-blue icon--small"></i>
+            {{ _e('Your email address will not be published.', 'roots') }}
+          </div>
+          <div class="form-group margin-top-large">
+            <label for="comment" class="text-1 margin-bottom-small block">{{ _e('Comment', 'roots') }}</label>
+            <textarea name="comment" id="comment" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" rows="14" aria-required="true"></textarea>
+          </div>
+          <div class="form-group margin-top-large">
+            <label for="author" class="text-1 margin-bottom-small block">{{ _e('Name', 'roots') }} @if($req){{ _e('(required)', 'roots') }}@endif</label>
+            <input type="text" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="author" id="author" value="{{ esc_attr($comment_author) }}"
                    size="22" @if($req) aria-required="true" @endif>
           </div>
-          <div class="form-group">
+          <div class="form-group margin-top-large">
             <label
-                for="email">{{ _e('Email (will not be published)', 'roots') }} @if($req){{ _e('(required)', 'roots') }}@endif</label>
-            <input type="email" class="form-control" name="email" id="email"
+                for="email" class="text-1 margin-bottom-small block">{{ _e('Email', 'roots') }} @if($req)<span class="text--italic">{{ _e('(required)', 'roots') }}</span>@endif</label>
+            <input type="email" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="email" id="email"
                    value="{{ esc_attr($comment_author_email) }}"
                    size="22" @if($req) aria-required="true" @endif>
           </div>
-          <div class="form-group">
-            <label for="url">{{ _e('Website', 'roots') }}</label>
-            <input type="url" class="form-control" name="url" id="url" value="{{ esc_attr($comment_author_url) }}"
+          <div class="form-group margin-top-large">
+            <label for="url" class="text-1 margin-bottom-small block">{{ _e('Website', 'roots') }}</label>
+            <input type="url" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="url" id="url" value="{{ esc_attr($comment_author_url) }}"
                    size="22">
           </div>
         @endif
-        <div class="form-group">
-          <label for="comment">{{ _e('Comment', 'roots') }}</label>
-          <textarea name="comment" id="comment" class="form-control" rows="5" aria-required="true"></textarea>
-        </div>
-        <p><input name="submit" class="btn btn-primary" type="submit" id="submit"
-                  value="{{ _e('Submit Comment', 'roots') }}"></p>
+        <p><input name="submit" class="margin-top-large head-3 text--bold btn--borderless btn-blue btn--large" type="submit" id="submit"
+                  value="{{ _e('Post Comment', 'roots') }}"></p>
         @php comment_id_fields(); @endphp
         @php do_action('comment_form', $post->ID); @endphp
       </form>
