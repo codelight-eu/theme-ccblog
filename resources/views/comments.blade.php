@@ -49,7 +49,8 @@
     @if (get_option('comment_registration') && !is_user_logged_in())
       <p>@php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'ccblog'), wp_login_url(get_permalink())); @endphp</p>
     @else
-      <form action="{!! get_option('siteurl') !!}/wp-comments-post.php" method="post" id="commentform" class="width-100 medium-up-width-3-4">
+      <form action="{!! get_option('siteurl') !!}/wp-comments-post.php" method="post" id="commentform"
+            class="width-100 medium-up-width-3-4">
         @if (is_user_logged_in())
 
           <div class="padding-xxsmall bg-gray radius margin-bottom-large">
@@ -61,7 +62,9 @@
           </div>
           <div class="form-group margin-top-large">
             <label for="comment" class="text-1 margin-bottom-small block">{{ _e('Comment', 'ccblog') }}</label>
-            <textarea name="comment" id="comment" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" rows="14" aria-required="true"></textarea>
+            <textarea name="comment" id="comment"
+                      class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100"
+                      rows="14" aria-required="true"></textarea>
           </div>
         @else
           <div class="padding-xxsmall bg-gray radius margin-bottom-large">
@@ -70,25 +73,39 @@
           </div>
           <div class="form-group margin-top-large">
             <label for="comment" class="text-1 margin-bottom-small block">{{ _e('Comment', 'ccblog') }}</label>
-            <textarea name="comment" id="comment" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" rows="14" aria-required="true"></textarea>
+            <textarea name="comment" id="comment"
+                      class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100"
+                      rows="14" aria-required="true"></textarea>
           </div>
           <div class="form-group margin-top-large">
-            <label for="author" class="text-1 margin-bottom-small block">{{ _e('Name', 'ccblog') }} @if($req)<span class="text--italic">{{ _e('(Required)', 'ccblog') }}</span>@endif</label>
-            <input type="text" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="author" id="author" value="{{ esc_attr($comment_author) }}"
+            <label for="author" class="text-1 margin-bottom-small block">{{ _e('Name', 'ccblog') }} @if($req)<span
+                  class="text--italic">{{ _e('(Required)', 'ccblog') }}</span>@endif</label>
+            <input type="text"
+                   class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100"
+                   name="author" id="author" value="{{ esc_attr($comment_author) }}"
                    size="22" @if($req) aria-required="true" @endif>
           </div>
           <div class="form-group margin-top-large">
             <label
-                for="email" class="text-1 margin-bottom-small block">{{ _e('Email', 'ccblog') }} @if($req)<span class="text--italic">{{ _e('(Required)', 'ccblog') }}</span>@endif</label>
-            <input type="email" class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100" name="email" id="email"
+                for="email" class="text-1 margin-bottom-small block">{{ _e('Email', 'ccblog') }} @if($req)<span
+                  class="text--italic">{{ _e('(Required)', 'ccblog') }}</span>@endif</label>
+            <input type="email"
+                   class="form-control border-box padding-small border--gray-dark border--thin border-all radius width-100"
+                   name="email" id="email"
                    value="{{ esc_attr($comment_author_email) }}"
                    size="22" @if($req) aria-required="true" @endif>
           </div>
         @endif
-        <p class="margin-top-large"><input name="submit" class=" head-3 text--bold btn--borderless btn-blue btn--large" type="submit" id="submit"
-                  value="{{ _e('Post Comment', 'ccblog') }}"><span class="cancel-comment-reply margin-left-xlarge text-2">{!! get_cancel_comment_reply_link('Cancel') !!}</span></p>
+        <p class="margin-top-large"><input name="submit" class=" head-3 text--bold btn--borderless btn-blue btn--large"
+                                           type="submit" id="submit"
+                                           value="{{ _e('Post Comment', 'ccblog') }}"><span
+              class="cancel-comment-reply margin-left-xlarge text-2">{!! get_cancel_comment_reply_link('Cancel') !!}</span>
+        </p>
         @php comment_id_fields(); @endphp
         @php do_action('comment_form', $post->ID); @endphp
+        <div class="margin-top-large">
+          @php Akismet::display_comment_form_privacy_notice(); @endphp
+        </div>
       </form>
     @endif
   </section><!-- /#respond -->
