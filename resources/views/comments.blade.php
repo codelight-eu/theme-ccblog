@@ -5,7 +5,7 @@
 @if(have_comments())
   <section id="comments" class="padding-bottom-medium border-bottom border--gray-dark border--thin">
     <div class="comments_header margin-bottom-large">
-      <h3 class="head-1 text--bold">
+      <h3 class="head-1 text--bold margin-bottom-xxsmall">
         @php printf(_n('One comment for', '%1$s comments for', get_comments_number(), 'roots'), number_format_i18n(get_comments_number())); @endphp
       </h3>
       <p class="head-3">{{ get_the_title() }}</p>
