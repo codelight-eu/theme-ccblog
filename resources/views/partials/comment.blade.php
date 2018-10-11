@@ -5,7 +5,7 @@
     </div>
 
     <h4 class="comment_title"><span
-          class=" text--bold"><?php echo get_comment_author_link(); ?></span> <?php echo __('says', 'ccblog'); ?></h4>
+          class=" text--bold"><?php echo get_comment_author(); ?></span> <?php echo __('says', 'ccblog'); ?></h4>
     <time class="comment_time text--italic text-3" datetime="<?php echo comment_date('c'); ?>">
       <?php /*<a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)); ?>"> */ ?>
       <?php printf(__('%1$s at %2$s', 'roots'), get_comment_date('n/j/Y'), get_comment_time('g:ia')); ?>
