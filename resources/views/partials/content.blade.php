@@ -8,6 +8,9 @@
     <time
         class="article_date head-5 margin-bottom-xxsmall inline-block text--italic"
         datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
+    <div class="article_commentCount head-6 absolute top right medium-up-margin-right-xlarge margin-top-medium margin-right-large">
+      <i class="icon-comment text-center">{{ get_comments_number() }}</i> {{ __('Comments', 'ccblog') }}
+    </div>
     <h2 class="article_title">
       <a class="text--charcoal head-3 medium-up-head-2 text--bold" href="{{ $link }}">{{ get_the_title() }}</a>
     </h2>

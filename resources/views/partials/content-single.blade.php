@@ -29,6 +29,9 @@
         class="article_readTime medium-up-head-4 inline-block overflow-hidden medium-up-margin-bottom-xsmall margin-bottom-xxsmall">
       <i class="icon-clock icon--xsmall"></i> {{ cc_get_reading_time() }} {{ __('read', 'ccblog') }}
     </div>
+    <div class="article_commentCount head-6 inline-block overflow-hidden margin-left-medium">
+      <i class="icon-comment text-center">{{ get_comments_number() }}</i> {{ __('Comments', 'ccblog') }}
+    </div>
   </header>
   <div class="border-bottom margin-horz-xsmall border--gray-dark border--thin margin-bottom-medium medium-up-hidden"></div>
   <div class="articleContent wysiwyg entry-content text-2 medium-up-text-1 margin-bottom-small large-up-margin-bottom-xxlarge">
