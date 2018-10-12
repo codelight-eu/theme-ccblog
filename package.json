@@ -104,6 +104,7 @@
   },
   "dependencies": {
     "classcentral-style": "git+https://github.com/classcentral/classcentral-style.git#v0.4.21",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "jquery.scrollto": "*"
   }
 }
