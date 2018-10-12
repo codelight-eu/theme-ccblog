@@ -3,12 +3,15 @@ $link = get_permalink();
 $title = get_the_title();
 $imageUrl = get_the_post_thumbnail_url('large');
 @endphp
-<article @php(post_class('article row padding-left-medium padding-right-medium margin-top-small medium-up-padding-horz-small large-up-margin-vert-xxlarge margin-bottom-large'))>
+<article @php(post_class('featuredPost article row padding-left-medium padding-right-medium margin-top-small medium-up-padding-horz-small large-up-margin-vert-xxlarge margin-bottom-large'))>
   <div class="col large-up-width-1-2 large-up-padding-right-medium relative">
   <header>
     <time
       class="article_date head-5 margin-bottom-xxsmall inline-block text--italic"
       datetime="{{ get_post_time('c', true) }}">{{ get_the_date('F jS, Y') }}</time>
+    <div class="article_commentCount head-6 absolute top right large-up-margin-right-medium">
+      <i class="icon-comment text-center">{{ get_comments_number() }}</i> {{ __('Comments', 'ccblog') }}
+    </div>
     <h1 class="article_title">
       <a class="text--charcoal head-2 medium-up-head-1 text--bold" href="{{ $link }}">{{ get_the_title() }}</a>
     </h1>
