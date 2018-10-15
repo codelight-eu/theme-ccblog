@@ -89,27 +89,10 @@ Edit `app/setup.php` to enable or disable theme features, setup navigation menus
 * `yarn run build` — Compile and optimize the files in your assets directory
 * `yarn run build:production` — Compile assets for production
 
+* NB! dist folder is not gitignored. So, always run `yarn build:production` before commiting your changes.
+
 ## Documentation
 
 * [Sage documentation](https://roots.io/sage/docs/)
 * [Controller documentation](https://github.com/soberwp/controller#usage)
 
-## Contributing
-
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
-
-## Gold sponsors
-
-Help support our open-source development efforts by [contributing to Sage on OpenCollective](https://opencollective.com/sage).
-
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a>
-
-## Community
-
-Keep track of development and community news.
-
-* Participate on the [Roots Discourse](https://discourse.roots.io/)
-* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-* Listen to the [Roots Radio podcast](https://roots.io/podcast/)
